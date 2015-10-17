@@ -12,24 +12,90 @@ namespace Assets.Game.GameEntities
 
         }
 
-        public void move()
+        public void Move()
         {
+            GameEngine ge = GameManager.Instance.GameEngine;
+
             //Moving the bullet forward three squares depending on the direction it is turned to
             if (direction == Direction.NORTH)
             {
-                if (PositionX < 19) PositionX += 3;
+                for (int i = 0; i < 3; i++)
+                {
+                    if (positionX < 19)
+                    {
+                        positionX += 1;
+                        GameObject go = ge.Map[positionX][positionY];
+                        if (go != null &&
+                            !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
+                        {
+                            ge.RemoveBullet(this);
+                        }
+                    }
+                    else
+                    {
+                        ge.RemoveBullet(this);
+                    }
+                }
             }
             else if (direction == Direction.EAST)
             {
-                if (PositionY < 19) PositionY += 3;
+                for (int i = 0; i < 3; i++)
+                {
+                    if (positionY < 19)
+                    {
+                        positionY += 1;
+                        GameObject go = ge.Map[positionX][positionY];
+                        if (go != null &&
+                            !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
+                        {
+                            ge.RemoveBullet(this);
+                        }
+                    }
+                    else
+                    {
+                        ge.RemoveBullet(this);
+                    }
+                }
             }
             else if (direction == Direction.SOUTH)
             {
-                if (PositionX > 0) PositionX -= 3;
+                for (int i = 0; i < 3; i++)
+                {
+                    if (positionX > 0)
+                    {
+                        positionX -= 1;
+                        GameObject go = ge.Map[positionX][positionY];
+                        if (go != null &&
+                            !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
+                        {
+                            ge.RemoveBullet(this);
+                        }
+                    }
+                    else
+                    {
+                        ge.RemoveBullet(this);
+                    }
+                }
             }
             else
             {
-                if (PositionY > 0) PositionY -= 3;
+                for (int i = 0; i < 3; i++)
+                {
+                    if (positionY > 0)
+                    {
+                        positionX -= 1;
+                        GameObject go = ge.Map[positionX][positionY];
+                        if (go != null &&
+                            !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
+                        {
+                            ge.RemoveBullet(this);
+                        }
+                    }
+                    else
+                    {
+                        ge.RemoveBullet(this);
+                    }
+                }
             }
         }
     }

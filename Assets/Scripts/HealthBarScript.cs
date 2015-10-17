@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HealthBar : MonoBehaviour {
+public class HealthBarScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

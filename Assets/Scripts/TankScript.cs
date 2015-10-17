@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class Tank : MonoBehaviour {
+public class TankScript : MonoBehaviour {
 
     float deltaMovementX;
     float deltaMovementZ;

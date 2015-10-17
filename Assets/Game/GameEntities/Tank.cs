@@ -18,7 +18,7 @@ namespace Assets.Game.GameEntities
             }
         }
 
-        //Health possessed by an object inherited from this class
+        //Health possessed by a tank
         private int health;
         public int Health
         {
@@ -32,6 +32,34 @@ namespace Assets.Game.GameEntities
                 health = value;
             }
         }
+
+        //Coins possessed by a tank
+        private int coins;
+        public int Coins
+        {
+            get
+            {
+                return coins;
+            }
+            set
+            {
+                coins = value;
+            }
+        }
+
+        //Points possessed by a tank
+        private int points;
+        public int Points
+        {
+            get
+            {
+                return points;
+            }
+            set
+            {
+                points = value;
+            }
+        }
         #endregion
 
         public Tank (int playerNumber, int positionX, int positionY, Direction direction) : base(positionX, positionY, direction)
@@ -39,9 +67,10 @@ namespace Assets.Game.GameEntities
             this.playerNumber = playerNumber;
         }
 
-        public void shoot()
+        public void Shoot()
         {
             Bullet bullet = new Bullet(positionX, positionY, direction);
+            GameManager.Instance.GameEngine.AddBullet(bullet);
         }
     }
 }

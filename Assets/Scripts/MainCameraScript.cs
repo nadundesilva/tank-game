@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainCamera : MonoBehaviour {
+public class MainCameraScript : MonoBehaviour {
 
     //Speed for panning. rotating and zooming
     private float speed = 20;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PointCoinCount : MonoBehaviour {
+public class PointCoinCountScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
