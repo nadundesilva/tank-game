@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.GameEntities
+namespace Assets.Game.GameEntities
 {
     class BrickWall : GameObject
     {
