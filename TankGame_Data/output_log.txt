@@ -1,0 +1,2468 @@
+Initialize engine version: 5.2.0f3 (e7947df39b5c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 7670M (ID=0x6840)
+    Vendor:   ATI
+    VRAM:     1008 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Programming\C#\Tank Game\TankGame_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Programming\C#\Tank Game\TankGame_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Programming\C#\Tank Game\TankGame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Programming\C#\Tank Game\TankGame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Programming\C#\Tank Game\TankGame_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Programming\C#\Tank Game\TankGame_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Programming\C#\Tank Game\TankGame_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Programming\C#\Tank Game\TankGame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\Programming\C#\Tank Game\TankGame_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.103 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initialized touch support.
+Platform assembly: E:\Programming\C#\Tank Game\TankGame_Data\Managed\System.dll (this message is harmless)
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: db8 -> priority: 1 
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ArgumentException: Input Key named: Escape is unknown
+  at (wrapper managed-to-native) UnityEngine.Input:GetKeyDownString (string)
+  at UnityEngine.Input.GetKeyDown (System.String name) [0x00000] in <filename unknown>:0 
+  at MainCamera.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
