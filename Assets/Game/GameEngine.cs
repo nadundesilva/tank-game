@@ -169,6 +169,12 @@ namespace Assets.Game
         }
 
         #region Adders and Removers for lists
+        public void AddTank(Tank tank)
+        {
+            tanks.Add(tank);
+            map[tank.PositionX][tank.PositionY] = tank;
+        }
+
         public void AddBullet(Bullet bullet)
         {
             bullets.Add(bullet);

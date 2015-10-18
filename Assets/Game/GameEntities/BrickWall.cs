@@ -24,7 +24,7 @@ namespace Assets.Game.GameEntities
 
         public BrickWall(int positionX, int positionY) : base(positionX, positionY)
         {
-
+            health = 4;
         }
     }
 }

@@ -7,15 +7,6 @@ namespace Assets.Game.GameEntities
 {
     class Collectible : GameObject
     {
-        protected int value;
-        public int Value
-        {
-            get
-            {
-                return value;
-            }
-        }
-
         protected int timeLeft;
         public int TimeLeft
         {
@@ -25,9 +16,8 @@ namespace Assets.Game.GameEntities
             }
         }
 
-        public Collectible(int positionX, int positionY, int value, int timeLeft) : base(positionX, positionY)
+        public Collectible(int positionX, int positionY, int timeLeft) : base(positionX, positionY)
         {
-            this.value = value;
             this.timeLeft = timeLeft;
         }
 
