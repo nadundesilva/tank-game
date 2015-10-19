@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.Game.GameEntities
 {
-    class Collectible : GameObject
+    abstract class Collectible : GameObject
     {
         protected int timeLeft;
         public int TimeLeft
@@ -21,9 +21,6 @@ namespace Assets.Game.GameEntities
             this.timeLeft = timeLeft;
         }
 
-        public void ReduceTime()
-        {
-            timeLeft -= 1;
-        }
+        public abstract void ReduceTime();
     }
 }

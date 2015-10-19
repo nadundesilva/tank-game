@@ -22,12 +22,12 @@ namespace Assets.Game
             {
                 foreach (BrickWall b in brickWalls)
                 {
-                    map[b.PositionX][b.PositionX] = null;
+                    map[b.PositionX,b.PositionX] = null;
                 }
                 brickWalls = value;
                 foreach (BrickWall b in brickWalls)
                 {
-                    map[b.PositionX][b.PositionX] = b;
+                    map[b.PositionX,b.PositionX] = b;
                 }
             }
         }
@@ -44,7 +44,7 @@ namespace Assets.Game
                 stoneWalls = value;
                 foreach (StoneWall s in stoneWalls)
                 {
-                    map[s.PositionX][s.PositionY] = s;
+                    map[s.PositionX,s.PositionY] = s;
                 }
             }
         }
@@ -61,7 +61,7 @@ namespace Assets.Game
                 water = value;
                 foreach (Water w in water)
                 {
-                    map[w.PositionX][w.PositionY] = w;
+                    map[w.PositionX,w.PositionY] = w;
                 }
             }
         }
@@ -77,12 +77,12 @@ namespace Assets.Game
             {
                 foreach (Tank t in tanks)
                 {
-                    map[t.PositionX][t.PositionY] = null;
+                    map[t.PositionX,t.PositionY] = null;
                 }
                 tanks = value;
                 foreach (Tank t in tanks)
                 {
-                    map[t.PositionX][t.PositionY] = t;
+                    map[t.PositionX,t.PositionY] = t;
                 }
             }
         }
@@ -99,7 +99,7 @@ namespace Assets.Game
                 bullets = value;
                 foreach (Bullet b in bullets)
                 {
-                    map[b.PositionX][b.PositionY] = b;
+                    map[b.PositionX,b.PositionY] = b;
                 }
             }
         }
@@ -122,8 +122,8 @@ namespace Assets.Game
             }
         }
 
-        private GameObject[][] map;
-        public GameObject[][] Map
+        private GameObject[,] map;
+        public GameObject[,] Map
         {
             get
             {
@@ -134,9 +134,17 @@ namespace Assets.Game
 
         public GameEngine()
         {
+            brickWalls = new List<BrickWall>();
+            stoneWalls = new List<StoneWall>();
+            water = new List<Water>();
+
+            tanks = new List<Tank>();
+
             bullets = new List<Bullet>();
             coinPiles = new List<CoinPile>();
             lifePacks = new List<LifePack>();
+
+            map = new GameObject[10, 10];
         }
 
         public void Clock(object sender, ElapsedEventArgs e)
@@ -154,7 +162,7 @@ namespace Assets.Game
                 if (c.TimeLeft == 0)
                 {
                     coinPiles.Remove(c);
-                    map[c.PositionX][c.PositionY] = null;
+                    map[c.PositionX,c.PositionY] = null;
                 }
             }
             foreach (LifePack l in lifePacks)
@@ -163,7 +171,7 @@ namespace Assets.Game
                 if (l.TimeLeft == 0)
                 {
                     lifePacks.Remove(l);
-                    map[l.PositionX][l.PositionY] = null;
+                    map[l.PositionX,l.PositionY] = null;
                 }
             }
         }
@@ -172,25 +180,25 @@ namespace Assets.Game
         public void AddTank(Tank tank)
         {
             tanks.Add(tank);
-            map[tank.PositionX][tank.PositionY] = tank;
+            map[tank.PositionX,tank.PositionY] = tank;
         }
 
         public void AddBullet(Bullet bullet)
         {
             bullets.Add(bullet);
-            map[bullet.PositionX][bullet.PositionY] = bullet;
+            map[bullet.PositionX,bullet.PositionY] = bullet;
         }
 
         public void AddCoinPile(CoinPile coinPile)
         {
             coinPiles.Add(coinPile);
-            map[coinPile.PositionX][coinPile.PositionY] = coinPile;
+            map[coinPile.PositionX,coinPile.PositionY] = coinPile;
         }
 
         public void AddLifePack(LifePack lifePack)
         {
             lifePacks.Add(lifePack);
-            map[lifePack.PositionX][lifePack.PositionY] = lifePack;
+            map[lifePack.PositionX,lifePack.PositionY] = lifePack;
         }
 
         public void RemoveBullet(Bullet bullet)
@@ -200,14 +208,14 @@ namespace Assets.Game
 
         public void RemoveCoinPile(int x, int y)
         {
-            coinPiles.Remove((CoinPile)map[x][y]);
-            map[x][y] = null;
+            coinPiles.Remove((CoinPile)map[x,y]);
+            map[x,y] = null;
         }
 
         public void RemoveLifePack(int x, int y)
         {
-            lifePacks.Remove((LifePack)map[x][y]);
-            map[x][y] = null;
+            lifePacks.Remove((LifePack)map[x,y]);
+            map[x,y] = null;
         }
         #endregion
     }

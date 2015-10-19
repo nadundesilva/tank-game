@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.Game.GameEntities
 {
-    class Bullet : KinematicObject
+    class Bullet : MovingObject
     {
         public Bullet(int positionX, int positionY, Direction direction) : base(positionX, positionY, direction)
         {
@@ -21,10 +21,10 @@ namespace Assets.Game.GameEntities
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    if (positionX < 19)
+                    if (positionX < 9)
                     {
                         positionX += 1;
-                        GameObject go = ge.Map[positionX][positionY];
+                        GameObject go = ge.Map[positionX,positionY];
                         if (go != null &&
                             !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
                         {
@@ -41,10 +41,10 @@ namespace Assets.Game.GameEntities
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    if (positionY < 19)
+                    if (positionY < 9)
                     {
                         positionY += 1;
-                        GameObject go = ge.Map[positionX][positionY];
+                        GameObject go = ge.Map[positionX,positionY];
                         if (go != null &&
                             !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
                         {
@@ -64,7 +64,7 @@ namespace Assets.Game.GameEntities
                     if (positionX > 0)
                     {
                         positionX -= 1;
-                        GameObject go = ge.Map[positionX][positionY];
+                        GameObject go = ge.Map[positionX,positionY];
                         if (go != null &&
                             !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
                         {
@@ -84,7 +84,7 @@ namespace Assets.Game.GameEntities
                     if (positionY > 0)
                     {
                         positionX -= 1;
-                        GameObject go = ge.Map[positionX][positionY];
+                        GameObject go = ge.Map[positionX,positionY];
                         if (go != null &&
                             !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
                         {

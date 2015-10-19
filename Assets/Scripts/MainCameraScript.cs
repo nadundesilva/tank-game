@@ -30,6 +30,8 @@ public class MainCameraScript : MonoBehaviour {
     //Public variables
     public Texture2D defaultCameraPositionButtonImage;
     public Texture2D playButtonImage;
+    public Texture2D resumeButtonImage;
+    public Texture2D exitButtonImage;
 
     //References to canvases
     private GameObject hudCanvas;
@@ -93,9 +95,9 @@ public class MainCameraScript : MonoBehaviour {
         Vector3 zoomVector = new Vector3(transform.position.x, cameraDistance, transform.position.z);
         transform.position = zoomVector;
         #endregion
-
+        
         #region Checking for pressed buttons for enabling canvases
-        if (Input.GetKeyDown("Escape") && !gameLauncherCanvas.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameLauncherCanvas.activeSelf)
         {
             hudCanvas.SetActive(!hudCanvas.activeSelf);
             escapeCanvas.SetActive(!escapeCanvas.activeSelf);
@@ -131,10 +133,22 @@ public class MainCameraScript : MonoBehaviour {
 
         }
 
-        //Drawing the button for quiting the game if the EscapeCanvas is active
-
+        //Drawing the buttons on the escape canvas
+        if (escapeCanvas.activeSelf)
+        {
+            //Resume button
+            if (GUI.Button(new Rect(Screen.width / 2 - 100, 300, 200, 100), new GUIContent(resumeButtonImage, "Click to resume the game")))
+            {
+                hudCanvas.SetActive(true);
+                escapeCanvas.SetActive(false);
+            }
+            //Exit button
+            if (GUI.Button(new Rect(Screen.width / 2 - 100, 450, 200, 100), new GUIContent(exitButtonImage, "Click to resume the game")))
+            {
+                Application.Quit();
+            }
+        }
 
         GUI.backgroundColor = c;
     }
 }
-

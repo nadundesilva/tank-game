@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.Game.GameEntities
 {
-    abstract class KinematicObject : GameObject
+    abstract class MovingObject : GameObject
     {
         #region Variables
         //Direction the tank is turned to
@@ -24,7 +24,7 @@ namespace Assets.Game.GameEntities
         }
         #endregion
 
-        public KinematicObject(int positionX, int positionY, Direction direction) : base(positionX, positionY)
+        public MovingObject(int positionX, int positionY, Direction direction) : base(positionX, positionY)
         {
             this.direction = direction;
         }

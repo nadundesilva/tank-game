@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Assets.Game.GameEntities
 {
-    class Tank : KinematicObject
+    class Tank : MovingObject
     {
         #region Variables
         //Player number assigned by the server

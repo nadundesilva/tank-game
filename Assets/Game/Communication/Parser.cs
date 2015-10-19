@@ -65,7 +65,7 @@ namespace Assets.Game.Communication
             List<BrickWall> brickWalls = new List<BrickWall>();
             foreach (string s in brickWallStrings)
             {
-                string[] location = tokens[0].Split(',');
+                string[] location = s.Split(',');
                 BrickWall b = new BrickWall(int.Parse(location[0]), int.Parse(location[1]));
                 brickWalls.Add(b);
             }
@@ -76,7 +76,7 @@ namespace Assets.Game.Communication
             List<StoneWall> stoneWalls = new List<StoneWall>();
             foreach (string s in stoneWallStrings)
             {
-                string[] location = tokens[0].Split(',');
+                string[] location = s.Split(',');
                 StoneWall b = new StoneWall(int.Parse(location[0]), int.Parse(location[1]));
                 stoneWalls.Add(b);
             }
@@ -87,7 +87,7 @@ namespace Assets.Game.Communication
             List<Water> water = new List<Water>();
             foreach (string s in waterStrings)
             {
-                string[] location = tokens[0].Split(',');
+                string[] location = s.Split(',');
                 Water b = new Water(int.Parse(location[0]), int.Parse(location[1]));
                 water.Add(b);
             }

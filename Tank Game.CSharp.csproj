@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>5.2.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -78,8 +76,8 @@
     <Compile Include="Assets\Game\GameEntities\CoinPile.cs" />
     <Compile Include="Assets\Game\GameEntities\Collectible.cs" />
     <Compile Include="Assets\Game\GameEntities\GameObject.cs" />
-    <Compile Include="Assets\Game\GameEntities\KinematicObject.cs" />
     <Compile Include="Assets\Game\GameEntities\LifePack.cs" />
+    <Compile Include="Assets\Game\GameEntities\MovingObject.cs" />
     <Compile Include="Assets\Game\GameEntities\StoneWall.cs" />
     <Compile Include="Assets\Game\GameEntities\Tank.cs" />
     <Compile Include="Assets\Game\GameEntities\Water.cs" />
@@ -89,6 +87,5 @@
     <Compile Include="Assets\Scripts\PointCoinCountScript.cs" />
     <Compile Include="Assets\Scripts\TankScript.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
