@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Game;
+using UnityEngine.UI;
 
 public class MainCameraScript : MonoBehaviour {
 
@@ -116,7 +118,8 @@ public class MainCameraScript : MonoBehaviour {
             if (GUI.Button(new Rect(Screen.width / 2 - 100, 500, 200, 100), new GUIContent(playButtonImage, "Click to play the game")))
             {
                 hudCanvas.SetActive(true);
-
+                GameManager.Instance.JoinServer(GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text,
+                    int.Parse(GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text));
                 gameLauncherCanvas.SetActive(false);
             }
         }
