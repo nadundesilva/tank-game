@@ -2,6 +2,7 @@
 using System.Collections;
 using Assets.Game;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class MainCameraScript : MonoBehaviour {
 
@@ -114,12 +115,19 @@ public class MainCameraScript : MonoBehaviour {
         GUI.backgroundColor = Color.clear;
 
         //Drawing the button for starting the game if the GameLauncherCanvas is active
-        if (gameLauncherCanvas.activeSelf) {
-            if (GUI.Button(new Rect(Screen.width / 2 - 100, 500, 200, 100), new GUIContent(playButtonImage, "Click to play the game")))
+        if (gameLauncherCanvas.activeSelf)
+        {
+            Regex regexIP = new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b");
+            Regex regexPort = new Regex(@"^[0-9]+$");
+
+            string ip = GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text;
+            string port = GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text;
+
+            if (GUI.Button(new Rect(Screen.width / 2 - 100, 500, 200, 100), new GUIContent(playButtonImage, "Click to play the game"))
+                && regexIP.Match(ip).Success && regexPort.Match(port).Success)
             {
                 hudCanvas.SetActive(true);
-                GameManager.Instance.JoinServer(GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text,
-                    int.Parse(GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text));
+                GameManager.Instance.JoinServer(ip, int.Parse(port));
                 gameLauncherCanvas.SetActive(false);
             }
         }

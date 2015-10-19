@@ -82,10 +82,13 @@
     <Compile Include="Assets\Game\GameEntities\Tank.cs" />
     <Compile Include="Assets\Game\GameEntities\Water.cs" />
     <Compile Include="Assets\Game\GameManager.cs" />
+    <Compile Include="Assets\Scripts\BrickWallsScript.cs" />
     <Compile Include="Assets\Scripts\HealthBarScript.cs" />
     <Compile Include="Assets\Scripts\MainCameraScript.cs" />
     <Compile Include="Assets\Scripts\PointCoinCountScript.cs" />
+    <Compile Include="Assets\Scripts\StoneWallsScript.cs" />
     <Compile Include="Assets\Scripts\TankScript.cs" />
+    <Compile Include="Assets\Scripts\WaterScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

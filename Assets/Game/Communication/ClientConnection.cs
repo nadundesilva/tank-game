@@ -7,14 +7,30 @@ namespace Assets.Game.Communication
 {
     public class ClientConnection
     {
-        public string ServerIP { get; set; }
-        public int ServerPort { get; set; }
+        private string serverIP;
+        public string ServerIP
+        {
+            get
+            {
+                return serverIP;
+            }
+        }
+
+        private int serverPort;
+        public int ServerPort
+        {
+            get
+            {
+                return serverPort;
+            }
+        }
+
         public EventHandler MessageReceived { get; set; }
 
         public ClientConnection()
         {
-            ServerIP = "127.0.0.1";
-            ServerPort = 6000;
+            serverIP = "127.0.0.1";
+            serverPort = 6000;
         }
 
 
