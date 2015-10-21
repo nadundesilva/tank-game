@@ -127,6 +127,7 @@ public class MainCameraScript : MonoBehaviour {
                 && regexIP.Match(ip).Success && regexPort.Match(port).Success)
             {
                 hudCanvas.SetActive(true);
+                GameManager.Instance.StartGame();
                 GameManager.Instance.JoinServer(ip, int.Parse(port));
                 gameLauncherCanvas.SetActive(false);
             }

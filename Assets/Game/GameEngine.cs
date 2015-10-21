@@ -156,22 +156,33 @@ namespace Assets.Game
             }
 
             //reducing time left of collectibles
-            foreach (CoinPile c in coinPiles)
+            int i = 0;
+            while (i < coinPiles.Count)
             {
-                c.ReduceTime();
-                if (c.TimeLeft == 0)
+                coinPiles[i].ReduceTime();
+                if (coinPiles[i].TimeLeft == 0)
                 {
-                    coinPiles.Remove(c);
-                    map[c.PositionX,c.PositionY] = null;
+                    coinPiles.Remove(coinPiles[i]);
+                    map[coinPiles[i].PositionX, coinPiles[i].PositionY] = null;
+                    i--;
+                }
+                else
+                {
+                    i++;
                 }
             }
-            foreach (LifePack l in lifePacks)
+            i = 0;
+            while (i < lifePacks.Count)
             {
-                l.ReduceTime();
-                if (l.TimeLeft == 0)
+                lifePacks[i].ReduceTime();
+                if (lifePacks[i].TimeLeft == 0)
                 {
-                    lifePacks.Remove(l);
-                    map[l.PositionX,l.PositionY] = null;
+                    lifePacks.Remove(lifePacks[i]);
+                    map[lifePacks[i].PositionX, lifePacks[i].PositionY] = null;
+                    i--;
+                } else
+                {
+                    i++;
                 }
             }
         }

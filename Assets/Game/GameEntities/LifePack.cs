@@ -15,7 +15,6 @@ namespace Assets.Game.GameEntities
         public override void ReduceTime()
         {
             timeLeft -= 1;
-            GameManager.Instance.GameEngine.RemoveLifePack(positionX, positionY);
         }
     }
 }

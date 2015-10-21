@@ -9,31 +9,31 @@ namespace Assets.Game.Communication
 {
     class Parser
     {
-        private Direction[] direction = new Direction[] {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST };
+        private Direction[] direction = new Direction[] { Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST };
 
         private void Parse(string message)
         {
-            if (message.Substring(message.Length - 1) == "#")
+            if (message.Substring(message.Length - 1) == "#" && message.Length > 2)
             {
                 if (message.Substring(0, 2) == "S:")
                 {
-                    ParseStartUpMessage(message.Substring(2, message.Length - 1).Split(':'));
+                    ParseStartUpMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
                 else if (message.Substring(0, 2) == "I:")
                 {
-                    ParseInitializeMessage(message.Substring(2, message.Length - 1).Split(':'));
+                    ParseInitializeMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
                 else if (message.Substring(0, 2) == "G:")
                 {
-                    ParseGameMessage(message.Substring(2, message.Length - 1).Split(':'));
+                    ParseGameMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
                 else if (message.Substring(0, 2) == "C:")
                 {
-                    ParseCoinPileMessage(message.Substring(2, message.Length - 1).Split(':'));
+                    ParseCoinPileMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
                 else if (message.Substring(0, 2) == "L:")
                 {
-                    ParseLifePackMessage(message.Substring(2, message.Length - 1).Split(':'));
+                    ParseLifePackMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
                 else
                 {
@@ -45,6 +45,8 @@ namespace Assets.Game.Communication
                 throw new System.ArgumentException("Invalid ending in the message from the server : " + message, "Message");
             }
         }
+
+
 
         private void ParseStartUpMessage(string[] tokens)
         {
@@ -146,9 +148,10 @@ namespace Assets.Game.Communication
             GameManager.Instance.GameEngine.AddLifePack(lifePack);
         }
 
-        public void HandleMessageReceivedEvent(object sender, EventArgs args)
+        public void OnMessageReceived(object source, EventArgs a)
         {
-            Parse(((MessageReceivedEventArgs)args).Message);
+            string message = ((MessageReceivedEventArgs)a).Message;
+            Parse(message.Substring(0, message.Length - 1));
         }
     }
 }

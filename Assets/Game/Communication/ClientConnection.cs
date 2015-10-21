@@ -2,20 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System;
 using System.Threading;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Net.Sockets;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 using System.Net;
-using System.Net.Sockets;
 using System.IO;
-using System.Threading;
 
 namespace Assets.Game.Communication
 {
@@ -31,7 +22,8 @@ namespace Assets.Game.Communication
         public int ServerPort { get; set; }
         public int ClientPort { get; set; }
 
-        public EventHandler MessageReceived { get; set; }
+        public delegate void MessageReceivedEventHandler(object sender, EventArgs args);
+        public event MessageReceivedEventHandler MessageReceived;
 
         public ClientConnection()
         {
@@ -39,7 +31,7 @@ namespace Assets.Game.Communication
             ServerPort = 6000;
             ClientPort = 7000;
         }
-        public void start_Connection()
+        public void StartConnection()
         {
             clientSocket.Connect(ServerIP, ServerPort);
             serverStream = clientSocket.GetStream();
@@ -49,7 +41,7 @@ namespace Assets.Game.Communication
             serverStream.Close();
             clientSocket.Close();
         }
-        public void recieve()
+        private void Recieve()
         {
             /*try
             {
@@ -102,7 +94,7 @@ namespace Assets.Game.Communication
                         }
 
                         string reply = Encoding.UTF8.GetString(inputStr.ToArray());
-                        Console.WriteLine(reply);
+                        OnMessageReceived(reply);
 
                     }
                 }
@@ -158,19 +150,20 @@ namespace Assets.Game.Communication
                 this.client.Close();
             }
         }
-        public Thread getRecieveThread()
+
+        public void StartReceiving()
         {
-            Thread iThread = new Thread(new ThreadStart(this.recieve));
-            return iThread;
+            Thread iThread = new Thread(new ThreadStart(this.Recieve));
+            iThread.Start();
         }
-        private void FireConnectionChangedEvent(string message)
+
+        protected virtual void OnMessageReceived(string message)
         {
-            EventHandler handler = MessageReceived;
-            if (handler != null)
+            if (MessageReceived != null)
             {
                 MessageReceivedEventArgs eventArgs = new MessageReceivedEventArgs();
                 eventArgs.Message = message;
-                handler(this, eventArgs);
+                MessageReceived(this, eventArgs);
             }
         }
     }
