@@ -16,7 +16,7 @@ public class PointCoinCountScript : MonoBehaviour {
         int playerNumber = int.Parse(gameObject.name.Substring(gameObject.name.Length - 1));
 
         GameObject player = GameObject.Find(gameObject.name + "/PlayerNumber");
-        int playerNumberValue = GameManager.Instance.GameEngine.Tanks[playerNumber - 1].PlayerNumber;
+        int playerNumberValue = GameManager.Instance.GameEngine.Tanks[playerNumber - 1].PlayerNumber + 1;
         player.GetComponent<Text>().text = "0" + playerNumberValue.ToString();
 
         GameObject point = GameObject.Find(gameObject.name + "/Point");

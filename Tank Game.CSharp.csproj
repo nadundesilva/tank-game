@@ -51,11 +51,17 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -82,13 +88,14 @@
     <Compile Include="Assets\Game\GameEntities\Tank.cs" />
     <Compile Include="Assets\Game\GameEntities\Water.cs" />
     <Compile Include="Assets\Game\GameManager.cs" />
-    <Compile Include="Assets\Scripts\BrickWallsScript.cs" />
+    <Compile Include="Assets\Scripts\BrickWallsGroupScript.cs" />
     <Compile Include="Assets\Scripts\HealthBarScript.cs" />
     <Compile Include="Assets\Scripts\MainCameraScript.cs" />
     <Compile Include="Assets\Scripts\PointCoinCountScript.cs" />
-    <Compile Include="Assets\Scripts\StoneWallsScript.cs" />
-    <Compile Include="Assets\Scripts\TankScript.cs" />
-    <Compile Include="Assets\Scripts\WaterScript.cs" />
+    <Compile Include="Assets\Scripts\StoneWallsGroupScript.cs" />
+    <Compile Include="Assets\Scripts\TanksGroupScript.cs" />
+    <Compile Include="Assets\Scripts\TanksScript.cs" />
+    <Compile Include="Assets\Scripts\WaterGroupScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

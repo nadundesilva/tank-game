@@ -151,6 +151,7 @@ namespace Assets.Game.Communication
         public void OnMessageReceived(object source, EventArgs a)
         {
             string message = ((MessageReceivedEventArgs)a).Message;
+            Console.WriteLine(message);
             Parse(message.Substring(0, message.Length - 1));
         }
     }

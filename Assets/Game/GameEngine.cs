@@ -130,6 +130,19 @@ namespace Assets.Game
                 return map;
             }
         }
+
+        private int playerNumber;
+        public int PlayerNumber
+        {
+            get
+            {
+                return playerNumber;
+            }
+            set
+            {
+                playerNumber = value;
+            }
+        }
         #endregion
 
         public GameEngine()
