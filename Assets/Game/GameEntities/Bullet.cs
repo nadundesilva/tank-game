@@ -23,17 +23,18 @@ namespace Assets.Game.GameEntities
                 {
                     if (positionX < 9)
                     {
-                        positionX += 1;
+                        positionX++;
                         GameObject go = ge.Map[positionX,positionY];
-                        if (go != null &&
-                            !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
+                        if (go is BrickWall || go is StoneWall || go is Tank)
                         {
                             ge.RemoveBullet(this);
+                            return;
                         }
                     }
                     else
                     {
                         ge.RemoveBullet(this);
+                        return;
                     }
                 }
             }
@@ -43,17 +44,18 @@ namespace Assets.Game.GameEntities
                 {
                     if (positionY < 9)
                     {
-                        positionY += 1;
+                        positionY++;
                         GameObject go = ge.Map[positionX,positionY];
-                        if (go != null &&
-                            !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
+                        if (go is BrickWall || go is StoneWall || go is Tank)
                         {
                             ge.RemoveBullet(this);
+                            return;
                         }
                     }
                     else
                     {
                         ge.RemoveBullet(this);
+                        return;
                     }
                 }
             }
@@ -63,17 +65,18 @@ namespace Assets.Game.GameEntities
                 {
                     if (positionX > 0)
                     {
-                        positionX -= 1;
+                        positionX--;
                         GameObject go = ge.Map[positionX,positionY];
-                        if (go != null &&
-                            !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
+                        if (go is BrickWall || go is StoneWall || go is Tank)
                         {
                             ge.RemoveBullet(this);
+                            return;
                         }
                     }
                     else
                     {
                         ge.RemoveBullet(this);
+                        return;
                     }
                 }
             }
@@ -83,17 +86,18 @@ namespace Assets.Game.GameEntities
                 {
                     if (positionY > 0)
                     {
-                        positionX -= 1;
+                        positionX--;
                         GameObject go = ge.Map[positionX,positionY];
-                        if (go != null &&
-                            !(go is CoinPile || go is LifePack || go is Water || go is Bullet))
+                        if (go is BrickWall || go is StoneWall || go is Tank)
                         {
                             ge.RemoveBullet(this);
+                            return;
                         }
                     }
                     else
                     {
                         ge.RemoveBullet(this);
+                        return;
                     }
                 }
             }

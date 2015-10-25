@@ -11,10 +11,5 @@ namespace Assets.Game.GameEntities
         {
 
         }
-
-        public override void ReduceTime()
-        {
-            timeLeft -= 1;
-        }
     }
 }

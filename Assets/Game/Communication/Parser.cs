@@ -150,12 +150,10 @@ namespace Assets.Game.Communication
 
         public void OnMessageReceived(object source, EventArgs a)
         {
-            GameManager.Instance.GameEngine.Clock();
-
             string message = ((MessageReceivedEventArgs)a).Message;
             Parse(message.Substring(0, message.Length - 1));
 
-            GameManager.Instance.GameEngine.UpdateTankPosition();
+            GameManager.Instance.GameEngine.Clock();
         }
     }
 }

@@ -21,6 +21,9 @@ namespace Assets.Game.GameEntities
             this.timeLeft = timeLeft;
         }
 
-        public abstract void ReduceTime();
+        public void ReduceTime()
+        {
+            timeLeft -= 1;
+        }
     }
 }

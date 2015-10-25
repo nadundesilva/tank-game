@@ -20,10 +20,5 @@ namespace Assets.Game.GameEntities
         {
             this.value = value;
         }
-
-        public override void ReduceTime()
-        {
-            timeLeft -= 1;
-        }
     }
 }
