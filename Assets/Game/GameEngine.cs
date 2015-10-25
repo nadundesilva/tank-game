@@ -158,9 +158,11 @@ namespace Assets.Game
             lifePacks = new List<LifePack>();
 
             map = new GameObject[10, 10];
+
+            playerNumber = 0;
         }
 
-        public void Clock(object sender, ElapsedEventArgs e)
+        public void Clock()
         {
             //Moving the bullets
             foreach (Bullet b in bullets)
@@ -177,7 +179,6 @@ namespace Assets.Game
                 {
                     coinPiles.Remove(coinPiles[i]);
                     map[coinPiles[i].PositionX, coinPiles[i].PositionY] = null;
-                    i--;
                 }
                 else
                 {
@@ -192,11 +193,24 @@ namespace Assets.Game
                 {
                     lifePacks.Remove(lifePacks[i]);
                     map[lifePacks[i].PositionX, lifePacks[i].PositionY] = null;
-                    i--;
                 } else
                 {
                     i++;
                 }
+            }
+        }
+
+        public void UpdateTankPosition()
+        {
+            int i = 0;
+            while (i < tanks.Count)
+            {
+                GameObject go = map[tanks[i].PositionX, tanks[i].PositionY];
+                if (go != null && (go is CoinPile || go is LifePack))
+                {
+                    GameManager.Instance.GameEngine.RemoveCoinPile(tanks[i].PositionX, tanks[i].PositionY);
+                }
+                i++;
             }
         }
 

@@ -99,12 +99,23 @@ public class MainCameraScript : MonoBehaviour {
         transform.position = zoomVector;
         #endregion
         
-        #region Checking for pressed buttons for enabling canvases
+        #region Checking for pressed buttons
         if (Input.GetKeyDown(KeyCode.Escape) && !gameLauncherCanvas.activeSelf)
         {
             hudCanvas.SetActive(!hudCanvas.activeSelf);
             escapeCanvas.SetActive(!escapeCanvas.activeSelf);
         }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            GameManager.Instance.Client.SendData("DOWN#");
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+            GameManager.Instance.Client.SendData("RIGHT#");
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+            GameManager.Instance.Client.SendData("UP#");
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            GameManager.Instance.Client.SendData("LEFT#");
+        else if (Input.GetKeyDown(KeyCode.Space))
+            GameManager.Instance.Client.SendData("SHOOT#");
         #endregion
     }
 

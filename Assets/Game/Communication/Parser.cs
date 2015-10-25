@@ -15,23 +15,23 @@ namespace Assets.Game.Communication
         {
             if (message.Substring(message.Length - 1) == "#" && message.Length > 2)
             {
-                if (message.Substring(0, 2) == "S:")
+                if (message.Substring(0, 1) == "S")
                 {
                     ParseStartUpMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
-                else if (message.Substring(0, 2) == "I:")
+                else if (message.Substring(0, 1) == "I")
                 {
                     ParseInitializeMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
-                else if (message.Substring(0, 2) == "G:")
+                else if (message.Substring(0, 1) == "G")
                 {
                     ParseGameMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
-                else if (message.Substring(0, 2) == "C:")
+                else if (message.Substring(0, 1) == "C")
                 {
                     ParseCoinPileMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
-                else if (message.Substring(0, 2) == "L:")
+                else if (message.Substring(0, 1) == "L")
                 {
                     ParseLifePackMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
@@ -150,9 +150,12 @@ namespace Assets.Game.Communication
 
         public void OnMessageReceived(object source, EventArgs a)
         {
+            GameManager.Instance.GameEngine.Clock();
+
             string message = ((MessageReceivedEventArgs)a).Message;
-            Console.WriteLine(message);
             Parse(message.Substring(0, message.Length - 1));
+
+            GameManager.Instance.GameEngine.UpdateTankPosition();
         }
     }
 }

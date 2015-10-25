@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Timers;
-
-using Assets.Game.Communication;
-using Assets.Game.GameEntities;
+﻿using Assets.Game.Communication;
 
 namespace Assets.Game
 {
@@ -32,26 +25,18 @@ namespace Assets.Game
 
         private Parser parser;
 
-        private bool gameStarted;
-        public bool GameStarted
+        private GameState state;
+        public GameState State
         {
             get
             {
-                return gameStarted;
+                return state;
             }
-        }
-
-        private bool gameEnded;
-        public bool GameEnded
-        {
-            get
+            set
             {
-                return gameEnded;
+                state = value;
             }
         }
-
-        //clock pulse is generated for moving bullets and reducing the time left for collectibles
-        private Timer clockPulseGenerator;
         #endregion
 
         #region Singleton
@@ -75,13 +60,7 @@ namespace Assets.Game
             gameEngine = new GameEngine();
             parser = new Parser();
 
-            //Instatiating the timer and connecting the timer to the method which hadles the moving of bullets and timers on coin piles and life packs
-            clockPulseGenerator = new Timer();
-            clockPulseGenerator.Interval = 1000;
-            clockPulseGenerator.Elapsed += gameEngine.Clock;
-
-            gameStarted = false;
-            gameEnded = false;
+            state = GameState.Initiated;
         }
 
         public void JoinServer(string ip, int port)
@@ -98,15 +77,19 @@ namespace Assets.Game
 
         public void StartGame()
         {
-            clockPulseGenerator.Start();
-            gameStarted = true;
+            state = GameState.Idle;
         }
 
         public void EndGame()
         {
-            clockPulseGenerator.Stop();
-            gameStarted = false;
-            gameEnded = true;
+            state = GameState.Ended;
         }
+    }
+
+    public enum GameState {
+        Idle,
+        Initiated,
+        Progressing,
+        Ended
     }
 }

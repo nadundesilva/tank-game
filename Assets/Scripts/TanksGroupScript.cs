@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Assets.Game.GameEntities;
 using System.Collections.Generic;
 using Assets.Game;
+using UnityEngine.UI;
 
 public class TanksGroupScript : MonoBehaviour {
     List<UnityEngine.GameObject> tankGameObjects;
@@ -30,7 +30,7 @@ public class TanksGroupScript : MonoBehaviour {
         List<Tank> tanks = GameManager.Instance.GameEngine.Tanks;
 
         int i = 0;
-        while (i < tanks.Count - 1)
+        while (i < tanks.Count)
         {
             tankGameObjects[i].SetActive(true);
             healthGameObjects[i].SetActive(true);
@@ -43,6 +43,11 @@ public class TanksGroupScript : MonoBehaviour {
             healthGameObjects[i].SetActive(false);
             pointsGameObjects[i].SetActive(false);
             i++;
+        }
+
+        if (GameManager.Instance.GameEngine.PlayerNumber != 0)
+        {
+            UnityEngine.GameObject.Find("HUDCanvas/CurrentPlayer/Value").GetComponent<Text>().text = "0" + GameManager.Instance.GameEngine.PlayerNumber;
         }
 	}
 }

@@ -109,41 +109,43 @@ namespace Assets.Game.Communication
                 if (connection != null)
                     if (connection.Connected)
                         connection.Close();
+                if (errorOcurred)
+                    this.StartReceiving();
 
             }
         }
         public void SendData(String message)
         {
-
             //Opening the connection
-            this.client = new TcpClient();
+            client = new TcpClient();
 
             try
             {
 
 
-                this.client.Connect("127.0.0.1", ClientPort);
+                client.Connect(ServerIP, ServerPort);
 
-                if (this.client.Connected)
+                if (client.Connected)
                 {
                     //To write to the socket
-                    this.clientStream = client.GetStream();
+                    clientStream = client.GetStream();
 
                     //Create objects for writing across stream
-                    this.writer = new BinaryWriter(clientStream);
+                    writer = new BinaryWriter(clientStream);
                     Byte[] tempStr = Encoding.ASCII.GetBytes(message);
 
                     //writing to the port                
-                    this.writer.Write(tempStr);
+                    writer.Write(tempStr);
                     Console.WriteLine("\t Data: " + message + " is sent to server ");
-                    this.writer.Close();
-                    this.clientStream.Close();
+                    writer.Close();
+                    clientStream.Close();
                 }
             }
 
             catch (Exception e)
             {
                 Console.WriteLine("Communication (WRITING) failed ");
+                Console.WriteLine(e.GetBaseException());
             }
             finally
             {
