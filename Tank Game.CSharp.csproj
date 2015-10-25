@@ -83,6 +83,7 @@
     <Compile Include="Assets\Game\GameEntities\Water.cs" />
     <Compile Include="Assets\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\BrickWallsGroupScript.cs" />
+    <Compile Include="Assets\Scripts\BulletsGroupScript.cs" />
     <Compile Include="Assets\Scripts\CoinPilesGroupScript.cs" />
     <Compile Include="Assets\Scripts\HealthBarScript.cs" />
     <Compile Include="Assets\Scripts\LifePacksGroupScript.cs" />

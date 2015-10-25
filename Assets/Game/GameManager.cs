@@ -32,9 +32,18 @@ namespace Assets.Game
             {
                 return state;
             }
+        }
+
+        private Message message;
+        public Message Message
+        {
+            get
+            {
+                return message;
+            }
             set
             {
-                state = value;
+                message = value;
             }
         }
         #endregion
@@ -60,7 +69,7 @@ namespace Assets.Game
             gameEngine = new GameEngine();
             parser = new Parser();
 
-            state = GameState.Initiated;
+            state = GameState.INITIATED;
         }
 
         public void JoinServer(string ip, int port)
@@ -77,19 +86,34 @@ namespace Assets.Game
 
         public void StartGame()
         {
-            state = GameState.Idle;
+            state = GameState.IDLE;
         }
 
         public void EndGame()
         {
-            state = GameState.Ended;
+            state = GameState.ENDED;
         }
     }
 
     public enum GameState {
-        Idle,
-        Initiated,
-        Progressing,
-        Ended
+        IDLE,
+        INITIATED,
+        PROGRESSING,
+        ENDED
+    }
+
+    public enum Message {
+        PLAYERS_FULL,
+        ALREADY_ADDED,
+        GAME_ALREADY_STARTED,
+        OBSTACLE,
+        CELL_OCCUPIED,
+        DEAD,
+        TOO_QUICK,
+        INVALID_CELL,
+        GAME_HAS_FINISHED,
+        GAME_NOT_STARTED_YET,
+        NOT_A_VALID_CONTESTANT,
+        GAME_FINISHED
     }
 }
