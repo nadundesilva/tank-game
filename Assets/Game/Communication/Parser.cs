@@ -13,38 +13,39 @@ namespace Assets.Game.Communication
         //only 4 directions are allowed
         private void Parse(string message)
         {
+            //this method checks the message type and invoke the nessasary method accordingly
             if (message.Substring(message.Length - 1) == "#" && message.Length > 2)
             {
-                if (message.Substring(0, 1) == "S")
+                if (message.Substring(0, 1) == "S")//startup message
                 {
                     ParseStartUpMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
-                else if (message.Substring(0, 1) == "P")
+                else if (message.Substring(0, 1) == "P")//player full exception
                 {
                     //players full
                 }
-                else if (message.Substring(0, 1) == "A")
+                else if (message.Substring(0, 1) == "A")//already added exception
                 {
                     //already added
                 }
-                else if (message.Substring(0, 4) == "GAME")
+                else if (message.Substring(0, 4) == "GAME")//game already stated
                 {
                     //The player tries to join an already started game 
 
                 }
-                else if (message.Substring(0, 1) == "I")
+                else if (message.Substring(0, 1) == "I")//initialize game message
                 {
                     ParseInitializeMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
-                else if (message.Substring(0, 3) == "G:P")
+                else if (message.Substring(0, 3) == "G:P")//parse game message
                 {
                     ParseGameMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
-                else if (message.Substring(0, 1) == "C")
+                else if (message.Substring(0, 1) == "C")//coin pile message
                 {
                     ParseCoinPileMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
-                else if (message.Substring(0, 1) == "L")
+                else if (message.Substring(0, 1) == "L")// life packet message
                 {
                     ParseLifePackMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
