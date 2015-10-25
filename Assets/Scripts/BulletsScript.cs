@@ -16,6 +16,5 @@ public class BulletsScript : MonoBehaviour {
 	void Update () {
         int bulletNumber = int.Parse(gameObject.name.Substring(6));
         Bullet bullet = GameManager.Instance.GameEngine.Bullets[bulletNumber - 1];
-        animateMove(bullet.PositionX, bullet.PositionY);
     }
 }
