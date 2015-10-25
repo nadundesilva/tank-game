@@ -12,31 +12,33 @@ namespace Assets.Game.Communication
 {
     public class ClientConnection
     {
-        System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();
-        private NetworkStream serverStream;
-        private TcpListener listener;
+        System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();//creating a connection to the server
+        private NetworkStream serverStream;//to send data using the stream
+        private TcpListener listener;//listen to the port
         private TcpClient client; //To talk back to the client
-        private NetworkStream clientStream;
-        private BinaryWriter writer;
-        public string ServerIP { get; set; }
-        public int ServerPort { get; set; }
-        public int ClientPort { get; set; }
+        private NetworkStream clientStream;//stream to send data
+        private BinaryWriter writer;//to write to the allocated buffer
+        public string ServerIP { get; set; }//ip address of server(127.0.0.1 if local host)
+        public int ServerPort { get; set; }//server sends data using this port
+        public int ClientPort { get; set; }//server recieves data using this port
 
         public delegate void MessageReceivedEventHandler(object sender, EventArgs args);
         public event MessageReceivedEventHandler MessageReceived;
 
         public ClientConnection()
         {
+            //initial configeration
             ServerIP = "127.0.0.1";
             ServerPort = 6000;
             ClientPort = 7000;
         }
         public void StartConnection()
         {
+            //to start the connection a connetion is made to the server port and the using the assigned port Join request is sent
             clientSocket.Connect(ServerIP, ServerPort);
             serverStream = clientSocket.GetStream();
             byte[] outStream = System.Text.Encoding.ASCII.GetBytes("JOIN#");
-            serverStream.Write(outStream, 0, outStream.Length);
+            serverStream.Write(outStream, 0, outStream.Length);//sends join to the server
             serverStream.Flush();
             serverStream.Close();
             clientSocket.Close();
@@ -54,19 +56,16 @@ namespace Assets.Game.Communication
                     string returndata = System.Text.Encoding.ASCII.GetString(inStream);
                     Console.WriteLine(returndata+"\n");
                     Console.WriteLine();
-                
-
-
-                }
+             * }
             }catch(Exception ex){}*/
             bool errorOcurred = false;
-            Socket connection = null; //The socket that is listened to   
+            Socket connection = null; //The socket listends to the messages sent by server 
 
             try
             {
                 //Creating listening Socket
 
-                listener = new TcpListener(IPAddress.Parse(ServerIP), ClientPort);
+                listener = new TcpListener(IPAddress.Parse(ServerIP), ClientPort);//creating a connection to the server and listens to it
                 listener.Start();
 
 
@@ -74,9 +73,9 @@ namespace Assets.Game.Communication
                 {
                     //connection is connected socket
 
-                    connection = listener.AcceptSocket();
+                    connection = listener.AcceptSocket();//socket recieved by the listener
 
-                    if (connection.Connected)
+                    if (connection.Connected)//if connected
                     {
                         //To read from socket create NetworkStream object associated with socket
                         this.serverStream = new NetworkStream(connection);
@@ -85,7 +84,7 @@ namespace Assets.Game.Communication
                         string s = connection.RemoteEndPoint.ToString();
 
                         List<Byte> inputStr = new List<byte>();
-
+                        //read byte by byte and add them to a list
                         int asw = 0;
                         while (asw != -1)
                         {
@@ -93,7 +92,7 @@ namespace Assets.Game.Communication
                             inputStr.Add((Byte)asw);
                         }
 
-                        string reply = Encoding.UTF8.GetString(inputStr.ToArray());
+                        string reply = Encoding.UTF8.GetString(inputStr.ToArray());//convert to a C# string object
                         OnMessageReceived(reply);
 
                     }
@@ -122,20 +121,19 @@ namespace Assets.Game.Communication
             try
             {
 
-
-                client.Connect(ServerIP, ServerPort);
+                client.Connect(ServerIP, ServerPort);//connects to the server
 
                 if (client.Connected)
                 {
                     //To write to the socket
-                    clientStream = client.GetStream();
+                    clientStream = client.GetStream();//network stream is assigned
 
                     //Create objects for writing across stream
                     writer = new BinaryWriter(clientStream);
                     Byte[] tempStr = Encoding.ASCII.GetBytes(message);
 
                     //writing to the port                
-                    writer.Write(tempStr);
+                    writer.Write(tempStr);//write to the stream object
                     Console.WriteLine("\t Data: " + message + " is sent to server ");
                     writer.Close();
                     clientStream.Close();
@@ -157,12 +155,15 @@ namespace Assets.Game.Communication
         {
             Thread iThread = new Thread(new ThreadStart(this.Recieve));
             iThread.Start();
+            //the recieve  method runs in a seperte thread
+
         }
 
         protected virtual void OnMessageReceived(string message)
         {
             if (MessageReceived != null)
             {
+                //send the recieved meesage to MessageReceivedEventArgs object
                 MessageReceivedEventArgs eventArgs = new MessageReceivedEventArgs();
                 eventArgs.Message = message;
                 MessageReceived(this, eventArgs);

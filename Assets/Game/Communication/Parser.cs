@@ -10,7 +10,7 @@ namespace Assets.Game.Communication
     class Parser
     {
         private Direction[] direction = new Direction[] { Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST };
-
+        //only 4 directions are allowed
         private void Parse(string message)
         {
             if (message.Substring(message.Length - 1) == "#" && message.Length > 2)
@@ -19,11 +19,24 @@ namespace Assets.Game.Communication
                 {
                     ParseStartUpMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
+                else if (message.Substring(0, 1) == "P")
+                {
+                    //players full
+                }
+                else if (message.Substring(0, 1) == "A")
+                {
+                    //already added
+                }
+                else if (message.Substring(0, 4) == "GAME")
+                {
+                    //The player tries to join an already started game 
+
+                }
                 else if (message.Substring(0, 1) == "I")
                 {
                     ParseInitializeMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
-                else if (message.Substring(0, 1) == "G")
+                else if (message.Substring(0, 3) == "G:P")
                 {
                     ParseGameMessage(message.Substring(2, message.Length - 3).Split(':'));
                 }
