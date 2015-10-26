@@ -21,15 +21,18 @@ public class TanksScript : MonoBehaviour
     void Update()
     {
         int playerNumber = int.Parse(gameObject.name.Substring(4));
-        Tank tank = GameManager.Instance.GameEngine.Tanks[playerNumber - 1];
-        if (tank.Health > 0)
+        if (playerNumber - 1 < GameManager.Instance.GameEngine.Tanks.Count)
         {
-            animateMove(tank.PositionX, tank.PositionY);
-            animateRotation(tank.Direction);
-        }
-        else
-        {
-            gameObject.SetActive(false);
+            Tank tank = GameManager.Instance.GameEngine.Tanks[playerNumber - 1];
+            if (tank.Health > 0)
+            {
+                animateMove(tank.PositionX, tank.PositionY);
+                animateRotation(tank.Direction);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 

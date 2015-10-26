@@ -21,6 +21,27 @@ namespace Assets.Game.GameEntities
             {
                 for (int i = 0; i < 3; i++)
                 {
+                    if (positionY > 0)
+                    {
+                        positionY--;
+                        GameObject go = ge.Map[positionX,positionY];
+                        if (go is BrickWall || go is StoneWall || go is Tank)
+                        {
+                            ge.RemoveBullet(this);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        ge.RemoveBullet(this);
+                        return;
+                    }
+                }
+            }
+            else if (direction == Direction.EAST)
+            {
+                for (int i = 0; i < 3; i++)
+                {
                     if (positionX < 9)
                     {
                         positionX++;
@@ -38,7 +59,7 @@ namespace Assets.Game.GameEntities
                     }
                 }
             }
-            else if (direction == Direction.EAST)
+            else if (direction == Direction.SOUTH)
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -59,32 +80,11 @@ namespace Assets.Game.GameEntities
                     }
                 }
             }
-            else if (direction == Direction.SOUTH)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    if (positionX > 0)
-                    {
-                        positionX--;
-                        GameObject go = ge.Map[positionX,positionY];
-                        if (go is BrickWall || go is StoneWall || go is Tank)
-                        {
-                            ge.RemoveBullet(this);
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        ge.RemoveBullet(this);
-                        return;
-                    }
-                }
-            }
             else
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    if (positionY > 0)
+                    if (positionX > 0)
                     {
                         positionX--;
                         GameObject go = ge.Map[positionX,positionY];
