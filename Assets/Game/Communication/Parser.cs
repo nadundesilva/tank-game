@@ -19,35 +19,71 @@ namespace Assets.Game.Communication
                 if (message.Substring(0, 1) == "S")//startup message
                 {
                     ParseStartUpMessage(message.Substring(2, message.Length - 3).Split(':'));
+                    GameManager.Instance.Message = Message.NO_ISSUES;
                 }
-                else if (message.Substring(0, 1) == "P")//player full exception
+                else if (message == "PLAYERS_FULL#")//player full exception
                 {
-                    //players full
+                    GameManager.Instance.Message = Message.PLAYERS_FULL;
                 }
-                else if (message.Substring(0, 1) == "A")//already added exception
+                else if (message == "ALREADY_ADDED#")//already added exception
                 {
-                    //already added
+                    GameManager.Instance.Message = Message.ALREADY_ADDED;
                 }
-                else if (message.Substring(0, 4) == "GAME")//game already stated
+                else if (message == "GAME_ALREADY_STARTED#")//game already stated
                 {
-                    //The player tries to join an already started game 
-
+                    GameManager.Instance.Message = Message.GAME_ALREADY_STARTED;
+                }
+                else if (message == "OBSTACLE#")//game already stated
+                {
+                    GameManager.Instance.Message = Message.OBSTACLE;
+                }
+                else if (message == "CELL_OCCUPIED#")//game already stated
+                {
+                    GameManager.Instance.Message = Message.CELL_OCCUPIED;
+                }
+                else if (message == "DEAD#")//game already stated
+                {
+                    GameManager.Instance.Message = Message.DEAD;
+                }
+                else if (message == "TOO_QUICK#")//game already stated
+                {
+                    GameManager.Instance.Message = Message.TOO_QUICK;
+                }
+                else if (message == "INVALID_CELL#")//game already stated
+                {
+                    GameManager.Instance.Message = Message.INVALID_CELL;
+                }
+                else if (message == "GAME_HAS_FINISHED#")//game already stated
+                {
+                    GameManager.Instance.Message = Message.GAME_NOT_STARTED_YET;
+                }
+                else if (message == "GAME_NOT_STARTED_YET#")//game already stated
+                {
+                    GameManager.Instance.Message = Message.GAME_HAS_FINISHED;
+                }
+                else if (message == "NOT_A_VALID_CONTESTANT#")//game already stated
+                {
+                    GameManager.Instance.Message = Message.NOT_A_VALID_CONTESTANT;
                 }
                 else if (message.Substring(0, 1) == "I")//initialize game message
                 {
                     ParseInitializeMessage(message.Substring(2, message.Length - 3).Split(':'));
+                    GameManager.Instance.Message = Message.NO_ISSUES;
                 }
-                else if (message.Substring(0, 3) == "G:P")//parse game message
+                else if (message.Substring(0, 1) == "G")//parse game message
                 {
                     ParseGameMessage(message.Substring(2, message.Length - 3).Split(':'));
+                    GameManager.Instance.Message = Message.NO_ISSUES;
                 }
                 else if (message.Substring(0, 1) == "C")//coin pile message
                 {
                     ParseCoinPileMessage(message.Substring(2, message.Length - 3).Split(':'));
+                    GameManager.Instance.Message = Message.NO_ISSUES;
                 }
                 else if (message.Substring(0, 1) == "L")// life packet message
                 {
                     ParseLifePackMessage(message.Substring(2, message.Length - 3).Split(':'));
+                    GameManager.Instance.Message = Message.NO_ISSUES;
                 }
                 else
                 {
@@ -139,9 +175,12 @@ namespace Assets.Game.Communication
             foreach (string s in brickStrings)
             {
                 string[] brickData = s.Split(',');
-                BrickWall b = new BrickWall(int.Parse(brickData[0]), int.Parse(brickData[1]));
-                b.Health = int.Parse(brickData[2]);
-                brickWalls.Add(b);
+                int brickDamage = int.Parse(brickData[2]);
+                if (brickDamage < 4) {
+                    BrickWall b = new BrickWall(int.Parse(brickData[0]), int.Parse(brickData[1]));
+                    b.Damage = brickDamage;
+                    brickWalls.Add(b);
+                }
             }
             GameManager.Instance.GameEngine.BrickWalls = brickWalls;
         }
@@ -168,6 +207,8 @@ namespace Assets.Game.Communication
 
             string message = ((MessageReceivedEventArgs)a).Message;
             Parse(message.Substring(0, message.Length - 1));
+
+            GameManager.Instance.GameEngine.UpdateGame();
         }
     }
 }

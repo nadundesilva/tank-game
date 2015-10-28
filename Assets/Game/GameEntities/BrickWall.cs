@@ -9,7 +9,7 @@ namespace Assets.Game.GameEntities
     {
         //Health possessed by an object inherited from this class
         private int health;
-        public int Health
+        public int Damage
         {
             get
             {
@@ -24,7 +24,7 @@ namespace Assets.Game.GameEntities
 
         public BrickWall(int positionX, int positionY) : base(positionX, positionY)
         {
-            health = 4;
+            health = 0;
         }
     }
 }

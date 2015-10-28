@@ -73,18 +73,6 @@ namespace Assets.Game
             {
                 return tanks;
             }
-            set
-            {
-                foreach (Tank t in tanks)
-                {
-                    map[t.PositionX,t.PositionY] = null;
-                }
-                tanks = value;
-                foreach (Tank t in tanks)
-                {
-                    map[t.PositionX,t.PositionY] = t;
-                }
-            }
         }
 
         private List<Bullet> bullets;
@@ -93,14 +81,6 @@ namespace Assets.Game
             get
             {
                 return bullets;
-            }
-            set
-            {
-                bullets = value;
-                foreach (Bullet b in bullets)
-                {
-                    map[b.PositionX,b.PositionY] = b;
-                }
             }
         }
 
@@ -164,14 +144,20 @@ namespace Assets.Game
 
         public void Clock()
         {
+            updateCollectibles();
+
             //Moving the bullets
             foreach (Bullet b in bullets)
             {
-                b.Move();
-            }
+                if (!b.Move())
+                    GameManager.Instance.GameEngine.RemoveBullet(b);
 
+            }
+        }
+
+        public void UpdateGame()
+        {
             UpdateTankPosition();
-            updateCollectibles();
         }
 
         public void UpdateTankPosition()

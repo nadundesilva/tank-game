@@ -103,6 +103,7 @@ namespace Assets.Game
     }
 
     public enum Message {
+        NO_ISSUES,
         PLAYERS_FULL,
         ALREADY_ADDED,
         GAME_ALREADY_STARTED,

@@ -32,7 +32,10 @@ public class TanksGroupScript : MonoBehaviour {
         int i = 0;
         while (i < tanks.Count)
         {
-            tankGameObjects[i].SetActive(true);
+            if (tanks[i].Health > 0)
+                tankGameObjects[i].SetActive(true);
+            else
+                tankGameObjects[i].SetActive(false);
             healthGameObjects[i].SetActive(true);
             pointsGameObjects[i].SetActive(true);
             i++;

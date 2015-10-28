@@ -2,12 +2,12 @@ Mono path[0] = 'E:/Programming/C#/Tank Game/TankGame_Data/Managed'
 Mono path[1] = 'E:/Programming/C#/Tank Game/TankGame_Data/Mono'
 Mono config path = 'E:/Programming/C#/Tank Game/TankGame_Data/Mono/etc'
 PlayerConnection initialized from E:/Programming/C#/Tank Game/TankGame_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55114
-Multi-casting "[IP] 192.168.1.2 [Port] 55114 [Flags] 3 [Guid] 1822218671 [EditorId] 3720731306 [Version] 1048832 [Id] WindowsPlayer(nadunrds-laptop) [Debug] 1" to [225.0.0.222:54997]...
-Waiting for connection from host on [192.168.1.2:55114]...
-PlayerConnection accepted from [192.168.1.2] handle:0x254
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56671
-PlayerConnection already initialized - listening to [192.168.1.2:55114]
+PlayerConnection initialized network socket : 0.0.0.0 55136
+Multi-casting "[IP] 192.168.1.2 [Port] 55136 [Flags] 3 [Guid] 4160036631 [EditorId] 687737315 [Version] 1048832 [Id] WindowsPlayer(nadunrds-laptop) [Debug] 1" to [225.0.0.222:54997]...
+Waiting for connection from host on [192.168.1.2:55136]...
+Timed out. Continuing without host connection.
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56631
+PlayerConnection already initialized - listening to [192.168.1.2:55136]
 Initialize engine version: 5.2.0f3 (e7947df39b5c)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -25,19 +25,157 @@ Loading E:\Programming\C#\Tank Game\TankGame_Data\Managed\UnityEngine.UI.dll int
 Platform assembly: E:\Programming\C#\Tank Game\TankGame_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading E:\Programming\C#\Tank Game\TankGame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: E:\Programming\C#\Tank Game\TankGame_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.109 seconds
+- Completed reload, in  0.090 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: E:\Programming\C#\Tank Game\TankGame_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 6f40 -> priority: 1 
+  Thread -> id: 2274 -> priority: 1 
+	 Data: RIGHT# is sent to server 
+	 Data: RIGHT# is sent to server 
+	 Data: RIGHT# is sent to server 
+	 Data: RIGHT# is sent to server 
+	 Data: RIGHT# is sent to server 
+	 Data: RIGHT# is sent to server 
+	 Data: DOWN# is sent to server 
+	 Data: DOWN# is sent to server 
+	 Data: DOWN# is sent to server 
 	 Data: RIGHT# is sent to server 
 	 Data: SHOOT# is sent to server 
+	 Data: SHOOT# is sent to server 
 Communication (RECEIVING) Failed! 
- Invalid start in the message from the server : TOO_QUICK#
-Parameter name: Message
+ Collection was modified; enumeration operation may not execute.
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+	 Data: SHOOT# is sent to server 
+	 Data: SHOOT# is sent to server 
+Communication (RECEIVING) Failed! 
+ Collection was modified; enumeration operation may not execute.
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Collection was modified; enumeration operation may not execute.
 Communication (RECEIVING) Failed! 
  Only one usage of each socket address (protocol/network address/port) is normally permitted.
 
@@ -95,6 +233,170 @@ Communication (RECEIVING) Failed!
 Communication (RECEIVING) Failed! 
  Only one usage of each socket address (protocol/network address/port) is normally permitted.
 
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+	 Data: SHOOT# is sent to server 
+	 Data: RIGHT# is sent to server 
+Communication (RECEIVING) Failed! 
+ Collection was modified; enumeration operation may not execute.
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+Communication (RECEIVING) Failed! 
+ Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+	 Data: RIGHT# is sent to server 
+	 Data: RIGHT# is sent to server 
+	 Data: DOWN# is sent to server 
+	 Data: SHOOT# is sent to server 
+	 Data: SHOOT# is sent to server 
+Communication (RECEIVING) Failed! 
+ Collection was modified; enumeration operation may not execute.
 Communication (RECEIVING) Failed! 
  Only one usage of each socket address (protocol/network address/port) is normally permitted.
 
@@ -215,6 +517,33 @@ Communication (RECEIVING) Failed!
 Communication (RECEIVING) Failed! 
  Only one usage of each socket address (protocol/network address/port) is normally permitted.
 
+	 Data: RIGHT# is sent to server 
+	 Data: RIGHT# is sent to server 
+	 Data: RIGHT# is sent to server 
+ArgumentOutOfRangeException: Argument is out of range.
+Parameter name: index
+  at System.Collections.Generic.List`1[Assets.Game.GameEntities.CoinPile].get_Item (Int32 index) [0x0000c] in /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs:633 
+  at CoinPilesGroupScript.Update () [0x00029] in E:\Programming\C#\Tank Game\Assets\Scripts\CoinPilesGroupScript.cs:32 
+ 
+(Filename: /Users/builduser/buildslave/mono-runtime-and-classlibs/build/mcs/class/corlib/System.Collections.Generic/List.cs Line: 633)
+
+	 Data: RIGHT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: LEFT# is sent to server 
+	 Data: DOWN# is sent to server 
+	 Data: DOWN# is sent to server 
+	 Data: SHOOT# is sent to server 
+Communication (RECEIVING) Failed! 
+ Collection was modified; enumeration operation may not execute.
 Communication (RECEIVING) Failed! 
  Only one usage of each socket address (protocol/network address/port) is normally permitted.
 
@@ -227,4 +556,3 @@ Communication (RECEIVING) Failed!
 Communication (RECEIVING) Failed! 
  Only one usage of each socket address (protocol/network address/port) is normally permitted.
 
-Waiting for finish

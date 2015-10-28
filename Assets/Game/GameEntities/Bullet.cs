@@ -12,7 +12,11 @@ namespace Assets.Game.GameEntities
 
         }
 
-        public void Move()
+        /*
+         * Returns false if bullet hits something
+         * Returns true if bullet hits nothing
+        */
+        public bool Move()
         {
             GameEngine ge = GameManager.Instance.GameEngine;
 
@@ -27,14 +31,12 @@ namespace Assets.Game.GameEntities
                         GameObject go = ge.Map[positionX,positionY];
                         if (go is BrickWall || go is StoneWall || go is Tank)
                         {
-                            ge.RemoveBullet(this);
-                            return;
+                            return false;
                         }
                     }
                     else
                     {
-                        ge.RemoveBullet(this);
-                        return;
+                        return false;
                     }
                 }
             }
@@ -48,14 +50,12 @@ namespace Assets.Game.GameEntities
                         GameObject go = ge.Map[positionX,positionY];
                         if (go is BrickWall || go is StoneWall || go is Tank)
                         {
-                            ge.RemoveBullet(this);
-                            return;
+                            return false;
                         }
                     }
                     else
                     {
-                        ge.RemoveBullet(this);
-                        return;
+                        return false;
                     }
                 }
             }
@@ -69,14 +69,12 @@ namespace Assets.Game.GameEntities
                         GameObject go = ge.Map[positionX,positionY];
                         if (go is BrickWall || go is StoneWall || go is Tank)
                         {
-                            ge.RemoveBullet(this);
-                            return;
+                            return false;
                         }
                     }
                     else
                     {
-                        ge.RemoveBullet(this);
-                        return;
+                        return false;
                     }
                 }
             }
@@ -90,17 +88,16 @@ namespace Assets.Game.GameEntities
                         GameObject go = ge.Map[positionX,positionY];
                         if (go is BrickWall || go is StoneWall || go is Tank)
                         {
-                            ge.RemoveBullet(this);
-                            return;
+                            return false;
                         }
                     }
                     else
                     {
-                        ge.RemoveBullet(this);
-                        return;
+                        return false;
                     }
                 }
             }
+            return true;
         }
     }
 }

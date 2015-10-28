@@ -92,6 +92,16 @@ public class MainCameraScript : MonoBehaviour {
             transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), (-1) * Input.GetAxis("Mouse X"), 0) * Time.deltaTime, 1);
         }
 
+        if (hudCanvas.activeSelf)
+        {
+            //setting the current player number
+            GameObject.Find("HUDCanvas/CurrentPlayer/Value").GetComponent<Text>().text = (GameManager.Instance.GameEngine.PlayerNumber + 1).ToString();
+            
+            //setting specific server messages
+            string message = "";
+            GameObject.Find("HUDCanvas/ServerMessage").GetComponent<Text>().text = message; 
+        }
+
         //Zooming
         cameraDistance -= Input.GetAxis("Mouse ScrollWheel") * speed * 50;
         cameraDistance = Mathf.Clamp(cameraDistance, cameraDistanceMin, cameraDistanceMax);
