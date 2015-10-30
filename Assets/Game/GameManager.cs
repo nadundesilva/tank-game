@@ -25,6 +25,15 @@ namespace Assets.Game
 
         private Parser parser;
 
+        private AI ai;
+        public AI AI
+        {
+            get
+            {
+                return ai;
+            }
+        }
+
         private GameState state;
         public GameState State
         {
@@ -32,10 +41,14 @@ namespace Assets.Game
             {
                 return state;
             }
+            set
+            {
+                state = value;
+            }
         }
 
-        private Message message;
-        public Message Message
+        private ServerMessage message;
+        public ServerMessage Message
         {
             get
             {
@@ -68,8 +81,10 @@ namespace Assets.Game
         {
             gameEngine = new GameEngine();
             parser = new Parser();
+            ai = new AI();
 
-            state = GameState.INITIATED;
+            state = GameState.IDLE;
+            message = ServerMessage.NO_ISSUES;
         }
 
         public void JoinServer(string ip, int port)
@@ -83,26 +98,17 @@ namespace Assets.Game
             client.StartConnection();
             client.StartReceiving();
         }
-
-        public void StartGame()
-        {
-            state = GameState.IDLE;
-        }
-
-        public void EndGame()
-        {
-            state = GameState.ENDED;
-        }
     }
 
     public enum GameState {
         IDLE,
+        STARTED,
         INITIATED,
         PROGRESSING,
         ENDED
     }
 
-    public enum Message {
+    public enum ServerMessage {
         NO_ISSUES,
         PLAYERS_FULL,
         ALREADY_ADDED,
@@ -115,6 +121,7 @@ namespace Assets.Game
         GAME_HAS_FINISHED,
         GAME_NOT_STARTED_YET,
         NOT_A_VALID_CONTESTANT,
-        GAME_FINISHED
+        GAME_FINISHED,
+        PITFALL
     }
 }

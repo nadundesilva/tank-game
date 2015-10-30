@@ -123,6 +123,8 @@ namespace Assets.Game
                 playerNumber = value;
             }
         }
+
+        private Timer timer;
         #endregion
 
         public GameEngine()
@@ -140,12 +142,15 @@ namespace Assets.Game
             map = new GameObject[10, 10];
 
             playerNumber = 0;
+
+            //Timer for updating the time left in collectibles
+            timer = new Timer();
+            timer.Interval = 10;
+            timer.Elapsed += updateCollectibles;
         }
 
         public void Clock()
         {
-            updateCollectibles();
-
             //Moving the bullets
             foreach (Bullet b in bullets)
             {
@@ -178,7 +183,7 @@ namespace Assets.Game
             }
         }
 
-        public void updateCollectibles()
+        public void updateCollectibles(object source, EventArgs a)
         {
             int i = 0;
             while (i < coinPiles.Count)

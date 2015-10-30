@@ -19,71 +19,85 @@ namespace Assets.Game.Communication
                 if (message.Substring(0, 1) == "S")//startup message
                 {
                     ParseStartUpMessage(message.Substring(2, message.Length - 3).Split(':'));
-                    GameManager.Instance.Message = Message.NO_ISSUES;
-                }
-                else if (message == "PLAYERS_FULL#")//player full exception
-                {
-                    GameManager.Instance.Message = Message.PLAYERS_FULL;
-                }
-                else if (message == "ALREADY_ADDED#")//already added exception
-                {
-                    GameManager.Instance.Message = Message.ALREADY_ADDED;
-                }
-                else if (message == "GAME_ALREADY_STARTED#")//game already stated
-                {
-                    GameManager.Instance.Message = Message.GAME_ALREADY_STARTED;
-                }
-                else if (message == "OBSTACLE#")//game already stated
-                {
-                    GameManager.Instance.Message = Message.OBSTACLE;
-                }
-                else if (message == "CELL_OCCUPIED#")//game already stated
-                {
-                    GameManager.Instance.Message = Message.CELL_OCCUPIED;
-                }
-                else if (message == "DEAD#")//game already stated
-                {
-                    GameManager.Instance.Message = Message.DEAD;
-                }
-                else if (message == "TOO_QUICK#")//game already stated
-                {
-                    GameManager.Instance.Message = Message.TOO_QUICK;
-                }
-                else if (message == "INVALID_CELL#")//game already stated
-                {
-                    GameManager.Instance.Message = Message.INVALID_CELL;
-                }
-                else if (message == "GAME_HAS_FINISHED#")//game already stated
-                {
-                    GameManager.Instance.Message = Message.GAME_NOT_STARTED_YET;
-                }
-                else if (message == "GAME_NOT_STARTED_YET#")//game already stated
-                {
-                    GameManager.Instance.Message = Message.GAME_HAS_FINISHED;
-                }
-                else if (message == "NOT_A_VALID_CONTESTANT#")//game already stated
-                {
-                    GameManager.Instance.Message = Message.NOT_A_VALID_CONTESTANT;
+                    GameManager.Instance.Message = ServerMessage.NO_ISSUES;
+                    GameManager.Instance.State = GameState.STARTED;
                 }
                 else if (message.Substring(0, 1) == "I")//initialize game message
                 {
                     ParseInitializeMessage(message.Substring(2, message.Length - 3).Split(':'));
-                    GameManager.Instance.Message = Message.NO_ISSUES;
+                    GameManager.Instance.Message = ServerMessage.NO_ISSUES;
+                    GameManager.Instance.State = GameState.INITIATED;
                 }
                 else if (message.Substring(0, 1) == "G")//parse game message
                 {
                     ParseGameMessage(message.Substring(2, message.Length - 3).Split(':'));
-                    GameManager.Instance.Message = Message.NO_ISSUES;
+                    GameManager.Instance.Message = ServerMessage.NO_ISSUES;
+                    GameManager.Instance.State = GameState.PROGRESSING;
                 }
                 else if (message.Substring(0, 1) == "C")//coin pile message
                 {
                     ParseCoinPileMessage(message.Substring(2, message.Length - 3).Split(':'));
-                    GameManager.Instance.Message = Message.NO_ISSUES;
+                    GameManager.Instance.Message = ServerMessage.NO_ISSUES;
                 }
                 else if (message.Substring(0, 1) == "L")// life packet message
                 {
                     ParseLifePackMessage(message.Substring(2, message.Length - 3).Split(':'));
-                    GameManager.Instance.Message = Message.NO_ISSUES;
+                    GameManager.Instance.Message = ServerMessage.NO_ISSUES;
+                }
+                else if (message == "PLAYERS_FULL#")//player full exception
+                {
+                    GameManager.Instance.Message = ServerMessage.PLAYERS_FULL;
+                }
+                else if (message == "ALREADY_ADDED#")//already added exception
+                {
+                    GameManager.Instance.Message = ServerMessage.ALREADY_ADDED;
+                }
+                else if (message == "GAME_ALREADY_STARTED#")//game already stated
+                {
+                    GameManager.Instance.Message = ServerMessage.GAME_ALREADY_STARTED;
+                }
+                else if (message == "OBSTACLE#")//obstacle in the square
+                {
+                    GameManager.Instance.Message = ServerMessage.OBSTACLE;
+                }
+                else if (message == "CELL_OCCUPIED#")//square already occupied by another tank
+                {
+                    GameManager.Instance.Message = ServerMessage.CELL_OCCUPIED;
+                }
+                else if (message == "DEAD#")//player dead
+                {
+                    GameManager.Instance.Message = ServerMessage.DEAD;
+                    GameManager.Instance.State = GameState.ENDED;
+                }
+                else if (message == "TOO_QUICK#")//not enough time between moves
+                {
+                    GameManager.Instance.Message = ServerMessage.TOO_QUICK;
+                }
+                else if (message == "INVALID_CELL#")//invalid square
+                {
+                    GameManager.Instance.Message = ServerMessage.INVALID_CELL;
+                }
+                else if (message == "GAME_HAS_FINISHED#")//Game had already finished
+                {
+                    GameManager.Instance.Message = ServerMessage.GAME_NOT_STARTED_YET;
+                    GameManager.Instance.State = GameState.ENDED;
+                }
+                else if (message == "GAME_NOT_STARTED_YET#")//game not yet started
+                {
+                    GameManager.Instance.Message = ServerMessage.GAME_HAS_FINISHED;
+                }
+                else if (message == "NOT_A_VALID_CONTESTANT#")//not a valid contestant
+                {
+                    GameManager.Instance.Message = ServerMessage.NOT_A_VALID_CONTESTANT;
+                }
+                else if (message == "GAME_FINISHED#")//game had finished
+                {
+                    GameManager.Instance.Message = ServerMessage.GAME_FINISHED;
+                    GameManager.Instance.State = GameState.ENDED;
+                }
+                else if (message == "PITFALL#")//game had finished
+                {
+                    GameManager.Instance.Message = ServerMessage.PITFALL;
                 }
                 else
                 {
@@ -209,6 +223,8 @@ namespace Assets.Game.Communication
             Parse(message.Substring(0, message.Length - 1));
 
             GameManager.Instance.GameEngine.UpdateGame();
+
+            GameManager.Instance.AI.CalculateMove();
         }
     }
 }

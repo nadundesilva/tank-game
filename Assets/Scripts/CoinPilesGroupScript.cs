@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Game.GameEntities;
 using Assets.Game;
+using UnityEngine.UI;
 
 public class CoinPilesGroupScript : MonoBehaviour {
     List<UnityEngine.GameObject> gameObjects;
@@ -30,7 +31,7 @@ public class CoinPilesGroupScript : MonoBehaviour {
         {
             gameObjects[i].SetActive(true);
             gameObjects[i].transform.position = new Vector3(coinPiles[i].PositionX * 80 + 20, transformY, coinPiles[i].PositionY * 80 + 20);
-            i++;
+             i++;
         }
         while (i < coinPiles.Count)
         {

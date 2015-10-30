@@ -99,6 +99,33 @@ public class MainCameraScript : MonoBehaviour {
             
             //setting specific server messages
             string message = "";
+            ServerMessage gameManagerMessage = GameManager.Instance.Message;
+            if (gameManagerMessage == ServerMessage.ALREADY_ADDED)
+                    message = "You have been already added to the server";
+            else if (gameManagerMessage == ServerMessage.CELL_OCCUPIED)
+                    message = "The cell had been already occupied";
+            else if (gameManagerMessage == ServerMessage.DEAD)
+                    message = "You are dead";
+            else if (gameManagerMessage == ServerMessage.GAME_ALREADY_STARTED)
+                    message = "Game had already started";
+            else if (gameManagerMessage == ServerMessage.GAME_FINISHED)
+                    message = "Game had finished";
+            else if (gameManagerMessage == ServerMessage.GAME_HAS_FINISHED)
+                    message = "Game had finished";
+            else if (gameManagerMessage == ServerMessage.GAME_NOT_STARTED_YET)
+                    message = "Game had not yet started";
+            else if (gameManagerMessage == ServerMessage.INVALID_CELL)
+                    message = "Invalid Cell";
+            else if (gameManagerMessage == ServerMessage.NOT_A_VALID_CONTESTANT)
+                    message = "You are not a valid contestant";
+            else if (gameManagerMessage == ServerMessage.OBSTACLE)
+                    message = "Obstacle in your way";
+            else if (gameManagerMessage == ServerMessage.PLAYERS_FULL)
+                    message = "No vacancies for you to join";
+            else if (gameManagerMessage == ServerMessage.TOO_QUICK)
+                    message = "You have to wait for one second before moving again";
+            else if (gameManagerMessage == ServerMessage.PITFALL)
+                message = "You fell into a pit of water and died";
             GameObject.Find("HUDCanvas/ServerMessage").GetComponent<Text>().text = message; 
         }
 
@@ -148,7 +175,6 @@ public class MainCameraScript : MonoBehaviour {
                 && regexIP.Match(ip).Success && regexPort.Match(port).Success)
             {
                 hudCanvas.SetActive(true);
-                GameManager.Instance.StartGame();
                 GameManager.Instance.JoinServer(ip, int.Parse(port));
                 gameLauncherCanvas.SetActive(false);
             }
