@@ -22,7 +22,7 @@ namespace Assets.Game
             {
                 foreach (BrickWall b in brickWalls)
                 {
-                    map[b.PositionX,b.PositionX] = null;
+                    map[b.PositionX, b.PositionX] = null;
                 }
                 brickWalls = value;
                 foreach (BrickWall b in brickWalls)
@@ -165,7 +165,7 @@ namespace Assets.Game
             UpdateTankPosition();
         }
 
-        public void UpdateTankPosition()
+        private void UpdateTankPosition()
         {
             int i = 0;
             while (i < tanks.Count)
@@ -183,7 +183,7 @@ namespace Assets.Game
             }
         }
 
-        public void updateCollectibles(object source, EventArgs a)
+        private void updateCollectibles(object source, EventArgs a)
         {
             int i = 0;
             while (i < coinPiles.Count)

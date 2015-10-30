@@ -169,6 +169,8 @@ namespace Assets.Game.Communication
                 string[] playerData = tokens[i].Split(';');
                 Tank tank = GameManager.Instance.GameEngine.Tanks[int.Parse(playerData[0].Substring(1))];
 
+                GameManager.Instance.GameEngine.Map[tank.PositionX, tank.PositionY] = null;
+
                 string[] location = playerData[1].Split(',');
                 tank.PositionX = int.Parse(location[0]);
                 tank.PositionY = int.Parse(location[1]);
@@ -180,6 +182,9 @@ namespace Assets.Game.Communication
                 tank.Health = int.Parse(playerData[4]);
                 tank.Coins = int.Parse(playerData[5]);
                 tank.Points = int.Parse(playerData[6]);
+
+                GameManager.Instance.GameEngine.Map[tank.PositionX, tank.PositionY] = tank;
+
                 i++;
             }
 

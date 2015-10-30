@@ -69,7 +69,18 @@ namespace Assets.Game.GameEntities
 
         public void Shoot()
         {
-            Bullet bullet = new Bullet(positionX, positionY, direction);
+            int x = 0;
+            int y = 0;
+            if (direction == Direction.NORTH)
+                y = -1;
+            else if (direction == Direction.EAST)
+                x = 1;
+            else if (direction == Direction.SOUTH)
+                y = 1;
+            else
+                x = -1;
+
+            Bullet bullet = new Bullet(positionX + x, positionY + y, direction);
             GameManager.Instance.GameEngine.AddBullet(bullet);
         }
     }
