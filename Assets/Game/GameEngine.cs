@@ -156,7 +156,6 @@ namespace Assets.Game
             {
                 if (!b.Move())
                     GameManager.Instance.GameEngine.RemoveBullet(b);
-
             }
         }
 

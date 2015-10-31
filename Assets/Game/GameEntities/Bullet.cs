@@ -20,6 +20,12 @@ namespace Assets.Game.GameEntities
         {
             GameEngine ge = GameManager.Instance.GameEngine;
 
+            GameObject go = ge.Map[positionX, positionY];
+            if (go is BrickWall || go is StoneWall || go is Tank)
+            {
+                return false;
+            }
+
             //Moving the bullet forward three squares depending on the direction it is turned to
             if (direction == Direction.NORTH)
             {
@@ -28,7 +34,7 @@ namespace Assets.Game.GameEntities
                     if (positionY > 0)
                     {
                         positionY--;
-                        GameObject go = ge.Map[positionX,positionY];
+                        go = ge.Map[positionX,positionY];
                         if (go is BrickWall || go is StoneWall || go is Tank)
                         {
                             return false;
@@ -47,7 +53,7 @@ namespace Assets.Game.GameEntities
                     if (positionX < 9)
                     {
                         positionX++;
-                        GameObject go = ge.Map[positionX,positionY];
+                        go = ge.Map[positionX,positionY];
                         if (go is BrickWall || go is StoneWall || go is Tank)
                         {
                             return false;
@@ -66,7 +72,7 @@ namespace Assets.Game.GameEntities
                     if (positionY < 9)
                     {
                         positionY++;
-                        GameObject go = ge.Map[positionX,positionY];
+                        go = ge.Map[positionX,positionY];
                         if (go is BrickWall || go is StoneWall || go is Tank)
                         {
                             return false;
@@ -85,7 +91,7 @@ namespace Assets.Game.GameEntities
                     if (positionX > 0)
                     {
                         positionX--;
-                        GameObject go = ge.Map[positionX,positionY];
+                        go = ge.Map[positionX,positionY];
                         if (go is BrickWall || go is StoneWall || go is Tank)
                         {
                             return false;

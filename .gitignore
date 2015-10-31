@@ -1,2 +1,9 @@
-/Photoshop/
+/obj/
 /Temp/
+*.suo
+*.user
+*.pidb
+*.userprefs
+/Photoshop/
+/TankGame_Data/
+TankGame.exe
