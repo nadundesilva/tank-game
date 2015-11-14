@@ -1,4 +1,5 @@
 ﻿using Assets.Game.Communication;
+using System.Net.Sockets;
 
 namespace Assets.Game
 {
@@ -14,8 +15,8 @@ namespace Assets.Game
             }
         }
 
-        private ClientConnection client;
-        public ClientConnection Client
+        private Connection client;
+        public Connection Client
         {
             get
             {
@@ -31,6 +32,19 @@ namespace Assets.Game
             get
             {
                 return ai;
+            }
+        }
+
+        private GameMode mode;
+        public GameMode Mode
+        {
+            get
+            {
+                return mode;
+            }
+            set
+            {
+                mode = value;
             }
         }
 
@@ -59,6 +73,19 @@ namespace Assets.Game
                 message = value;
             }
         }
+
+        private GameError error;
+        public GameError Error
+        {
+            get
+            {
+                return error;
+            }
+            set
+            {
+                error = value;
+            }
+        }
         #endregion
 
         #region Singleton
@@ -80,24 +107,50 @@ namespace Assets.Game
         public void Initialize()
         {
             gameEngine = new GameEngine();
+            client = new Connection();
             parser = new Parser();
             ai = new AI();
 
+            mode = GameMode.AUTO;
             state = GameState.IDLE;
             message = ServerMessage.NO_ISSUES;
+            error = GameError.NO_ERROR;
         }
 
         public void JoinServer(string ip, int port)
         {
-            //Instatiating client and connecting the messageReceived event to the handler
-            client = new ClientConnection();
+            //connecting the messageReceived event to the handler
             client.MessageReceived += parser.OnMessageReceived;
 
             client.ServerIP = ip;
             client.ServerPort = port;
-            client.StartConnection();
-            client.StartReceiving();
+            try {
+                client.StartConnection();
+                client.StartReceiving();
+                error = GameError.NO_ERROR;
+            } catch(SocketException) {
+                error = GameError.NO_SERVER_DETECTED;
+            }
         }
+
+        public void RestartServer()
+        {
+            string ip = client.ServerIP;
+            int port = client.ServerPort;
+            client = new Connection();
+            JoinServer(ip, port);
+        }
+
+        public void RestartGame()
+        {
+            Initialize();
+            System.GC.Collect();
+        }
+    }
+
+    public enum GameMode {
+        AUTO,
+        MANUAL
     }
 
     public enum GameState {
@@ -123,5 +176,10 @@ namespace Assets.Game
         NOT_A_VALID_CONTESTANT,
         GAME_FINISHED,
         PITFALL
+    }
+
+    public enum GameError {
+        NO_ERROR,
+        NO_SERVER_DETECTED
     }
 }

@@ -10,7 +10,7 @@ using System.IO;
 
 namespace Assets.Game.Communication
 {
-    public class ClientConnection
+    public class Connection
     {
         System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();//creating a connection to the server
         private NetworkStream serverStream;//to send data using the stream
@@ -25,7 +25,7 @@ namespace Assets.Game.Communication
         public delegate void MessageReceivedEventHandler(object sender, EventArgs args);
         public event MessageReceivedEventHandler MessageReceived;
 
-        public ClientConnection()
+        public Connection()
         {
             //initial configeration
             ServerIP = "127.0.0.1";
@@ -38,7 +38,7 @@ namespace Assets.Game.Communication
             clientSocket.Connect(ServerIP, ServerPort);
             serverStream = clientSocket.GetStream();
             byte[] outStream = System.Text.Encoding.ASCII.GetBytes("JOIN#");
-            serverStream.Write(outStream, 0, outStream.Length);//sends join to the server
+            serverStream.Write(outStream, 0, outStream.Length); //sends join to the server
             serverStream.Flush();
             serverStream.Close();
             clientSocket.Close();

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Assets.Game;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
@@ -67,6 +66,11 @@ public class MainCameraScript : MonoBehaviour {
         //Deactivating unused canvases
         hudCanvas.SetActive(false);
         escapeCanvas.SetActive(false);
+
+        //Setting default port and ip on gameLauncher canvas
+        GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text = GameManager.Instance.Client.ServerIP;
+        GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text = GameManager.Instance.Client.ServerPort.ToString();
+        GameObject.Find("GameLauncherCanvas/AutoModeToggle").GetComponent<Toggle>().isOn = (GameManager.Instance.Mode == GameMode.AUTO);
     }
 
     // Update is called once per frame
@@ -135,24 +139,31 @@ public class MainCameraScript : MonoBehaviour {
         Vector3 zoomVector = new Vector3(transform.position.x, cameraDistance, transform.position.z);
         transform.position = zoomVector;
         #endregion
-        
+
         #region Checking for pressed buttons
-        if (Input.GetKeyDown(KeyCode.Escape) && !gameLauncherCanvas.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            hudCanvas.SetActive(!hudCanvas.activeSelf);
-            escapeCanvas.SetActive(!escapeCanvas.activeSelf);
+            if (gameLauncherCanvas.activeSelf) {
+                Application.Quit();
+            } else {
+                hudCanvas.SetActive(!hudCanvas.activeSelf);
+                escapeCanvas.SetActive(!escapeCanvas.activeSelf);
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            GameManager.Instance.Client.SendData("DOWN#");
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-            GameManager.Instance.Client.SendData("RIGHT#");
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-            GameManager.Instance.Client.SendData("UP#");
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            GameManager.Instance.Client.SendData("LEFT#");
-        else if (Input.GetKeyDown(KeyCode.Space))
-            GameManager.Instance.Client.SendData("SHOOT#");
+        if (GameManager.Instance.Mode == GameMode.MANUAL)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                GameManager.Instance.Client.SendData("DOWN#");
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+                GameManager.Instance.Client.SendData("RIGHT#");
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+                GameManager.Instance.Client.SendData("UP#");
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                GameManager.Instance.Client.SendData("LEFT#");
+            else if (Input.GetKeyDown(KeyCode.Space))
+                GameManager.Instance.Client.SendData("SHOOT#");
+        }
         #endregion
     }
 
@@ -171,12 +182,22 @@ public class MainCameraScript : MonoBehaviour {
             string ip = GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text;
             string port = GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text;
 
-            if (GUI.Button(new Rect(Screen.width / 2 - 100, 500, 200, 100), new GUIContent(playButtonImage, "Click to play the game"))
+            if (GUI.Button(new Rect(Screen.width / 2 - 100, 550, 150, 75), new GUIContent(playButtonImage, "Click to play the game"))
                 && regexIP.Match(ip).Success && regexPort.Match(port).Success)
             {
-                hudCanvas.SetActive(true);
                 GameManager.Instance.JoinServer(ip, int.Parse(port));
-                gameLauncherCanvas.SetActive(false);
+                if (GameManager.Instance.Error == GameError.NO_ERROR)
+                {
+                    if (GameObject.Find("GameLauncherCanvas/AutoModeToggle").GetComponent<Toggle>().isOn)
+                    {
+                        GameManager.Instance.Mode = GameMode.AUTO;
+                    } else
+                    {
+                        GameManager.Instance.Mode = GameMode.MANUAL;
+                    }
+                    hudCanvas.SetActive(true);
+                    gameLauncherCanvas.SetActive(false);
+                }
             }
         }
 

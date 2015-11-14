@@ -229,7 +229,8 @@ namespace Assets.Game.Communication
 
             GameManager.Instance.GameEngine.UpdateGame();
 
-            GameManager.Instance.AI.CalculateMove();
+            if (GameManager.Instance.Mode == GameMode.AUTO)
+                GameManager.Instance.AI.CalculateMove();
         }
     }
 }

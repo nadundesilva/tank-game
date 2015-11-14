@@ -69,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Game\AI.cs" />
-    <Compile Include="Assets\Game\Communication\ClientConnection.cs" />
+    <Compile Include="Assets\Game\Communication\Connection.cs" />
     <Compile Include="Assets\Game\Communication\Parser.cs" />
     <Compile Include="Assets\Game\GameEngine.cs" />
     <Compile Include="Assets\Game\GameEntities\BrickWall.cs" />

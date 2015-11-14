@@ -23,7 +23,7 @@ namespace Assets.Game.GameEntities
 
         public void ReduceTime()
         {
-            timeLeft -= 1;
+            timeLeft -= 1000;
         }
     }
 }
