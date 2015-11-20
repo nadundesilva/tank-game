@@ -39,13 +39,13 @@ public class BulletsGroupScript : MonoBehaviour {
                 gameObjects[i].SetActive(true);
 
                 if (bullets[i].Direction == Direction.NORTH)
-                    originPositions[i] = new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20);
+                    originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
                 else if (bullets[i].Direction == Direction.EAST)
-                    originPositions[i] = new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20);
+                    originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
                 else if (bullets[i].Direction == Direction.SOUTH)
-                    originPositions[i] = new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20);
+                    originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
                 else
-                    originPositions[i] = new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20);
+                    originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
 
                 gameObjects[i].transform.position = originPositions[i];
                 tPositions[i] = 0;
@@ -53,21 +53,21 @@ public class BulletsGroupScript : MonoBehaviour {
             else
             {
 
-                if (bullets[i].PositionX * 80 + 20 == gameObjects[i].transform.position.x &&
-                    bullets[i].PositionY * 80 + 20 == gameObjects[i].transform.position.z)
+                if (bullets[i].PositionX * 80 == gameObjects[i].transform.position.x &&
+                    bullets[i].PositionY * 80 == gameObjects[i].transform.position.z)
                 {
                     originPositions[i] = gameObjects[i].transform.position;
                     tPositions[i] = 0;
                 }
 
                 if (bullets[i].Direction == Direction.NORTH)
-                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20), tPositions[i]);
+                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80), tPositions[i]);
                 else if (bullets[i].Direction == Direction.EAST)
-                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20), tPositions[i]);
+                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80), tPositions[i]);
                 else if (bullets[i].Direction == Direction.SOUTH)
-                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20), tPositions[i]);
+                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80), tPositions[i]);
                 else
-                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20), tPositions[i]);
+                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80), tPositions[i]);
                 tPositions[i] += (1 / 30.0f);
             }
             i++;
@@ -77,13 +77,13 @@ public class BulletsGroupScript : MonoBehaviour {
             originPositions.Add(transform.position);
 
             if (bullets[i].Direction == Direction.NORTH)
-                originPositions[i] = new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20);
+                originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
             else if (bullets[i].Direction == Direction.EAST)
-                originPositions[i] = new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20);
+                originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
             else if (bullets[i].Direction == Direction.SOUTH)
-                originPositions[i] = new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20);
+                originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
             else
-                originPositions[i] = new Vector3(bullets[i].PositionX * 80 + 20, transformY, bullets[i].PositionY * 80 + 20);
+                originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
 
             UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], originPositions[i], defaultRotation);
             gameObjects.Add(go);

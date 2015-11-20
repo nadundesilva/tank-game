@@ -30,12 +30,12 @@ public class StoneWallsGroupScript : MonoBehaviour {
         while (i < stoneWalls.Count && i < gameObjects.Count)
         {
             gameObjects[i].SetActive(true);
-            gameObjects[i].transform.position = new Vector3(stoneWalls[i].PositionX * 80 + 20, transformY, stoneWalls[i].PositionY * 80 + 20);
+            gameObjects[i].transform.position = new Vector3(stoneWalls[i].PositionX * 80, transformY, stoneWalls[i].PositionY * 80);
             i++;
         }
         while (i < stoneWalls.Count)
         {
-            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(stoneWalls[i].PositionX * 80 + 20, transformY, stoneWalls[i].PositionY * 80 + 20), defaultRotation);
+            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(stoneWalls[i].PositionX * 80, transformY, stoneWalls[i].PositionY * 80), defaultRotation);
             gameObjects.Add(go);
             i++;
         }

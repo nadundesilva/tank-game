@@ -29,12 +29,12 @@ public class BrickWallsGroupScript : MonoBehaviour {
         while (i < brickWalls.Count && i < gameObjects.Count)
         {
             gameObjects[i].SetActive(true);
-            gameObjects[i].transform.position = new Vector3(brickWalls[i].PositionX * 80 + 20, transformY, brickWalls[i].PositionY * 80 + 20);
+            gameObjects[i].transform.position = new Vector3(brickWalls[i].PositionX * 80, transformY, brickWalls[i].PositionY * 80);
             i++;
         }
         while (i < brickWalls.Count)
         {
-            UnityEngine.GameObject go = (UnityEngine.GameObject) Instantiate(gameObjects[0], new Vector3(brickWalls[i].PositionX * 80 + 20, transformY, brickWalls[i].PositionY * 80 + 20), defaultRotation);
+            UnityEngine.GameObject go = (UnityEngine.GameObject) Instantiate(gameObjects[0], new Vector3(brickWalls[i].PositionX * 80, transformY, brickWalls[i].PositionY * 80), defaultRotation);
             gameObjects.Add(go);
             i++;
         }

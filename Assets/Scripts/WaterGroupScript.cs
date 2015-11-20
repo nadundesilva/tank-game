@@ -30,12 +30,12 @@ public class WaterGroupScript : MonoBehaviour {
         while (i < water.Count && i < gameObjects.Count)
         {
             gameObjects[i].SetActive(true);
-            gameObjects[i].transform.position = new Vector3(water[i].PositionX * 80 + 20, transformY, water[i].PositionY * 80 + 20);
+            gameObjects[i].transform.position = new Vector3(water[i].PositionX * 80, transformY, water[i].PositionY * 80);
             i++;
         }
         while (i < water.Count)
         {
-            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(water[i].PositionX * 80 + 20, transformY, water[i].PositionY * 80 + 20), defaultRotation);
+            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(water[i].PositionX * 80, transformY, water[i].PositionY * 80), defaultRotation);
             gameObjects.Add(go);
             i++;
         }

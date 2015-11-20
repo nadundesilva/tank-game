@@ -5,5 +5,6 @@
 *.pidb
 *.userprefs
 /Photoshop/
+/Blender/
 /TankGame_Data/
 TankGame.exe

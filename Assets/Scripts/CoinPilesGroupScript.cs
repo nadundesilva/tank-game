@@ -30,12 +30,12 @@ public class CoinPilesGroupScript : MonoBehaviour {
         while (i < coinPiles.Count && i < gameObjects.Count)
         {
             gameObjects[i].SetActive(true);
-            gameObjects[i].transform.position = new Vector3(coinPiles[i].PositionX * 80 + 20, transformY, coinPiles[i].PositionY * 80 + 20);
+            gameObjects[i].transform.position = new Vector3(coinPiles[i].PositionX * 80, transformY, coinPiles[i].PositionY * 80);
              i++;
         }
         while (i < coinPiles.Count)
         {
-            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(coinPiles[i].PositionX * 80 + 20, transformY, coinPiles[i].PositionY * 80 + 20), defaultRotation);
+            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(coinPiles[i].PositionX * 80, transformY, coinPiles[i].PositionY * 80), defaultRotation);
             gameObjects.Add(go);
             i++;
         }

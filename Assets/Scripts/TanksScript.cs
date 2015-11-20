@@ -38,14 +38,14 @@ public class TanksScript : MonoBehaviour
 
     void animateMove(int destinationX, int destinationZ)
     {
-        if (destinationX * 80 + 20 == transform.position.x &&
-            destinationZ * 80 + 20 == transform.position.z)
+        if (destinationX * 80 == transform.position.x &&
+            destinationZ * 80 == transform.position.z)
         {
             originPosition = transform.position;
             tPosition = 0;
         }
 
-        transform.position = Vector3.Lerp(originPosition, new Vector3(destinationX * 80 + 20, transform.position.y, destinationZ * 80 + 20), tPosition);
+        transform.position = Vector3.Lerp(originPosition, new Vector3(destinationX * 80, transform.position.y, destinationZ * 80), tPosition);
 
         tPosition += 0.1f;
     }
@@ -70,19 +70,19 @@ public class TanksScript : MonoBehaviour
     {
         if (direction == Direction.NORTH)
         {
-            return 270;
+            return 90;
         }
         else if (direction == Direction.EAST)
         {
-            return 180;
+            return 0;
         }
         else if (direction == Direction.SOUTH)
         {
-            return 90;
+            return 270;
         }
         else
         {
-            return 0;
+            return 180;
         }
     }
 }
