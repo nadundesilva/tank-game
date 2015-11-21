@@ -140,70 +140,60 @@ namespace Assets.Game
         public void Clock()
         {
             //Moving the bullets
-            foreach (Bullet b in bullets)
-            {
-                if (!b.Move())
-                    GameManager.Instance.GameEngine.RemoveBullet(b);
-            }
+            foreach (Bullet bullet in bullets)
+                if (!bullet.Move())
+                    bullets.Remove(bullet);
+
+            //Reducing time of collectibles
+            foreach (CoinPile coinPile in coinPiles)
+                coinPile.ReduceTime();
+            foreach (LifePack lifePack in lifePacks)
+                lifePack.ReduceTime();
         }
 
         public void UpdateGame()
         {
-            updateTankPositionOnMap();
-            updateCollectibles();
-        }
-
-        private void updateTankPositionOnMap()
-        {
             int i = 0;
-            while (i < tanks.Count)
+            while (i < coinPiles.Count)
             {
-                GameObject go = map[tanks[i].PositionX, tanks[i].PositionY];
-                if (go != null && go is CoinPile)
+                CoinPile coinPile = coinPiles[i];
+                if (map[coinPile.PositionX, coinPile.PositionY] == null)
                 {
-                    GameManager.Instance.GameEngine.RemoveCoinPile(tanks[i].PositionX, tanks[i].PositionY);
-                    map[tanks[i].PositionX, tanks[i].PositionY] = tanks[i];
+                    coinPiles.RemoveAt(i);
                 }
-                else if (go != null && go is LifePack)
+                else if (!(map[coinPile.PositionX, coinPile.PositionY] is CoinPile))
                 {
-                    GameManager.Instance.GameEngine.RemoveLifePack(tanks[i].PositionX, tanks[i].PositionY);
-                    map[tanks[i].PositionX, tanks[i].PositionY] = tanks[i];
+                    coinPiles.RemoveAt(i);
+                }
+                else if (coinPile.TimeLeft <= 0)
+                {
+                    coinPiles.RemoveAt(i);
+                    map[coinPile.PositionX, coinPile.PositionY] = null;
+                }
+                i++;
+            }
+            i = 0;
+            while (i < lifePacks.Count)
+            {
+                LifePack lifePack = lifePacks[i];
+                if (map[lifePack.PositionX, lifePack.PositionY] == null)
+                {
+                    lifePacks.RemoveAt(i);
+                }
+                else if (!(map[lifePack.PositionX, lifePack.PositionY] is LifePack))
+                {
+                    lifePacks.RemoveAt(i);
+                }
+                else if (lifePack.TimeLeft <= 0)
+                {
+                    lifePacks.RemoveAt(i);
+                    map[lifePack.PositionX, lifePack.PositionY] = null;
                 }
                 i++;
             }
         }
 
-        private void updateCollectibles()
-        {
-            int i = 0;
-            while (i < coinPiles.Count)
-            {
-                coinPiles[i].ReduceTime();
-                if (coinPiles[i].TimeLeft <= 0)
-                {
-                    RemoveCoinPile(coinPiles[i].PositionX, coinPiles[i].PositionY);
-                }
-                else
-                {
-                    i++;
-                }
-            }
-            i = 0;
-            while (i < lifePacks.Count)
-            {
-                lifePacks[i].ReduceTime();
-                if (lifePacks[i].TimeLeft <= 0)
-                {
-                    RemoveLifePack(lifePacks[i].PositionX, lifePacks[i].PositionY);
-                }
-                else
-                {
-                    i++;
-                }
-            }
-        }
-
-        #region Adders and Removers for lists
+        #region Adders lists
         public void AddTank(Tank tank)
         {
             map[tank.PositionX, tank.PositionY] = tank;
@@ -225,23 +215,6 @@ namespace Assets.Game
         {
             map[lifePack.PositionX, lifePack.PositionY] = lifePack;
             lifePacks.Add(lifePack);
-        }
-
-        public void RemoveBullet(Bullet bullet)
-        {
-            bullets.Remove(bullet);
-        }
-
-        public void RemoveCoinPile(int x, int y)
-        {
-            coinPiles.Remove((CoinPile)map[x,y]);
-            map[x, y] = null;
-        }
-
-        public void RemoveLifePack(int x, int y)
-        {
-            lifePacks.Remove((LifePack)map[x,y]);
-            map[x, y] = null;
         }
         #endregion
     }

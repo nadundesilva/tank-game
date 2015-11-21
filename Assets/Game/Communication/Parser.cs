@@ -162,6 +162,9 @@ namespace Assets.Game.Communication
 
         private void ParseGameMessage(string[] tokens)
         {
+            //Sending the clock for the game engine
+            GameManager.Instance.GameEngine.Clock();
+
             //changing the location of the players on the map
             int i = 0;
             while (i < tokens.Length - 1)
@@ -182,6 +185,8 @@ namespace Assets.Game.Communication
                 tank.Health = int.Parse(playerData[4]);
                 tank.Coins = int.Parse(playerData[5]);
                 tank.Points = int.Parse(playerData[6]);
+                
+                GameManager.Instance.GameEngine.Map[tank.PositionX, tank.PositionY] = tank;
 
                 i++;
             }
@@ -200,6 +205,13 @@ namespace Assets.Game.Communication
                 }
             }
             GameManager.Instance.GameEngine.BrickWalls = brickWalls;
+
+            //updating the game by removing the collectibles from the map if necessary
+            GameManager.Instance.GameEngine.UpdateGame();
+
+            //Calling AI for move if auto mode is on
+            if (GameManager.Instance.Mode == GameMode.AUTO)
+                GameManager.Instance.AI.CalculateMove();
         }
 
         private void ParseCoinPileMessage(string[] tokens)
@@ -220,15 +232,8 @@ namespace Assets.Game.Communication
 
         public void OnMessageReceived(object source, EventArgs a)
         {
-            GameManager.Instance.GameEngine.Clock();
-
             string message = ((MessageReceivedEventArgs)a).Message;
             Parse(message.Substring(0, message.Length - 1));
-
-            GameManager.Instance.GameEngine.UpdateGame();
-
-            if (GameManager.Instance.Mode == GameMode.AUTO)
-                GameManager.Instance.AI.CalculateMove();
         }
     }
 }
