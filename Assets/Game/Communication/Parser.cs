@@ -183,8 +183,6 @@ namespace Assets.Game.Communication
                 tank.Coins = int.Parse(playerData[5]);
                 tank.Points = int.Parse(playerData[6]);
 
-                GameManager.Instance.GameEngine.Map[tank.PositionX, tank.PositionY] = tank;
-
                 i++;
             }
 

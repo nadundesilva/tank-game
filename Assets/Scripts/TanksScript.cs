@@ -11,10 +11,12 @@ public class TanksScript : MonoBehaviour
     Vector3 originRotation;
     float tRotation;
 
+    float positionY;
+
     // Use this for initialization
     void Start()
     {
-
+        positionY = gameObject.transform.position.y;
     }
 
     // Update is called once per frame
@@ -45,7 +47,7 @@ public class TanksScript : MonoBehaviour
             tPosition = 0;
         }
 
-        transform.position = Vector3.Lerp(originPosition, new Vector3(destinationX * 80, transform.position.y, destinationZ * 80), tPosition);
+        transform.position = Vector3.Lerp(originPosition, new Vector3(destinationX * 80, positionY, destinationZ * 80), tPosition);
 
         tPosition += 0.1f;
     }

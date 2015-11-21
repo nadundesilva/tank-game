@@ -29,6 +29,11 @@ public class MainCameraScript : MonoBehaviour {
     private Vector3 defaultPosition;
     private Quaternion defaultRotation;
 
+    //For button position
+    private float centeredButtonPositionX;
+    private float playButtonPositionY;
+    private float defaultCameraLocationPositionY;
+
     //Public variables
     public Texture2D defaultCameraPositionButtonImage;
     public Texture2D playButtonImage;
@@ -57,6 +62,11 @@ public class MainCameraScript : MonoBehaviour {
         //Storing the default position
         defaultPosition = transform.position;
         defaultRotation = transform.rotation;
+
+        //Setting button positions
+        centeredButtonPositionX = Screen.width / 2 - 100;
+        playButtonPositionY = (Screen.height * 73) / 100;
+        defaultCameraLocationPositionY = (Screen.height * 11) / 20;
 
         //Setting references to gameobjects
         hudCanvas = GameObject.Find("HUDCanvas");
@@ -100,7 +110,7 @@ public class MainCameraScript : MonoBehaviour {
         {
             //setting the current player number
             GameObject.Find("HUDCanvas/CurrentPlayer/Value").GetComponent<Text>().text = (GameManager.Instance.GameEngine.PlayerNumber + 1).ToString();
-            
+
             //setting specific server messages
             string message = "";
             ServerMessage gameManagerMessage = GameManager.Instance.Message;
@@ -182,7 +192,7 @@ public class MainCameraScript : MonoBehaviour {
             string ip = GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text;
             string port = GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text;
 
-            if (GUI.Button(new Rect(Screen.width / 2 - 100, 550, 150, 75), new GUIContent(playButtonImage, "Click to play the game"))
+            if (GUI.Button(new Rect(centeredButtonPositionX, playButtonPositionY, 150, 75), new GUIContent(playButtonImage, "Click to play the game"))
                 && regexIP.Match(ip).Success && regexPort.Match(port).Success)
             {
                 GameManager.Instance.JoinServer(ip, int.Parse(port));
@@ -204,7 +214,7 @@ public class MainCameraScript : MonoBehaviour {
         //Drawing the button for restoring the default position of the camera if HUDCanvas is active
         if (hudCanvas.activeSelf)
         {
-            if (GUI.Button(new Rect(10, 425, 50, 50), new GUIContent(defaultCameraPositionButtonImage, "Click to restore default position")))
+            if (GUI.Button(new Rect(10, defaultCameraLocationPositionY, 50, 50), new GUIContent(defaultCameraPositionButtonImage, "Click to restore default position")))
             {
                 transform.position = defaultPosition;
                 transform.rotation = defaultRotation;
@@ -217,13 +227,13 @@ public class MainCameraScript : MonoBehaviour {
         if (escapeCanvas.activeSelf)
         {
             //Resume button
-            if (GUI.Button(new Rect(Screen.width / 2 - 100, 300, 200, 100), new GUIContent(resumeButtonImage, "Click to resume the game")))
+            if (GUI.Button(new Rect(centeredButtonPositionX, 300, 200, 100), new GUIContent(resumeButtonImage, "Click to resume the game")))
             {
                 hudCanvas.SetActive(true);
                 escapeCanvas.SetActive(false);
             }
             //Exit button
-            if (GUI.Button(new Rect(Screen.width / 2 - 100, 450, 200, 100), new GUIContent(exitButtonImage, "Click to resume the game")))
+            if (GUI.Button(new Rect(centeredButtonPositionX, 450, 200, 100), new GUIContent(exitButtonImage, "Click to resume the game")))
             {
                 Application.Quit();
             }

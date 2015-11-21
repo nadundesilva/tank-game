@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Assets.Game.GameEntities;
 using System.Timers;
@@ -20,10 +18,6 @@ namespace Assets.Game
             }
             set
             {
-                foreach (BrickWall b in brickWalls)
-                {
-                    map[b.PositionX, b.PositionX] = null;
-                }
                 brickWalls = value;
                 foreach (BrickWall b in brickWalls)
                 {
@@ -123,8 +117,6 @@ namespace Assets.Game
                 playerNumber = value;
             }
         }
-
-        private Timer timer;
         #endregion
 
         public GameEngine()
@@ -136,17 +128,13 @@ namespace Assets.Game
             tanks = new List<Tank>();
 
             bullets = new List<Bullet>();
+
             coinPiles = new List<CoinPile>();
             lifePacks = new List<LifePack>();
 
             map = new GameObject[10, 10];
 
             playerNumber = 0;
-
-            //Timer for updating the time left in collectibles
-            timer = new Timer();
-            timer.Interval = 10;
-            timer.Elapsed += updateCollectibles;
         }
 
         public void Clock()
@@ -161,10 +149,11 @@ namespace Assets.Game
 
         public void UpdateGame()
         {
-            UpdateTankPosition();
+            updateTankPositionOnMap();
+            updateCollectibles();
         }
 
-        private void UpdateTankPosition()
+        private void updateTankPositionOnMap()
         {
             int i = 0;
             while (i < tanks.Count)
@@ -173,16 +162,18 @@ namespace Assets.Game
                 if (go != null && go is CoinPile)
                 {
                     GameManager.Instance.GameEngine.RemoveCoinPile(tanks[i].PositionX, tanks[i].PositionY);
+                    map[tanks[i].PositionX, tanks[i].PositionY] = tanks[i];
                 }
                 else if (go != null && go is LifePack)
                 {
                     GameManager.Instance.GameEngine.RemoveLifePack(tanks[i].PositionX, tanks[i].PositionY);
+                    map[tanks[i].PositionX, tanks[i].PositionY] = tanks[i];
                 }
                 i++;
             }
         }
 
-        private void updateCollectibles(object source, EventArgs a)
+        private void updateCollectibles()
         {
             int i = 0;
             while (i < coinPiles.Count)
