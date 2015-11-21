@@ -54,10 +54,10 @@ public class MainCameraScript : MonoBehaviour {
         cameraDistance = transform.position.y;
 
         //Setting constraints for panning
-        minSpanX = -120;
-        maxSpanX = 780;
-        minSpanY = -10;
-        maxSpanY = 780;
+        minSpanX = transform.position.x - (Screen.width / 2);
+        maxSpanX = transform.position.x + (Screen.width / 2);
+        minSpanY = transform.position.z - (Screen.height / 2);
+        maxSpanY = transform.position.z + (Screen.height / 2);
 
         //Storing the default position
         defaultPosition = transform.position;
