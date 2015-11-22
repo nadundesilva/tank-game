@@ -12,6 +12,8 @@ ModelImporter:
     100008: Cube.001
     100010: Cube.002
     100012: Cylinder
+    100014: Edge
+    100016: Grid
     400000: //RootNode
     400002: Camera
     400004: Cube
@@ -19,18 +21,26 @@ ModelImporter:
     400008: Cube.001
     400010: Cube.002
     400012: Cylinder
+    400014: Edge
+    400016: Grid
     2300000: Cube
     2300002: Cube.001
     2300004: Cube.002
     2300006: Cylinder
+    2300008: Edge
+    2300010: Grid
     3300000: Cube
     3300002: Cube.001
     3300004: Cube.002
     3300006: Cylinder
+    3300008: Edge
+    3300010: Grid
     4300000: Cube
     4300002: Cube.001
     4300004: Cube.002
     4300006: Cylinder
+    4300008: Grid
+    4300010: Edge
   materials:
     importMaterials: 1
     materialName: 0

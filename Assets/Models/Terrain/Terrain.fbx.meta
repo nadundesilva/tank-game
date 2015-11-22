@@ -12,6 +12,11 @@ ModelImporter:
     100008: Plane_MeshPart1
     100010: Plane_MeshPart2
     100012: //RootNode
+    100014: Ground
+    100016: Ground_MeshPart0
+    100018: Ground_MeshPart1
+    100020: Ground_MeshPart2
+    100022: Illuminator
     400000: Camera
     400002: Lamp
     400004: Plane
@@ -19,15 +24,29 @@ ModelImporter:
     400008: Plane_MeshPart1
     400010: Plane_MeshPart2
     400012: //RootNode
+    400014: Ground
+    400016: Ground_MeshPart0
+    400018: Ground_MeshPart1
+    400020: Ground_MeshPart2
+    400022: Illuminator
     2300000: Plane_MeshPart0
     2300002: Plane_MeshPart1
     2300004: Plane_MeshPart2
+    2300006: Ground_MeshPart0
+    2300008: Ground_MeshPart1
+    2300010: Ground_MeshPart2
     3300000: Plane_MeshPart0
     3300002: Plane_MeshPart1
     3300004: Plane_MeshPart2
+    3300006: Ground_MeshPart0
+    3300008: Ground_MeshPart1
+    3300010: Ground_MeshPart2
     4300000: Plane_MeshPart0
     4300002: Plane_MeshPart1
     4300004: Plane_MeshPart2
+    4300006: Ground_MeshPart0
+    4300008: Ground_MeshPart1
+    4300010: Ground_MeshPart2
   materials:
     importMaterials: 1
     materialName: 0

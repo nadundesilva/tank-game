@@ -40,6 +40,7 @@ ModelImporter:
     100064: RightTrackPad
     100066: RightTrackPath
     100068: //RootNode
+    100070: Illuminator
     400000: Camera
     400002: Cylinder
     400004: Cylinder.000
@@ -75,6 +76,7 @@ ModelImporter:
     400064: RightTrackPad
     400066: RightTrackPath
     400068: //RootNode
+    400070: Illuminator
     2300000: Cylinder
     2300002: Cylinder.000
     2300004: Cylinder.001
@@ -107,6 +109,7 @@ ModelImporter:
     2300058: RightTrack
     2300060: RightTrackPad
     2300062: RightTrackPath
+    2300064: //RootNode
     3300000: Cylinder
     3300002: Cylinder.000
     3300004: Cylinder.001
@@ -139,6 +142,7 @@ ModelImporter:
     3300058: RightTrack
     3300060: RightTrackPad
     3300062: RightTrackPath
+    3300064: //RootNode
     4300000: HullBottom
     4300002: Cylinder.023
     4300004: Cylinder.019
