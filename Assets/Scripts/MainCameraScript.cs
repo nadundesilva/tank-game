@@ -105,7 +105,15 @@ public class MainCameraScript : MonoBehaviour {
             //Rotating
             transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), (-1) * Input.GetAxis("Mouse X"), 0) * Time.deltaTime, 1);
         }
+        
+        //Zooming
+        cameraDistance -= Input.GetAxis("Mouse ScrollWheel") * speed * 50;
+        cameraDistance = Mathf.Clamp(cameraDistance, cameraDistanceMin, cameraDistanceMax);
+        Vector3 zoomVector = new Vector3(transform.position.x, cameraDistance, transform.position.z);
+        transform.position = zoomVector;
+        #endregion
 
+        //For updating the player number and server message
         if (hudCanvas.activeSelf)
         {
             //setting the current player number
@@ -115,42 +123,36 @@ public class MainCameraScript : MonoBehaviour {
             string message = "";
             ServerMessage gameManagerMessage = GameManager.Instance.Message;
             if (gameManagerMessage == ServerMessage.ALREADY_ADDED)
-                    message = "You have been already added to the server";
+                message = "You have been already added to the server";
             else if (gameManagerMessage == ServerMessage.CELL_OCCUPIED)
-                    message = "The cell had been already occupied";
+                message = "The cell had been already occupied";
             else if (gameManagerMessage == ServerMessage.DEAD)
-                    message = "You are dead";
+                message = "You are dead";
             else if (gameManagerMessage == ServerMessage.GAME_ALREADY_STARTED)
-                    message = "Game had already started";
+                message = "Game had already started";
             else if (gameManagerMessage == ServerMessage.GAME_FINISHED)
-                    message = "Game had finished";
+                message = "Game had finished";
             else if (gameManagerMessage == ServerMessage.GAME_HAS_FINISHED)
-                    message = "Game had finished";
+                message = "Game had finished";
             else if (gameManagerMessage == ServerMessage.GAME_NOT_STARTED_YET)
-                    message = "Game had not yet started";
+                message = "Game had not yet started";
             else if (gameManagerMessage == ServerMessage.INVALID_CELL)
-                    message = "Invalid Cell";
+                message = "Invalid Cell";
             else if (gameManagerMessage == ServerMessage.NOT_A_VALID_CONTESTANT)
-                    message = "You are not a valid contestant";
+                message = "You are not a valid contestant";
             else if (gameManagerMessage == ServerMessage.OBSTACLE)
-                    message = "Obstacle in your way";
+                message = "Obstacle in your way";
             else if (gameManagerMessage == ServerMessage.PLAYERS_FULL)
-                    message = "No vacancies for you to join";
+                message = "No vacancies for you to join";
             else if (gameManagerMessage == ServerMessage.TOO_QUICK)
-                    message = "You have to wait for one second before moving again";
+                message = "You have to wait for one second before moving again";
             else if (gameManagerMessage == ServerMessage.PITFALL)
                 message = "You fell into a pit of water and died";
-            GameObject.Find("HUDCanvas/HUDTop/ServerMessage").GetComponent<Text>().text = message; 
+            GameObject.Find("HUDCanvas/HUDTop/ServerMessage").GetComponent<Text>().text = message;
         }
 
-        //Zooming
-        cameraDistance -= Input.GetAxis("Mouse ScrollWheel") * speed * 50;
-        cameraDistance = Mathf.Clamp(cameraDistance, cameraDistanceMin, cameraDistanceMax);
-        Vector3 zoomVector = new Vector3(transform.position.x, cameraDistance, transform.position.z);
-        transform.position = zoomVector;
-        #endregion
-
         #region Checking for pressed buttons
+        //For opening the escape canvas
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameLauncherCanvas.activeSelf) {
@@ -161,6 +163,7 @@ public class MainCameraScript : MonoBehaviour {
             }
         }
 
+        //For moving the tank if the game in in manual mode
         if (GameManager.Instance.Mode == GameMode.MANUAL)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))

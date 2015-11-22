@@ -41,6 +41,31 @@ ModelImporter:
     100066: RightTrackPath
     100068: //RootNode
     100070: Illuminator
+    100072: GunHolder
+    100074: Hull
+    100076: WheelHolderLeft01
+    100078: WheelHolderLeft02
+    100080: WheelHolderLeft03
+    100082: WheelHolderLeft04
+    100084: WheelHolderLeft05
+    100086: WheelHolderRight01
+    100088: WheelHolderRight02
+    100090: WheelHolderRight03
+    100092: WheelHolderRight04
+    100094: WheelHolderRight05
+    100096: WheelLeft01
+    100098: WheelLeft02
+    100100: WheelLeft03
+    100102: WheelLeft04
+    100104: WheelLeft05
+    100106: WheelRight01
+    100108: WheelRight02
+    100110: WheelRight03
+    100112: WheelRight04
+    100114: WheelRight05
+    100116: GunBarrel
+    100118: GunBarrelEnd
+    100120: GunBarrelAttacher
     400000: Camera
     400002: Cylinder
     400004: Cylinder.000
@@ -77,6 +102,31 @@ ModelImporter:
     400066: RightTrackPath
     400068: //RootNode
     400070: Illuminator
+    400072: GunHolder
+    400074: Hull
+    400076: WheelHolderLeft01
+    400078: WheelHolderLeft02
+    400080: WheelHolderLeft03
+    400082: WheelHolderLeft04
+    400084: WheelHolderLeft05
+    400086: WheelHolderRight01
+    400088: WheelHolderRight02
+    400090: WheelHolderRight03
+    400092: WheelHolderRight04
+    400094: WheelHolderRight05
+    400096: WheelLeft01
+    400098: WheelLeft02
+    400100: WheelLeft03
+    400102: WheelLeft04
+    400104: WheelLeft05
+    400106: WheelRight01
+    400108: WheelRight02
+    400110: WheelRight03
+    400112: WheelRight04
+    400114: WheelRight05
+    400116: GunBarrel
+    400118: GunBarrelEnd
+    400120: GunBarrelAttacher
     2300000: Cylinder
     2300002: Cylinder.000
     2300004: Cylinder.001
@@ -110,6 +160,31 @@ ModelImporter:
     2300060: RightTrackPad
     2300062: RightTrackPath
     2300064: //RootNode
+    2300066: GunHolder
+    2300068: Hull
+    2300070: WheelHolderLeft01
+    2300072: WheelHolderLeft02
+    2300074: WheelHolderLeft03
+    2300076: WheelHolderLeft04
+    2300078: WheelHolderLeft05
+    2300080: WheelHolderRight01
+    2300082: WheelHolderRight02
+    2300084: WheelHolderRight03
+    2300086: WheelHolderRight04
+    2300088: WheelHolderRight05
+    2300090: WheelLeft01
+    2300092: WheelLeft02
+    2300094: WheelLeft03
+    2300096: WheelLeft04
+    2300098: WheelLeft05
+    2300100: WheelRight01
+    2300102: WheelRight02
+    2300104: WheelRight03
+    2300106: WheelRight04
+    2300108: WheelRight05
+    2300110: GunBarrel
+    2300112: GunBarrelEnd
+    2300114: GunBarrelAttacher
     3300000: Cylinder
     3300002: Cylinder.000
     3300004: Cylinder.001
@@ -143,6 +218,31 @@ ModelImporter:
     3300060: RightTrackPad
     3300062: RightTrackPath
     3300064: //RootNode
+    3300066: GunHolder
+    3300068: Hull
+    3300070: WheelHolderLeft01
+    3300072: WheelHolderLeft02
+    3300074: WheelHolderLeft03
+    3300076: WheelHolderLeft04
+    3300078: WheelHolderLeft05
+    3300080: WheelHolderRight01
+    3300082: WheelHolderRight02
+    3300084: WheelHolderRight03
+    3300086: WheelHolderRight04
+    3300088: WheelHolderRight05
+    3300090: WheelLeft01
+    3300092: WheelLeft02
+    3300094: WheelLeft03
+    3300096: WheelLeft04
+    3300098: WheelLeft05
+    3300100: WheelRight01
+    3300102: WheelRight02
+    3300104: WheelRight03
+    3300106: WheelRight04
+    3300108: WheelRight05
+    3300110: GunBarrel
+    3300112: GunBarrelEnd
+    3300114: GunBarrelAttacher
     4300000: HullBottom
     4300002: Cylinder.023
     4300004: Cylinder.019
@@ -175,6 +275,33 @@ ModelImporter:
     4300058: LeftTrackPad
     4300060: RightTrack
     4300062: RightTrackPad
+    4300064: Hull
+    4300066: GunHolder
+    4300068: WheelHolderRight03
+    4300070: WheelRight01
+    4300072: WheelRight03
+    4300074: WheelHolderRight01
+    4300076: WheelRight04
+    4300078: WheelHolderRight04
+    4300080: WheelRight05
+    4300082: WheelHolderRight05
+    4300084: WheelRight02
+    4300086: WheelHolderRight02
+    4300088: WheelHolderLeft02
+    4300090: WheelHolderLeft04
+    4300092: WheelHolderLeft05
+    4300094: WheelLeft01
+    4300096: WheelLeft04
+    4300098: WheelLeft02
+    4300100: WheelHolderLeft01
+    4300102: WheelHolderLeft03
+    4300104: WheelLeft03
+    4300106: WheelLeft05
+    4300108: GunBarrel
+    4300110: GunBarrelEnd
+    4300112: GunBarrelAttacher
+    9500000: //RootNode
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0

@@ -11,12 +11,14 @@ ModelImporter:
     100006: Camera
     100008: Placeholder
     100010: Wall
+    100012: Illuminator
     400000: //RootNode
     400002: Cube
     400004: Sphere.001
     400006: Camera
     400008: Placeholder
     400010: Wall
+    400012: Illuminator
     2300000: Cube
     2300002: Sphere.001
     2300004: //RootNode
