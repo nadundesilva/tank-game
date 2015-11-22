@@ -49,8 +49,8 @@ public class MainCameraScript : MonoBehaviour {
     void Start ()
     {
         //Setting constraints and initial location for zooming
-        cameraDistanceMax = 505;
-        cameraDistanceMin = 20;
+        cameraDistanceMax = 1055;
+        cameraDistanceMin = 70;
         cameraDistance = transform.position.y;
 
         //Setting constraints for panning
