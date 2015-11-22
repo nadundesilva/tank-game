@@ -202,7 +202,7 @@ namespace Assets.Game
 
         public void AddBullet(Bullet bullet)
         {
-            bullets.Add(bullet);
+            bullets.Insert(0, bullet);
         }
 
         public void AddCoinPile(CoinPile coinPile)

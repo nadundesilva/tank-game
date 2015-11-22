@@ -49,8 +49,8 @@ public class MainCameraScript : MonoBehaviour {
     void Start ()
     {
         //Setting constraints and initial location for zooming
-        cameraDistanceMax = 830;
-        cameraDistanceMin = 130;
+        cameraDistanceMax = 505;
+        cameraDistanceMin = 20;
         cameraDistance = transform.position.y;
 
         //Setting constraints for panning
@@ -78,8 +78,8 @@ public class MainCameraScript : MonoBehaviour {
         escapeCanvas.SetActive(false);
 
         //Setting default port and ip on gameLauncher canvas
-        GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text = GameManager.Instance.Client.ServerIP;
-        GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text = GameManager.Instance.Client.ServerPort.ToString();
+        GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text = GameManager.Instance.ServerIP;
+        GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text = GameManager.Instance.ServerPort.ToString();
         GameObject.Find("GameLauncherCanvas/AutoModeToggle").GetComponent<Toggle>().isOn = (GameManager.Instance.Mode == GameMode.AUTO);
     }
 
@@ -164,15 +164,15 @@ public class MainCameraScript : MonoBehaviour {
         if (GameManager.Instance.Mode == GameMode.MANUAL)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
-                GameManager.Instance.Client.SendData("DOWN#");
+                GameManager.Instance.CurrentTank.MoveDown();
             else if (Input.GetKeyDown(KeyCode.RightArrow))
-                GameManager.Instance.Client.SendData("RIGHT#");
+                GameManager.Instance.CurrentTank.MoveRight();
             else if (Input.GetKeyDown(KeyCode.DownArrow))
-                GameManager.Instance.Client.SendData("UP#");
+                GameManager.Instance.CurrentTank.MoveUp();
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
-                GameManager.Instance.Client.SendData("LEFT#");
+                GameManager.Instance.CurrentTank.MoveLeft();
             else if (Input.GetKeyDown(KeyCode.Space))
-                GameManager.Instance.Client.SendData("SHOOT#");
+                GameManager.Instance.CurrentTank.Shoot();
         }
         #endregion
     }

@@ -7,6 +7,7 @@ namespace Assets.Game
 {
     class AI
     {
+        //Calculates the best move based on the state of the game
         public void CalculateMove()
         {
 

@@ -15,12 +15,19 @@ namespace Assets.Game
             }
         }
 
-        private Connection client;
-        public Connection Client
+        private Connection connection;
+        public string ServerIP
         {
             get
             {
-                return client;
+                return connection.ServerIP;
+            }
+        }
+        public int ServerPort
+        {
+            get
+            {
+                return connection.ServerPort;
             }
         }
 
@@ -34,6 +41,7 @@ namespace Assets.Game
                 return ai;
             }
         }
+        public TankMover CurrentTank;
 
         private GameMode mode;
         public GameMode Mode
@@ -107,7 +115,7 @@ namespace Assets.Game
         public void Initialize()
         {
             gameEngine = new GameEngine();
-            client = new Connection();
+            connection = new Connection();
             parser = new Parser();
             ai = new AI();
 
@@ -120,24 +128,24 @@ namespace Assets.Game
         public void JoinServer(string ip, int port)
         {
             //connecting the messageReceived event to the handler
-            client.MessageReceived += parser.OnMessageReceived;
+            connection.MessageReceived += parser.OnMessageReceived;
 
-            client.ServerIP = ip;
-            client.ServerPort = port;
+            connection.ServerIP = ip;
+            connection.ServerPort = port;
             try {
-                client.StartConnection();
-                client.StartReceiving();
+                connection.StartConnection();
+                connection.StartReceiving();
                 error = GameError.NO_ERROR;
             } catch(SocketException) {
                 error = GameError.NO_SERVER_DETECTED;
             }
         }
 
-        public void RestartServer()
+        public void RestartConnection()
         {
-            string ip = client.ServerIP;
-            int port = client.ServerPort;
-            client = new Connection();
+            string ip = connection.ServerIP;
+            int port = connection.ServerPort;
+            connection = new Connection();
             JoinServer(ip, port);
         }
 
@@ -145,6 +153,34 @@ namespace Assets.Game
         {
             Initialize();
             System.GC.Collect();
+        }
+
+        public struct TankMover
+        {
+            public void MoveUp()
+            {
+                GameManager.Instance.connection.SendData("UP#");
+            }
+
+            public void MoveRight()
+            {
+                GameManager.Instance.connection.SendData("RIGHT#");
+            }
+
+            public void MoveDown()
+            {
+                GameManager.Instance.connection.SendData("DOWN#");
+            }
+
+            public void MoveLeft()
+            {
+                GameManager.Instance.connection.SendData("LEFT#");
+            }
+
+            public void Shoot()
+            {
+                GameManager.Instance.connection.SendData("SHOOT#");
+            }
         }
     }
 
