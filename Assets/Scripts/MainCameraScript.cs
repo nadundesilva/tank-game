@@ -109,7 +109,7 @@ public class MainCameraScript : MonoBehaviour {
         if (hudCanvas.activeSelf)
         {
             //setting the current player number
-            GameObject.Find("HUDCanvas/CurrentPlayer/Value").GetComponent<Text>().text = (GameManager.Instance.GameEngine.PlayerNumber + 1).ToString();
+            GameObject.Find("HUDCanvas/HUDTop/CurrentPlayer").GetComponent<Text>().text = "Player Number : 0" + (GameManager.Instance.GameEngine.PlayerNumber + 1);
 
             //setting specific server messages
             string message = "";
@@ -140,7 +140,7 @@ public class MainCameraScript : MonoBehaviour {
                     message = "You have to wait for one second before moving again";
             else if (gameManagerMessage == ServerMessage.PITFALL)
                 message = "You fell into a pit of water and died";
-            GameObject.Find("HUDCanvas/ServerMessage").GetComponent<Text>().text = message; 
+            GameObject.Find("HUDCanvas/HUDTop/ServerMessage").GetComponent<Text>().text = message; 
         }
 
         //Zooming

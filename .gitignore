@@ -1,4 +1,5 @@
 /obj/
+/obj/Debug/
 /Temp/
 *.suo
 *.user
