@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
-using Assets.Game;
 using UnityEngine.UI;
+
+using Assets.Game;
 
 public class PointCoinCountScript : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-        //gameObject.SetActive(false);
+	void Start ()
+    {
+
 	}
 	
 	// Update is called once per frame

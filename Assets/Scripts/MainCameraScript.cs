@@ -1,125 +1,137 @@
 ﻿using UnityEngine;
-using Assets.Game;
 using UnityEngine.UI;
+
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+
+using Assets.Game.GameEntities;
+using Assets.Game;
 
 public class MainCameraScript : MonoBehaviour {
 
-    //Speed for panning. rotating and zooming
+    // Speed for panning. rotating and zooming
     private float speed = 20;
 
-    //For panning to store the position where the mouse was clicked down
+    // For panning to store the position where the mouse was clicked down
     private Vector3 dragOrigin;
     private Vector3 origin;
 
-    //To store the Y value of location for zooming
-    float cameraDistance;
+    // To store the Y value of location for zooming
+    private float cameraDistance;
 
-    //Constraints in panning
+    // Constraints in panning
     private float minSpanX;
     private float maxSpanX;
     private float minSpanY;
     private float maxSpanY;
 
-    //Constraints for zooming
+    // Constraints for zooming
     private float cameraDistanceMax;
     private float cameraDistanceMin;
 
-    //For storing the default position
+    // For storing the default position
     private Vector3 defaultPosition;
     private Quaternion defaultRotation;
 
-    //For button position
+    // For button position
     private float centeredButtonPositionX;
     private float playButtonPositionY;
     private float defaultCameraLocationPositionY;
 
-    //Public variables
+    // Public variables
     public Texture2D defaultCameraPositionButtonImage;
     public Texture2D playButtonImage;
     public Texture2D resumeButtonImage;
     public Texture2D exitButtonImage;
 
-    //References to canvases
-    private GameObject hudCanvas;
-    private GameObject gameLauncherCanvas;
-    private GameObject escapeCanvas;
+    // References to canvases
+    private UnityEngine.GameObject hudCanvas;
+    private UnityEngine.GameObject gameLauncherCanvas;
+    private UnityEngine.GameObject escapeCanvas;
 
-    //Use this for initialization
+    // Game object of the current Tank
+    private UnityEngine.GameObject tank;
+
+    // Use this for initialization
     void Start ()
     {
-        //Setting constraints and initial location for zooming
+        // Setting constraints and initial location for zooming
         cameraDistanceMax = 1055;
         cameraDistanceMin = 70;
         cameraDistance = transform.position.y;
 
-        //Setting constraints for panning
-        minSpanX = transform.position.x - (Screen.width / 2);
-        maxSpanX = transform.position.x + (Screen.width / 2);
-        minSpanY = transform.position.z - (Screen.height / 2);
-        maxSpanY = transform.position.z + (Screen.height / 2);
+        // Setting constraints for panning
+        minSpanX = transform.position.x - (Screen.width * 6 / 10);
+        maxSpanX = transform.position.x + (Screen.width * 6 / 10);
+        minSpanY = transform.position.z - (Screen.height * 6 / 10);
+        maxSpanY = transform.position.z + (Screen.height * 6 / 10);
 
-        //Storing the default position
+        // Storing the default position
         defaultPosition = transform.position;
         defaultRotation = transform.rotation;
 
-        //Setting button positions
+        // Setting button positions
         centeredButtonPositionX = Screen.width / 2 - 100;
         playButtonPositionY = (Screen.height * 73) / 100;
         defaultCameraLocationPositionY = (Screen.height * 11) / 20;
 
-        //Setting references to gameobjects
-        hudCanvas = GameObject.Find("HUDCanvas");
-        gameLauncherCanvas = GameObject.Find("GameLauncherCanvas");
-        escapeCanvas = GameObject.Find("EscapeCanvas");
+        // Setting references to gameobjects
+        hudCanvas = UnityEngine.GameObject.Find("HUDCanvas");
+        gameLauncherCanvas = UnityEngine.GameObject.Find("GameLauncherCanvas");
+        escapeCanvas = UnityEngine.GameObject.Find("EscapeCanvas");
 
-        //Deactivating unused canvases
+        // Deactivating unused canvases
         hudCanvas.SetActive(false);
         escapeCanvas.SetActive(false);
 
-        //Setting default port and ip on gameLauncher canvas
-        GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text = GameManager.Instance.ServerIP;
-        GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text = GameManager.Instance.ServerPort.ToString();
-        GameObject.Find("GameLauncherCanvas/AutoModeToggle").GetComponent<Toggle>().isOn = (GameManager.Instance.Mode == GameMode.AUTO);
+        // Setting default port and ip on gameLauncher canvas
+        UnityEngine.GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text = GameManager.Instance.ServerIP;
+        UnityEngine.GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text = GameManager.Instance.ServerPort.ToString();
+        UnityEngine.GameObject.Find("GameLauncherCanvas/AutoModeToggle").GetComponent<Toggle>().isOn = (GameManager.Instance.Mode == GameMode.AUTO);
     }
 
     // Update is called once per frame
     void Update()
     {
         #region Moving the main camera using mouse
-        if (Input.GetMouseButtonDown(2))    //Storing the origin of the click for panning
+        if (Input.GetMouseButtonDown(2))    // Storing the origin of the click for panning
         {
             dragOrigin = Input.mousePosition;
             origin = transform.position;
             return;
         }
 
-        if (Input.GetMouseButton(2)) //When middle mouse button is clicked
+        if (Input.GetMouseButton(2)) // When middle mouse button is clicked
         {
-            //Panning
+            // Panning
             Vector3 pos = dragOrigin - Input.mousePosition;
             transform.position = new Vector3(Mathf.Clamp(origin.x + pos.x, minSpanX, maxSpanX), 0, Mathf.Clamp(origin.z + pos.y, minSpanY, maxSpanY));
         }
-        else if (Input.GetMouseButton(1))   //When right mouse button is clicked
+        else if (Input.GetMouseButton(1))   // When right mouse button is clicked
         {
-            //Rotating
+            // Rotating
             transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), (-1) * Input.GetAxis("Mouse X"), 0) * Time.deltaTime, 1);
         }
         
-        //Zooming
+        // Zooming
         cameraDistance -= Input.GetAxis("Mouse ScrollWheel") * speed * 50;
         cameraDistance = Mathf.Clamp(cameraDistance, cameraDistanceMin, cameraDistanceMax);
         Vector3 zoomVector = new Vector3(transform.position.x, cameraDistance, transform.position.z);
         transform.position = zoomVector;
         #endregion
 
-        //For updating the player number and server message
+        // For updating the player number and server message
         if (hudCanvas.activeSelf)
         {
-            //setting the current player number
-            GameObject.Find("HUDCanvas/HUDTop/CurrentPlayer").GetComponent<Text>().text = "Player Number : 0" + (GameManager.Instance.GameEngine.PlayerNumber + 1);
+            // setting the current player number
+            string currentPlayerText = "";
+            if (GameManager.Instance.GameEngine.PlayerNumber == -1)
+                currentPlayerText = "Pending";
+            else
+                currentPlayerText = "0" + (GameManager.Instance.GameEngine.PlayerNumber + 1);
+            UnityEngine.GameObject.Find("HUDCanvas/HUDTop/CurrentPlayer").GetComponent<Text>().text = "Player Number : " + currentPlayerText;
 
-            //setting specific server messages
+            // setting specific server messages
             string message = "";
             ServerMessage gameManagerMessage = GameManager.Instance.Message;
             if (gameManagerMessage == ServerMessage.ALREADY_ADDED)
@@ -148,11 +160,61 @@ public class MainCameraScript : MonoBehaviour {
                 message = "You have to wait for one second before moving again";
             else if (gameManagerMessage == ServerMessage.PITFALL)
                 message = "You fell into a pit of water and died";
-            GameObject.Find("HUDCanvas/HUDTop/ServerMessage").GetComponent<Text>().text = message;
+            else if (GameManager.Instance.State == GameState.INITIATED)
+                message = "Waiting for game to start";
+            else if (GameManager.Instance.State == GameState.PROGRESSING)
+            {
+                if (GameManager.Instance.Mode == GameMode.AUTO)
+                    message = "Auto Game Mode - AI";
+                else if (GameManager.Instance.Mode == GameMode.MANUAL)
+                    message = "Manual Game Mode";
+                int[] time = GameManager.Instance.GameEngine.GameTime;
+                message += "\n" + time[0].ToString("00") + " : " + time[1].ToString("00");
+
+            }
+            else if (GameManager.Instance.State == GameState.ENDED)
+            {
+                message = "Game Finished - ";
+                List<Tank> tanks = GameManager.Instance.GameEngine.Tanks;
+
+                List<int> winners = new List<int>();
+                winners.Add(0);
+                int winnerPointCount = tanks[0].Points;
+
+                int i = 0;
+                while (i < tanks.Count)
+                {
+                    if (tanks[i].Points > winnerPointCount)
+                    {
+                        winners.Clear();
+                        winners.Add(i);
+                    }
+                    else if (tanks[i].Points == winnerPointCount)
+                    {
+                        winners.Add(i);
+                    }
+                    i++;
+                }
+                if (winners.Count == 1)
+                    message += "Player 0" + tanks[winners[0]].PlayerNumber + " won";
+                else if (winners.Count > 1)
+                {
+                    message += "Players 0" + tanks[winners[0]].PlayerNumber;
+                    i = 1;
+                    while (i <winners.Count - 1)
+                    {
+                        message += ", 0" + tanks[winners[i]].PlayerNumber;
+                        i++;
+                    }
+                    message += " & 0" + tanks[winners[i]].PlayerNumber + "won";
+                }
+            }
+
+            UnityEngine.GameObject.Find("HUDCanvas/HUDTop/StatusMessage").GetComponent<Text>().text = message;
         }
 
         #region Checking for pressed buttons
-        //For opening the escape canvas
+        // For opening the escape canvas
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameLauncherCanvas.activeSelf) {
@@ -163,8 +225,8 @@ public class MainCameraScript : MonoBehaviour {
             }
         }
 
-        //For moving the tank if the game in in manual mode
-        if (GameManager.Instance.Mode == GameMode.MANUAL)
+        // For moving the tank if the game in in manual mode
+        if (GameManager.Instance.Mode == GameMode.MANUAL && GameManager.Instance.State == GameState.PROGRESSING)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
                 GameManager.Instance.CurrentTank.MoveDown();
@@ -180,20 +242,20 @@ public class MainCameraScript : MonoBehaviour {
         #endregion
     }
 
-    //For drawing GUI components
+    // For drawing GUI components
     void OnGUI()
     {
         Color c = GUI.backgroundColor;
         GUI.backgroundColor = Color.clear;
 
-        //Drawing the button for starting the game if the GameLauncherCanvas is active
+        // Drawing the button for starting the game if the GameLauncherCanvas is active
         if (gameLauncherCanvas.activeSelf)
         {
             Regex regexIP = new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b");
             Regex regexPort = new Regex(@"^[0-9]+$");
 
-            string ip = GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text;
-            string port = GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text;
+            string ip = UnityEngine.GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text;
+            string port = UnityEngine.GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text;
 
             if (GUI.Button(new Rect(centeredButtonPositionX, playButtonPositionY, 150, 75), new GUIContent(playButtonImage, "Click to play the game"))
                 && regexIP.Match(ip).Success && regexPort.Match(port).Success)
@@ -201,7 +263,8 @@ public class MainCameraScript : MonoBehaviour {
                 GameManager.Instance.JoinServer(ip, int.Parse(port));
                 if (GameManager.Instance.Error == GameError.NO_ERROR)
                 {
-                    if (GameObject.Find("GameLauncherCanvas/AutoModeToggle").GetComponent<Toggle>().isOn)
+                    tank = UnityEngine.GameObject.Find("TanksGroup/Tank" + GameManager.Instance.GameEngine.PlayerNumber);
+                    if (UnityEngine.GameObject.Find("GameLauncherCanvas/AutoModeToggle").GetComponent<Toggle>().isOn)
                     {
                         GameManager.Instance.Mode = GameMode.AUTO;
                     } else
@@ -214,7 +277,7 @@ public class MainCameraScript : MonoBehaviour {
             }
         }
 
-        //Drawing the button for restoring the default position of the camera if HUDCanvas is active
+        // Drawing the button for restoring the default position of the camera if HUDCanvas is active
         if (hudCanvas.activeSelf)
         {
             if (GUI.Button(new Rect(10, defaultCameraLocationPositionY, 50, 50), new GUIContent(defaultCameraPositionButtonImage, "Click to restore default position")))
@@ -223,19 +286,18 @@ public class MainCameraScript : MonoBehaviour {
                 transform.rotation = defaultRotation;
                 transform.position = new Vector3(transform.position.x, cameraDistanceMax, transform.position.z);
             }
-
         }
 
-        //Drawing the buttons on the escape canvas
+        // Drawing the buttons on the escape canvas
         if (escapeCanvas.activeSelf)
         {
-            //Resume button
+            // Resume button
             if (GUI.Button(new Rect(centeredButtonPositionX, 300, 200, 100), new GUIContent(resumeButtonImage, "Click to resume the game")))
             {
                 hudCanvas.SetActive(true);
                 escapeCanvas.SetActive(false);
             }
-            //Exit button
+            // Exit button
             if (GUI.Button(new Rect(centeredButtonPositionX, 450, 200, 100), new GUIContent(exitButtonImage, "Click to resume the game")))
             {
                 Application.Quit();

@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
+
 using System.Collections.Generic;
+
 using Assets.Game.GameEntities;
 using Assets.Game;
 
 public class BrickWallsGroupScript : MonoBehaviour {
-    List<UnityEngine.GameObject> gameObjects;
+    private List<UnityEngine.GameObject> gameObjects;
 
-    Quaternion defaultRotation;
+    private Quaternion defaultRotation;
+    private float transformY;
 
-    float transformY;
+    private int gridSquareSize;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +22,10 @@ public class BrickWallsGroupScript : MonoBehaviour {
         
         defaultRotation = go.transform.rotation;
         transformY = go.transform.position.y;
+
+        // Setting animation parameters
+        Constants constants = new Constants();
+        gridSquareSize = constants.GridSquareSize;
     }
 	
 	// Update is called once per frame
@@ -29,12 +36,12 @@ public class BrickWallsGroupScript : MonoBehaviour {
         while (i < brickWalls.Count && i < gameObjects.Count)
         {
             gameObjects[i].SetActive(true);
-            gameObjects[i].transform.position = new Vector3(brickWalls[i].PositionX * 80, transformY, brickWalls[i].PositionY * 80);
+            gameObjects[i].transform.position = new Vector3(brickWalls[i].PositionX * gridSquareSize, transformY, brickWalls[i].PositionY * gridSquareSize);
             i++;
         }
         while (i < brickWalls.Count)
         {
-            UnityEngine.GameObject go = (UnityEngine.GameObject) Instantiate(gameObjects[0], new Vector3(brickWalls[i].PositionX * 80, transformY, brickWalls[i].PositionY * 80), defaultRotation);
+            UnityEngine.GameObject go = (UnityEngine.GameObject) Instantiate(gameObjects[0], new Vector3(brickWalls[i].PositionX * gridSquareSize, transformY, brickWalls[i].PositionY * gridSquareSize), defaultRotation);
             gameObjects.Add(go);
             i++;
         }

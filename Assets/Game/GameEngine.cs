@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Assets.Game.GameEntities;
-using System.Timers;
 
 namespace Assets.Game
 {
@@ -96,6 +94,7 @@ namespace Assets.Game
             }
         }
 
+        // [0,0] refers to the top left corner square of the map
         private GameObject[,] map;
         public GameObject[,] Map
         {
@@ -117,10 +116,39 @@ namespace Assets.Game
                 playerNumber = value;
             }
         }
+
+        private int[] gameTime;
+        public int[] GameTime
+        {
+            get
+            {
+                return gameTime;
+            }
+        }
+
+        private int mapHeight;
+        public int MapHeight
+        {
+            get
+            {
+                return mapHeight;
+            }
+        }
+
+        private int mapWidth;
+        public int MapWidth
+        {
+            get
+            {
+                return mapWidth;
+            }
+        }
         #endregion
 
         public GameEngine()
         {
+            Constants constants = new Constants();
+
             brickWalls = new List<BrickWall>();
             stoneWalls = new List<StoneWall>();
             water = new List<Water>();
@@ -132,23 +160,38 @@ namespace Assets.Game
             coinPiles = new List<CoinPile>();
             lifePacks = new List<LifePack>();
 
-            map = new GameObject[10, 10];
+            mapHeight = constants.MapHeight;
+            mapWidth = constants.MapWidth;
+            map = new GameObject[mapWidth, mapHeight];
 
-            playerNumber = 0;
+            gameTime = new int[] { constants.GameTimeMinutes, constants.GameTimeSeconds };
+
+            playerNumber = -1;
         }
 
         public void Clock()
         {
-            //Moving the bullets
+            // Moving the bullets
             foreach (Bullet bullet in bullets)
                 if (!bullet.Move())
                     bullets.Remove(bullet);
 
-            //Reducing time of collectibles
+            // Reducing time of collectibles
             foreach (CoinPile coinPile in coinPiles)
                 coinPile.ReduceTime();
             foreach (LifePack lifePack in lifePacks)
                 lifePack.ReduceTime();
+
+            // Increasing the game time
+            if (gameTime[0] != 0 || gameTime[1] != 0)
+            {
+                gameTime[1]--;
+                if (gameTime[1] == -1)
+                {
+                    gameTime[0] -= 1;
+                    gameTime[1] = 59;
+                }
+            }
         }
 
         public void UpdateGame()

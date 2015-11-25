@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
+
 using System.Collections.Generic;
+
 using Assets.Game.GameEntities;
 using Assets.Game;
 
 public class BulletsGroupScript : MonoBehaviour {
-    List<UnityEngine.GameObject> gameObjects;
-    List<float> tPositions;
-    List<Vector3> originPositions;
+    private List<UnityEngine.GameObject> gameObjects;
+    private List<float> tPositions;
+    private List<Vector3> originPositions;
 
-    Quaternion defaultRotation;
+    private Quaternion defaultRotation;
+    private float transformY;
 
-    float transformY;
+    private int gridSquareSize;
+    private float deltaTime;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +29,11 @@ public class BulletsGroupScript : MonoBehaviour {
 
         defaultRotation = go.transform.rotation;
         transformY = go.transform.position.y;
+
+        // Setting animation parameters
+        Constants constants = new Constants();
+        gridSquareSize = constants.GridSquareSize;
+        deltaTime = constants.DeltaTime;
     }
 	
 	// Update is called once per frame
@@ -39,13 +48,13 @@ public class BulletsGroupScript : MonoBehaviour {
                 gameObjects[i].SetActive(true);
 
                 if (bullets[i].Direction == Direction.NORTH)
-                    originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
+                    originPositions[i] = new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize);
                 else if (bullets[i].Direction == Direction.EAST)
-                    originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
+                    originPositions[i] = new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize);
                 else if (bullets[i].Direction == Direction.SOUTH)
-                    originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
+                    originPositions[i] = new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize);
                 else
-                    originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
+                    originPositions[i] = new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize);
 
                 gameObjects[i].transform.position = originPositions[i];
                 tPositions[i] = 0;
@@ -53,22 +62,22 @@ public class BulletsGroupScript : MonoBehaviour {
             else
             {
 
-                if (bullets[i].PositionX * 80 == gameObjects[i].transform.position.x &&
-                    bullets[i].PositionY * 80 == gameObjects[i].transform.position.z)
+                if (bullets[i].PositionX * gridSquareSize == gameObjects[i].transform.position.x &&
+                    bullets[i].PositionY * gridSquareSize == gameObjects[i].transform.position.z)
                 {
                     originPositions[i] = gameObjects[i].transform.position;
                     tPositions[i] = 0;
                 }
 
                 if (bullets[i].Direction == Direction.NORTH)
-                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80), tPositions[i]);
+                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize), tPositions[i]);
                 else if (bullets[i].Direction == Direction.EAST)
-                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80), tPositions[i]);
+                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize), tPositions[i]);
                 else if (bullets[i].Direction == Direction.SOUTH)
-                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80), tPositions[i]);
+                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize), tPositions[i]);
                 else
-                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80), tPositions[i]);
-                tPositions[i] += (1 / 30.0f);
+                    gameObjects[i].transform.position = Vector3.Lerp(originPositions[i], new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize), tPositions[i]);
+                tPositions[i] += deltaTime;
             }
             i++;
         }
@@ -77,13 +86,13 @@ public class BulletsGroupScript : MonoBehaviour {
             originPositions.Add(transform.position);
 
             if (bullets[i].Direction == Direction.NORTH)
-                originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
+                originPositions[i] = new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize);
             else if (bullets[i].Direction == Direction.EAST)
-                originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
+                originPositions[i] = new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize);
             else if (bullets[i].Direction == Direction.SOUTH)
-                originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
+                originPositions[i] = new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize);
             else
-                originPositions[i] = new Vector3(bullets[i].PositionX * 80, transformY, bullets[i].PositionY * 80);
+                originPositions[i] = new Vector3(bullets[i].PositionX * gridSquareSize, transformY, bullets[i].PositionY * gridSquareSize);
 
             UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], originPositions[i], defaultRotation);
             gameObjects.Add(go);

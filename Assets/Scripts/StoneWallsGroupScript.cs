@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
-using System.Collections;
+
 using System.Collections.Generic;
+
 using Assets.Game.GameEntities;
 using Assets.Game;
 
 public class StoneWallsGroupScript : MonoBehaviour {
-    List<UnityEngine.GameObject> gameObjects;
+    private List<UnityEngine.GameObject> gameObjects;
 
-    float transformY;
+    private float transformY;
+    private Quaternion defaultRotation;
 
-    Quaternion defaultRotation;
+    private int gridSquareSize;
 
     // Use this for initialization
     void Start () {
@@ -20,6 +22,10 @@ public class StoneWallsGroupScript : MonoBehaviour {
 
         defaultRotation = go.transform.rotation;
         transformY = go.transform.position.y;
+
+        //setting animation parameters
+        Constants constants = new Constants();
+        gridSquareSize = constants.GridSquareSize;
     }
 	
 	// Update is called once per frame
@@ -30,12 +36,12 @@ public class StoneWallsGroupScript : MonoBehaviour {
         while (i < stoneWalls.Count && i < gameObjects.Count)
         {
             gameObjects[i].SetActive(true);
-            gameObjects[i].transform.position = new Vector3(stoneWalls[i].PositionX * 80, transformY, stoneWalls[i].PositionY * 80);
+            gameObjects[i].transform.position = new Vector3(stoneWalls[i].PositionX * gridSquareSize, transformY, stoneWalls[i].PositionY * gridSquareSize);
             i++;
         }
         while (i < stoneWalls.Count)
         {
-            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(stoneWalls[i].PositionX * 80, transformY, stoneWalls[i].PositionY * 80), defaultRotation);
+            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(stoneWalls[i].PositionX * gridSquareSize, transformY, stoneWalls[i].PositionY * gridSquareSize), defaultRotation);
             gameObjects.Add(go);
             i++;
         }

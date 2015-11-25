@@ -1,22 +1,30 @@
 ﻿using UnityEngine;
-using Assets.Game;
+
 using Assets.Game.GameEntities;
-using System;
+using Assets.Game;
 
 public class TanksScript : MonoBehaviour
 {
-    Vector3 originPosition;
-    float tPosition;
+    private Vector3 originPosition;
+    private float tPosition;
 
-    Vector3 originRotation;
-    float tRotation;
+    private Vector3 originRotation;
+    private float tRotation;
 
-    float positionY;
+    private float deltaTime;
+    private float gridSquareSize;
+
+    private float positionY;
 
     // Use this for initialization
     void Start()
     {
         positionY = gameObject.transform.position.y;
+
+        //setting animation parameters
+        Constants constants = new Constants();
+        deltaTime = constants.DeltaTime;
+        gridSquareSize = constants.GridSquareSize;
     }
 
     // Update is called once per frame
@@ -40,16 +48,16 @@ public class TanksScript : MonoBehaviour
 
     void animateMove(int destinationX, int destinationZ)
     {
-        if (destinationX * 80 == transform.position.x &&
-            destinationZ * 80 == transform.position.z)
+        if (destinationX * gridSquareSize == transform.position.x &&
+            destinationZ * gridSquareSize == transform.position.z)
         {
             originPosition = transform.position;
             tPosition = 0;
         }
 
-        transform.position = Vector3.Lerp(originPosition, new Vector3(destinationX * 80, positionY, destinationZ * 80), tPosition);
+        transform.position = Vector3.Lerp(originPosition, new Vector3(destinationX * gridSquareSize, positionY, destinationZ * gridSquareSize), tPosition);
 
-        tPosition += 0.1f;
+        tPosition += deltaTime;
     }
 
     void animateRotation(Direction direction)
@@ -65,26 +73,26 @@ public class TanksScript : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(Vector3.Lerp(originRotation, new Vector3(originRotation.x, angle, originRotation.z), tRotation));
 
-        tRotation += 0.1f;
+        tRotation += deltaTime;
     }
 
     int getAngle(Direction direction)
     {
         if (direction == Direction.NORTH)
         {
-            return 90;
+            return 270;
         }
         else if (direction == Direction.EAST)
         {
-            return 0;
+            return 180;
         }
         else if (direction == Direction.SOUTH)
         {
-            return 270;
+            return 90;
         }
         else
         {
-            return 180;
+            return 0;
         }
     }
 }

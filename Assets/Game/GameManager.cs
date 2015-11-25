@@ -1,5 +1,6 @@
-﻿using Assets.Game.Communication;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
+
+using Assets.Game.Communication;
 
 namespace Assets.Game
 {
@@ -112,7 +113,7 @@ namespace Assets.Game
         }
         #endregion
 
-        public void Initialize()
+        private void Initialize()
         {
             gameEngine = new GameEngine();
             connection = new Connection();
@@ -123,11 +124,17 @@ namespace Assets.Game
             state = GameState.IDLE;
             message = ServerMessage.NO_ISSUES;
             error = GameError.NO_ERROR;
+
+            /*
+             * For collecting all the object discarded
+             ** invoked garbage collector to  improve the performance after the game start
+            */
+            System.GC.Collect();
         }
 
         public void JoinServer(string ip, int port)
         {
-            //connecting the messageReceived event to the handler
+            // Connecting the messageReceived event to the handler
             connection.MessageReceived += parser.OnMessageReceived;
 
             connection.ServerIP = ip;
@@ -141,20 +148,15 @@ namespace Assets.Game
             }
         }
 
-        public void RestartConnection()
-        {
-            string ip = connection.ServerIP;
-            int port = connection.ServerPort;
-            connection = new Connection();
-            JoinServer(ip, port);
-        }
-
         public void RestartGame()
         {
             Initialize();
-            System.GC.Collect();
         }
 
+        /*
+         * For moving the tank
+         * Used by AI or by the key press handler to move the tank owned by this client
+        */
         public struct TankMover
         {
             public void MoveUp()
@@ -184,11 +186,17 @@ namespace Assets.Game
         }
     }
 
+    /* 
+     * For indicating the game Mode
+     * AUTO - tank owned by the client is driven by the AI
+     * MANUAL - tank owned by the client is driven by the user
+    */
     public enum GameMode {
         AUTO,
         MANUAL
     }
 
+    // For indicating the state of the game
     public enum GameState {
         IDLE,
         STARTED,
@@ -197,6 +205,7 @@ namespace Assets.Game
         ENDED
     }
 
+    // For indicating the last server message
     public enum ServerMessage {
         NO_ISSUES,
         PLAYERS_FULL,
@@ -214,8 +223,32 @@ namespace Assets.Game
         PITFALL
     }
 
+    // For indicating errors
     public enum GameError {
         NO_ERROR,
         NO_SERVER_DETECTED
+    }
+
+    // For storing all the constants for the game
+    public class Constants
+    {
+        // Game Parameters
+        public int MapHeight = 10;
+        public int MapWidth = 10;
+        public int GameTimeMinutes = 15;
+        public int GameTimeSeconds = 0;
+        public int BulletSpeed = 4;
+        public int TankSpeed = 1;
+
+        // AI Parameters
+        public int AITreeDepth = 10;
+
+        /*
+         * Animation Parameters
+         * Specific for the Unity GUI designed for this game
+         * Should  be replaced if another GUI is plugged in
+        */
+        public int GridSquareSize = 80;
+        public float DeltaTime = 0.1f;
     }
 }

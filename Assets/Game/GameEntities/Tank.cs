@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Assets.Game.GameEntities
+﻿namespace Assets.Game.GameEntities
 {
     class Tank : MovingObject
     {
         #region Variables
-        //Player number assigned by the server
+        // Player number assigned by the server
         private int playerNumber;
         public int PlayerNumber
         {
@@ -18,7 +13,7 @@ namespace Assets.Game.GameEntities
             }
         }
 
-        //Health possessed by a tank
+        // Health possessed by a tank
         private int health;
         public int Health
         {
@@ -33,7 +28,7 @@ namespace Assets.Game.GameEntities
             }
         }
 
-        //Coins possessed by a tank
+        // Coins possessed by a tank
         private int coins;
         public int Coins
         {
@@ -47,7 +42,7 @@ namespace Assets.Game.GameEntities
             }
         }
 
-        //Points possessed by a tank
+        // Points possessed by a tank
         private int points;
         public int Points
         {
@@ -65,6 +60,9 @@ namespace Assets.Game.GameEntities
         public Tank (int playerNumber, int positionX, int positionY, Direction direction) : base(positionX, positionY, direction)
         {
             this.playerNumber = playerNumber;
+
+            Constants constants = new Constants();
+            speed = constants.TankSpeed;
         }
 
         public void Shoot()
