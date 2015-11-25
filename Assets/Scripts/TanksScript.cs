@@ -23,13 +23,12 @@ public class TanksScript : MonoBehaviour
         positionY = gameObject.transform.position.y;
 
         // Setting animation parameters
-        Constants constants = new Constants();
-        coordinateMultiplierX = constants.GridSquareScale * 10 / constants.MapSize;
-        coordinateMultiplierY = (-1) * constants.GridSquareScale * 10 / constants.MapSize;
-        deltaTime = constants.DeltaTime;
+        coordinateMultiplierX = Constants.GridSquareScale * 10 / Constants.MapSize;
+        coordinateMultiplierY = (-1) * Constants.GridSquareScale * 10 / Constants.MapSize;
+        deltaTime = Constants.DeltaTime;
 
         // resizing tank to fit the map
-        float scale = transform.localScale.x * 10 / constants.MapSize;
+        float scale = transform.localScale.x * 10 / Constants.MapSize;
         transform.localScale = new Vector3(scale, scale, scale);
     }
 

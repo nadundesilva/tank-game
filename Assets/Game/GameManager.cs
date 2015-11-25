@@ -42,7 +42,15 @@ namespace Assets.Game
                 return ai;
             }
         }
-        public TankMover CurrentTank;
+
+        private TankMover currentTank;
+        public TankMover CurrentTank
+        {
+            get
+            {
+                return currentTank;
+            }
+        }
 
         private GameMode mode;
         public GameMode Mode
@@ -227,27 +235,5 @@ namespace Assets.Game
     public enum GameError {
         NO_ERROR,
         NO_SERVER_DETECTED
-    }
-
-    // For storing all the constants for the game
-    public class Constants
-    {
-        // Game Parameters
-        public int MapSize = 100;
-        public int GameTimeMinutes = 15;
-        public int GameTimeSeconds = 0;
-        public int BulletSpeed = 4;
-        public int TankSpeed = 1;
-
-        // AI Parameters
-        public int AITreeDepth = 10;
-
-        /*
-         * Animation Parameters
-         * Specific for the Unity GUI designed for this game
-         * Should  be replaced if another GUI is plugged in
-        */
-        public float GridSquareScale = 80;
-        public float DeltaTime = 0.1f;
     }
 }

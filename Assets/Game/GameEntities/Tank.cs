@@ -60,9 +60,8 @@
         public Tank (int playerNumber, int positionX, int positionY, Direction direction) : base(positionX, positionY, direction)
         {
             this.playerNumber = playerNumber;
-
-            Constants constants = new Constants();
-            speed = constants.TankSpeed;
+            
+            speed = Constants.TankSpeed;
         }
 
         public void Shoot()

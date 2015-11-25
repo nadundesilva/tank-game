@@ -125,20 +125,10 @@ namespace Assets.Game
                 return gameTime;
             }
         }
-
-        private int mapSize;
-        public int MapSize
-        {
-            get
-            {
-                return mapSize;
-            }
-        }
         #endregion
 
         public GameEngine()
         {
-            Constants constants = new Constants();
 
             brickWalls = new List<BrickWall>();
             stoneWalls = new List<StoneWall>();
@@ -151,10 +141,10 @@ namespace Assets.Game
             coinPiles = new List<CoinPile>();
             lifePacks = new List<LifePack>();
 
-            mapSize = constants.MapSize;
+            int mapSize = Constants.MapSize;
             map = new GameObject[mapSize, mapSize];
 
-            gameTime = new int[] { constants.GameTimeMinutes, constants.GameTimeSeconds };
+            gameTime = new int[] { Constants.GameTimeMinutes, Constants.GameTimeSeconds };
 
             playerNumber = -1;
         }

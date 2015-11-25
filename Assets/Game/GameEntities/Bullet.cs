@@ -4,8 +4,7 @@
     {
         public Bullet(int positionX, int positionY, Direction direction) : base(positionX, positionY, direction)
         {
-            Constants constants = new Constants();
-            speed = constants.BulletSpeed;
+            speed = Constants.BulletSpeed;
         }
 
         /*
@@ -48,7 +47,7 @@
             {
                 for (int i = 0; i < speed; i++)
                 {
-                    if (positionX < GameManager.Instance.GameEngine.MapSize)
+                    if (positionX < Constants.MapSize)
                     {
                         positionX++;
                         go = ge.Map[positionX,positionY];
@@ -67,7 +66,7 @@
             {
                 for (int i = 0; i < speed; i++)
                 {
-                    if (positionY < GameManager.Instance.GameEngine.MapSize)
+                    if (positionY < Constants.MapSize)
                     {
                         positionY++;
                         go = ge.Map[positionX,positionY];

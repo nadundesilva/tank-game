@@ -92,12 +92,11 @@ public class MainCameraScript : MonoBehaviour {
         /*
          * Resizing the grid based on parameters
         */
-        Constants constants = new Constants();
-        int mapSize = GameManager.Instance.GameEngine.MapSize;
+        int mapSize = Constants.MapSize;
         // Changing the tiling of the grid
         UnityEngine.GameObject.Find("Board/Grid").GetComponent<Renderer>().material.mainTextureScale = new Vector2(mapSize, mapSize);
         // Moving the board, main camera & terrain
-        float position = 400 - (constants.GridSquareScale * 10) / (constants.MapSize * 2);
+        float position = 400 - (Constants.GridSquareScale * 10) / (Constants.MapSize * 2);
         UnityEngine.GameObject boardGameObject = UnityEngine.GameObject.Find("Board");
         boardGameObject.transform.position = new Vector3(position, boardGameObject.transform.position.y, (-1) * position);
         UnityEngine.GameObject terrainGameObject = UnityEngine.GameObject.Find("Terrain");

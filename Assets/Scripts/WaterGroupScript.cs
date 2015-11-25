@@ -25,12 +25,11 @@ public class WaterGroupScript : MonoBehaviour {
         transformY = go.transform.position.y;
 
         // Setting animation parameters
-        Constants constants = new Constants();
-        coordinateMultiplierX = constants.GridSquareScale * 10 / constants.MapSize;
-        coordinateMultiplierY = (-1) * constants.GridSquareScale * 10 / constants.MapSize;
+        coordinateMultiplierX = Constants.GridSquareScale * 10 / Constants.MapSize;
+        coordinateMultiplierY = (-1) * Constants.GridSquareScale * 10 / Constants.MapSize;
 
         // resizing water to fit the map
-        float scale = go.transform.localScale.x * 10 / constants.MapSize;
+        float scale = go.transform.localScale.x * 10 / Constants.MapSize;
         go.transform.localScale = new Vector3(scale, scale, scale);
     }
 	

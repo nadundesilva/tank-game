@@ -7,8 +7,7 @@
         // Calculates the best move based on the state of the game
         public void CalculateMove()
         {
-            Constants constants = new Constants();
-            treeDepth = constants.AITreeDepth;
+            treeDepth = Constants.AITreeDepth;
         }
     }
 }
