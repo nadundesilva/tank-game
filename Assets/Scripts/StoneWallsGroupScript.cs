@@ -11,7 +11,8 @@ public class StoneWallsGroupScript : MonoBehaviour {
     private float transformY;
     private Quaternion defaultRotation;
 
-    private int gridSquareSize;
+    private float coordinateMultiplierX;
+    private float coordinateMultiplierY;
 
     // Use this for initialization
     void Start () {
@@ -23,9 +24,14 @@ public class StoneWallsGroupScript : MonoBehaviour {
         defaultRotation = go.transform.rotation;
         transformY = go.transform.position.y;
 
-        //setting animation parameters
+        // Setting animation parameters
         Constants constants = new Constants();
-        gridSquareSize = constants.GridSquareSize;
+        coordinateMultiplierX = constants.GridSquareScale * 10 / constants.MapSize;
+        coordinateMultiplierY = (-1) * constants.GridSquareScale * 10 / constants.MapSize;
+
+        // resizing stone wall to fit the map
+        float scale = go.transform.localScale.x * 10 / constants.MapSize;
+        go.transform.localScale = new Vector3(scale, scale, scale);
     }
 	
 	// Update is called once per frame
@@ -36,12 +42,12 @@ public class StoneWallsGroupScript : MonoBehaviour {
         while (i < stoneWalls.Count && i < gameObjects.Count)
         {
             gameObjects[i].SetActive(true);
-            gameObjects[i].transform.position = new Vector3(stoneWalls[i].PositionX * gridSquareSize, transformY, stoneWalls[i].PositionY * gridSquareSize);
+            gameObjects[i].transform.position = new Vector3(stoneWalls[i].PositionX * coordinateMultiplierX, transformY, stoneWalls[i].PositionY * coordinateMultiplierY);
             i++;
         }
         while (i < stoneWalls.Count)
         {
-            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(stoneWalls[i].PositionX * gridSquareSize, transformY, stoneWalls[i].PositionY * gridSquareSize), defaultRotation);
+            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(stoneWalls[i].PositionX * coordinateMultiplierX, transformY, stoneWalls[i].PositionY * coordinateMultiplierY), defaultRotation);
             gameObjects.Add(go);
             i++;
         }

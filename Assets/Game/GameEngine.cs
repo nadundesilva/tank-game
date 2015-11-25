@@ -126,21 +126,12 @@ namespace Assets.Game
             }
         }
 
-        private int mapHeight;
-        public int MapHeight
+        private int mapSize;
+        public int MapSize
         {
             get
             {
-                return mapHeight;
-            }
-        }
-
-        private int mapWidth;
-        public int MapWidth
-        {
-            get
-            {
-                return mapWidth;
+                return mapSize;
             }
         }
         #endregion
@@ -160,9 +151,8 @@ namespace Assets.Game
             coinPiles = new List<CoinPile>();
             lifePacks = new List<LifePack>();
 
-            mapHeight = constants.MapHeight;
-            mapWidth = constants.MapWidth;
-            map = new GameObject[mapWidth, mapHeight];
+            mapSize = constants.MapSize;
+            map = new GameObject[mapSize, mapSize];
 
             gameTime = new int[] { constants.GameTimeMinutes, constants.GameTimeSeconds };
 

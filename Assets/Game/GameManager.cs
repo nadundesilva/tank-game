@@ -233,8 +233,7 @@ namespace Assets.Game
     public class Constants
     {
         // Game Parameters
-        public int MapHeight = 10;
-        public int MapWidth = 10;
+        public int MapSize = 100;
         public int GameTimeMinutes = 15;
         public int GameTimeSeconds = 0;
         public int BulletSpeed = 4;
@@ -248,7 +247,7 @@ namespace Assets.Game
          * Specific for the Unity GUI designed for this game
          * Should  be replaced if another GUI is plugged in
         */
-        public int GridSquareSize = 80;
+        public float GridSquareScale = 80;
         public float DeltaTime = 0.1f;
     }
 }

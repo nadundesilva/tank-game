@@ -11,10 +11,11 @@ public class BrickWallsGroupScript : MonoBehaviour {
     private Quaternion defaultRotation;
     private float transformY;
 
-    private int gridSquareSize;
+    private float coordinateMultiplierX;
+    private float coordinateMultiplierY;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         gameObjects = new List<UnityEngine.GameObject>();
 
         UnityEngine.GameObject go = UnityEngine.GameObject.Find("BrickWallsGroup/BrickWall");
@@ -25,7 +26,12 @@ public class BrickWallsGroupScript : MonoBehaviour {
 
         // Setting animation parameters
         Constants constants = new Constants();
-        gridSquareSize = constants.GridSquareSize;
+        coordinateMultiplierX = constants.GridSquareScale * 10 / constants.MapSize;
+        coordinateMultiplierY = (-1) * constants.GridSquareScale * 10 / constants.MapSize;
+
+        // resizing brick wall to fit the map
+        float scale = go.transform.localScale.x * 10 / constants.MapSize;
+        go.transform.localScale = new Vector3(scale, scale, scale);
     }
 	
 	// Update is called once per frame
@@ -36,12 +42,12 @@ public class BrickWallsGroupScript : MonoBehaviour {
         while (i < brickWalls.Count && i < gameObjects.Count)
         {
             gameObjects[i].SetActive(true);
-            gameObjects[i].transform.position = new Vector3(brickWalls[i].PositionX * gridSquareSize, transformY, brickWalls[i].PositionY * gridSquareSize);
+            gameObjects[i].transform.position = new Vector3(brickWalls[i].PositionX * coordinateMultiplierX, transformY, brickWalls[i].PositionY * coordinateMultiplierY);
             i++;
         }
         while (i < brickWalls.Count)
         {
-            UnityEngine.GameObject go = (UnityEngine.GameObject) Instantiate(gameObjects[0], new Vector3(brickWalls[i].PositionX * gridSquareSize, transformY, brickWalls[i].PositionY * gridSquareSize), defaultRotation);
+            UnityEngine.GameObject go = (UnityEngine.GameObject) Instantiate(gameObjects[0], new Vector3(brickWalls[i].PositionX * coordinateMultiplierX, transformY, brickWalls[i].PositionY * coordinateMultiplierX), defaultRotation);
             gameObjects.Add(go);
             i++;
         }

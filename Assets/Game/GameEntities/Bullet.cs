@@ -48,7 +48,7 @@
             {
                 for (int i = 0; i < speed; i++)
                 {
-                    if (positionX < GameManager.Instance.GameEngine.MapWidth)
+                    if (positionX < GameManager.Instance.GameEngine.MapSize)
                     {
                         positionX++;
                         go = ge.Map[positionX,positionY];
@@ -67,7 +67,7 @@
             {
                 for (int i = 0; i < speed; i++)
                 {
-                    if (positionY < GameManager.Instance.GameEngine.MapHeight)
+                    if (positionY < GameManager.Instance.GameEngine.MapSize)
                     {
                         positionY++;
                         go = ge.Map[positionX,positionY];

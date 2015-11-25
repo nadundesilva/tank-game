@@ -12,7 +12,8 @@ public class TanksScript : MonoBehaviour
     private float tRotation;
 
     private float deltaTime;
-    private float gridSquareSize;
+    private float coordinateMultiplierX;
+    private float coordinateMultiplierY;
 
     private float positionY;
 
@@ -21,10 +22,15 @@ public class TanksScript : MonoBehaviour
     {
         positionY = gameObject.transform.position.y;
 
-        //setting animation parameters
+        // Setting animation parameters
         Constants constants = new Constants();
+        coordinateMultiplierX = constants.GridSquareScale * 10 / constants.MapSize;
+        coordinateMultiplierY = (-1) * constants.GridSquareScale * 10 / constants.MapSize;
         deltaTime = constants.DeltaTime;
-        gridSquareSize = constants.GridSquareSize;
+
+        // resizing tank to fit the map
+        float scale = transform.localScale.x * 10 / constants.MapSize;
+        transform.localScale = new Vector3(scale, scale, scale);
     }
 
     // Update is called once per frame
@@ -48,14 +54,14 @@ public class TanksScript : MonoBehaviour
 
     void animateMove(int destinationX, int destinationZ)
     {
-        if (destinationX * gridSquareSize == transform.position.x &&
-            destinationZ * gridSquareSize == transform.position.z)
+        if (destinationX * coordinateMultiplierX == transform.position.x &&
+            destinationZ * coordinateMultiplierY == transform.position.z)
         {
             originPosition = transform.position;
             tPosition = 0;
         }
 
-        transform.position = Vector3.Lerp(originPosition, new Vector3(destinationX * gridSquareSize, positionY, destinationZ * gridSquareSize), tPosition);
+        transform.position = Vector3.Lerp(originPosition, new Vector3(destinationX * coordinateMultiplierX, positionY, destinationZ * coordinateMultiplierY), tPosition);
 
         tPosition += deltaTime;
     }
@@ -80,7 +86,7 @@ public class TanksScript : MonoBehaviour
     {
         if (direction == Direction.NORTH)
         {
-            return 270;
+            return 90;
         }
         else if (direction == Direction.EAST)
         {
@@ -88,7 +94,7 @@ public class TanksScript : MonoBehaviour
         }
         else if (direction == Direction.SOUTH)
         {
-            return 90;
+            return 270;
         }
         else
         {

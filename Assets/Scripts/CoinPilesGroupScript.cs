@@ -11,7 +11,8 @@ public class CoinPilesGroupScript : MonoBehaviour {
     private Quaternion defaultRotation;
     private float transformY;
 
-    private int gridSquareSize;
+    private float coordinateMultiplierX;
+    private float coordinateMultiplierY;
 
     // Use this for initialization
     void Start () {
@@ -25,7 +26,16 @@ public class CoinPilesGroupScript : MonoBehaviour {
 
         // Setting animation parameters
         Constants constants = new Constants();
-        gridSquareSize = constants.GridSquareSize;
+        coordinateMultiplierX = constants.GridSquareScale * 10 / constants.MapSize;
+        coordinateMultiplierY = (-1) * constants.GridSquareScale * 10 / constants.MapSize;
+
+        // resizing coin pile to fit the map
+        float scale = go.transform.localScale.x * 10 / constants.MapSize;
+        go.transform.localScale = new Vector3(scale, scale, scale);
+        for (int i = 1; i < 10; i++) {
+            Light halo = UnityEngine.GameObject.Find("CoinPilesGroup/CoinPile/Coin" + i).GetComponent<Light>();
+            halo.range = Mathf.Ceil(halo.range * 10.0f / constants.MapSize);
+        }
     }
 	
 	// Update is called once per frame
@@ -36,12 +46,12 @@ public class CoinPilesGroupScript : MonoBehaviour {
         while (i < coinPiles.Count && i < gameObjects.Count)
         {
             gameObjects[i].SetActive(true);
-            gameObjects[i].transform.position = new Vector3(coinPiles[i].PositionX * gridSquareSize, transformY, coinPiles[i].PositionY * gridSquareSize);
+            gameObjects[i].transform.position = new Vector3(coinPiles[i].PositionX * coordinateMultiplierX, transformY, coinPiles[i].PositionY * coordinateMultiplierY);
              i++;
         }
         while (i < coinPiles.Count)
         {
-            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(coinPiles[i].PositionX * gridSquareSize, transformY, coinPiles[i].PositionY * gridSquareSize), defaultRotation);
+            UnityEngine.GameObject go = (UnityEngine.GameObject)Instantiate(gameObjects[0], new Vector3(coinPiles[i].PositionX * coordinateMultiplierX, transformY, coinPiles[i].PositionY * coordinateMultiplierY), defaultRotation);
             gameObjects.Add(go);
             i++;
         }

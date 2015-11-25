@@ -88,6 +88,21 @@ public class MainCameraScript : MonoBehaviour {
         UnityEngine.GameObject.Find("GameLauncherCanvas/ServerIPInputField").GetComponent<InputField>().text = GameManager.Instance.ServerIP;
         UnityEngine.GameObject.Find("GameLauncherCanvas/ServerPortInputField").GetComponent<InputField>().text = GameManager.Instance.ServerPort.ToString();
         UnityEngine.GameObject.Find("GameLauncherCanvas/AutoModeToggle").GetComponent<Toggle>().isOn = (GameManager.Instance.Mode == GameMode.AUTO);
+
+        /*
+         * Resizing the grid based on parameters
+        */
+        Constants constants = new Constants();
+        int mapSize = GameManager.Instance.GameEngine.MapSize;
+        // Changing the tiling of the grid
+        UnityEngine.GameObject.Find("Board/Grid").GetComponent<Renderer>().material.mainTextureScale = new Vector2(mapSize, mapSize);
+        // Moving the board, main camera & terrain
+        float position = 400 - (constants.GridSquareScale * 10) / (constants.MapSize * 2);
+        UnityEngine.GameObject boardGameObject = UnityEngine.GameObject.Find("Board");
+        boardGameObject.transform.position = new Vector3(position, boardGameObject.transform.position.y, (-1) * position);
+        UnityEngine.GameObject terrainGameObject = UnityEngine.GameObject.Find("Terrain");
+        terrainGameObject.transform.position = new Vector3(position, terrainGameObject.transform.position.y, (-1) * position);
+        transform.position = new Vector3(position, transform.position.y, (-1) * position);
     }
 
     // Update is called once per frame
@@ -229,11 +244,11 @@ public class MainCameraScript : MonoBehaviour {
         if (GameManager.Instance.Mode == GameMode.MANUAL && GameManager.Instance.State == GameState.PROGRESSING)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
-                GameManager.Instance.CurrentTank.MoveDown();
+                GameManager.Instance.CurrentTank.MoveUp();
             else if (Input.GetKeyDown(KeyCode.RightArrow))
                 GameManager.Instance.CurrentTank.MoveRight();
             else if (Input.GetKeyDown(KeyCode.DownArrow))
-                GameManager.Instance.CurrentTank.MoveUp();
+                GameManager.Instance.CurrentTank.MoveDown();
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
                 GameManager.Instance.CurrentTank.MoveLeft();
             else if (Input.GetKeyDown(KeyCode.Space))
