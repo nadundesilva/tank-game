@@ -2,6 +2,10 @@
 {
     class CoinPile : Collectible
     {
+        /*
+         * Value of the coin pile
+         * Any tank that collects this will receive points and coins equal to the value
+        */
         protected int value;
         public int Value
         {

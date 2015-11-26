@@ -7,6 +7,10 @@ namespace Assets.Game
     class GameManager
     {
         #region Variables
+        /*
+         * Game engine used for simulating bullets, collectibles
+         * Tanks, obstacles are not simulated and updated from the information received from the server
+        */
         private GameEngine gameEngine;
         public GameEngine GameEngine
         {
@@ -16,6 +20,11 @@ namespace Assets.Game
             }
         }
 
+        /*
+         * Used for connecting to the server
+         * Listening thread published an event
+         * The event handler calls the parser
+        */
         private Connection connection;
         public string ServerIP
         {
@@ -32,6 +41,10 @@ namespace Assets.Game
             }
         }
 
+        /*
+         * Used for parsing messages sent by the server
+         * Called by the event handler for the event published by the connection listener thread
+        */
         private Parser parser;
 
         private AI ai;
@@ -43,6 +56,10 @@ namespace Assets.Game
             }
         }
 
+        /*
+         * Used for storing the struct containing the methods for moving the tank owned by this client
+         * All the methods sends the relevant message to the server
+        */
         private TankMover currentTank;
         public TankMover CurrentTank
         {
@@ -123,6 +140,7 @@ namespace Assets.Game
 
         private void Initialize()
         {
+            #region Initializing variables
             gameEngine = new GameEngine();
             connection = new Connection();
             parser = new Parser();
@@ -132,6 +150,7 @@ namespace Assets.Game
             state = GameState.IDLE;
             message = ServerMessage.NO_ISSUES;
             error = GameError.NO_ERROR;
+            #endregion
 
             /*
              * For collecting all the object discarded
@@ -140,6 +159,9 @@ namespace Assets.Game
             System.GC.Collect();
         }
 
+        /*
+         * Used for joining the server specified by the ip and port
+        */
         public void JoinServer(string ip, int port)
         {
             // Connecting the messageReceived event to the handler
@@ -156,6 +178,9 @@ namespace Assets.Game
             }
         }
 
+        /*
+         * Used for restarting the game
+        */
         public void RestartGame()
         {
             Initialize();
@@ -194,6 +219,7 @@ namespace Assets.Game
         }
     }
 
+    #region Enums
     /* 
      * For indicating the game Mode
      * AUTO - tank owned by the client is driven by the AI
@@ -204,7 +230,14 @@ namespace Assets.Game
         MANUAL
     }
 
-    // For indicating the state of the game
+    /*
+     * For indicating the state of the game
+     * IDLE - Game has not yet started
+     * STARTED - Had received the start message
+     * INITIATED - Had received the initialization message and had placed all obstacles
+     * PROGRESSING - Game is progressing | Had started to receive the update messages
+     * ENDED - Game had ended
+    */
     public enum GameState {
         IDLE,
         STARTED,
@@ -213,7 +246,23 @@ namespace Assets.Game
         ENDED
     }
 
-    // For indicating the last server message
+    /*
+     * For indicating the last server message
+     * NO_ISSUES - Default message used for indicating that there are no issues indicated in the last server message
+     * PLAYERS_FULL - Server is already full and the client cannot enter the game
+     * ALREADY_ADDED - The client had already joined the game on the server
+     * GAME_ALREADY_STARTED - Game had already started in the server and this client cannot connect
+     * OBSTACLE - The cell that the tank owned by this client wanted to move to has a obstacle placed
+     * CELL_OCCUPIED - The cell that the tank owned by this client wanted to move to is already occupied by another tank
+     * DEAD - The tank owned by this client is already dead
+     * TOO_QUICK - The client had tried to send a move bwfore one second had elapsed since the last move
+     * INVALID_CELL - The cell that the tank owned by this client wanted to move to is invalid
+     * GAME_HAS_FINISHED - The game had already finished
+     * GAME_NOT_STARTED_YET - The game had not yet started
+     * NOT_A_VALID_CONTESTANT - The client is not a valid contestant participating in the current game
+     * GAME_FINISHED - The game finished
+     * PITFALL - The tank owned by this client had fallen into a pit of water
+    */
     public enum ServerMessage {
         NO_ISSUES,
         PLAYERS_FULL,
@@ -231,9 +280,14 @@ namespace Assets.Game
         PITFALL
     }
 
-    // For indicating errors
+    /*
+     * For indicating errors
+     * NO_ERROR - Default value to indicate no errors
+     * NO_SERVER_DETECTED - cannot find or connect to the server specified by the user
+    */
     public enum GameError {
         NO_ERROR,
         NO_SERVER_DETECTED
     }
+    #endregion
 }

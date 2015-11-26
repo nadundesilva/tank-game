@@ -7,9 +7,14 @@ namespace Assets.Game.Communication
 {
     class Parser
     {
+        /*
+         * Used for mapping the integer sent by the server to the enum Direction
+        */
         private Direction[] direction = new Direction[] { Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST };
 
-        // Routing to the correct method that handles the message or throwing exception if invalid
+        /*
+         * Routing to the correct method that handles the message or throwing exception if invalid
+        */
         private void Parse(string message)
         {
             // This method checks the message type and invoke the nessasary method accordingly
@@ -108,7 +113,9 @@ namespace Assets.Game.Communication
             }
         }
         
-        // Handling the game startup message
+        /*
+         * Handling the game startup message
+        */
         private void ParseStartUpMessage(string[] tokens)
         {
             // Placing the client's tank on the map
@@ -121,7 +128,9 @@ namespace Assets.Game.Communication
             }
         }
 
-        // Handling the game initilization message
+        /*
+         * Handling the game initilization message
+        */
         private void ParseInitializeMessage(string[] tokens)
         {
             GameManager.Instance.GameEngine.PlayerNumber = int.Parse(tokens[0].Substring(1));
@@ -160,7 +169,9 @@ namespace Assets.Game.Communication
             GameManager.Instance.GameEngine.Water = water;
         }
 
-        // Handling game update messages
+        /*
+         * Handling game update messages
+        */
         private void ParseGameMessage(string[] tokens)
         {
             // Sending the clock for the game engine
@@ -198,10 +209,10 @@ namespace Assets.Game.Communication
             foreach (string s in brickStrings)
             {
                 string[] brickData = s.Split(',');
-                int brickDamage = int.Parse(brickData[2]);
-                if (brickDamage < 4) {
+                int brickHealth = int.Parse(brickData[2]);
+                if (brickHealth < 4) {
                     BrickWall b = new BrickWall(int.Parse(brickData[0]), int.Parse(brickData[1]));
-                    b.Damage = brickDamage;
+                    b.Damage = brickHealth;
                     brickWalls.Add(b);
                 }
             }
@@ -215,7 +226,9 @@ namespace Assets.Game.Communication
                 GameManager.Instance.AI.CalculateMove();
         }
 
-        // Placing the new coin pile on the map
+        /*
+         * Placing the new coin pile on the map
+        */
         private void ParseCoinPileMessage(string[] tokens)
         {
             string[] location = tokens[0].Split(',');
@@ -223,7 +236,9 @@ namespace Assets.Game.Communication
             GameManager.Instance.GameEngine.AddCoinPile(coinPile);
         }
 
-        // Placing the life pack on the map
+        /*
+         * Placing the life pack on the map
+        */
         private void ParseLifePackMessage(string[] tokens)
         {
             string[] location = tokens[0].Split(',');
@@ -231,6 +246,10 @@ namespace Assets.Game.Communication
             GameManager.Instance.GameEngine.AddLifePack(lifePack);
         }
 
+        /*
+         * Used for handling the event published by the listener thread in the connection class
+         * Calls the parse message
+        */
         public void OnMessageReceived(object source, EventArgs a)
         {
             string message = ((MessageReceivedEventArgs)a).Message;

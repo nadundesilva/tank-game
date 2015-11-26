@@ -39,6 +39,11 @@
         }
     }
 
+    /*
+     * Used to indicate a direction on the map
+     * The top left corner of the map is [0,0]
+     * NORTH is directed towards the top of the board
+    */
     enum Direction
     {
         NORTH, EAST, SOUTH, WEST

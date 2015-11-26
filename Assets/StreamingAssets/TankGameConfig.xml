@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Tank Game - Hirealms - Configuration -->
+<!-- Do not change this file unless the server parameters had been changed -->
+<Config>
+  <!-- Game parameters -->
+  <!-- Size of the game map -->
+  <config key="MapSize" value="10" />
+  <!-- Time available per one game play -->
+  <config key="GameTimeMinutes" value="15" />
+  <config key="GameTimeSeconds" value="0" />
+  <!-- Speed of a bullet in the game -->
+  <config key="BulletSpeed" value="4" />
+  <!-- Speed of a tank in the game -->
+  <config key="TankSpeed" value="1" />
+
+  <!-- AI parameters -->
+  <!-- The depth of the tree created in the min max algorithm -->
+  <config key="AITreeDepth" value="10" />
+</Config>

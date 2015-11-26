@@ -2,24 +2,28 @@
 {
     class BrickWall : GameObject
     {
-        // Health possessed by an object inherited from this class
-        private int health;
+        /*
+         * Damage done to the brick wall
+         * Has 0 at start
+         * 4 - 100% damage
+        */
+        private int damage;
         public int Damage
         {
             get
             {
-                return health;
+                return damage;
             }
 
             set
             {
-                health = value;
+                damage = value;
             }
         }
 
         public BrickWall(int positionX, int positionY) : base(positionX, positionY)
         {
-            health = 0;
+            damage = 0;
         }
     }
 }

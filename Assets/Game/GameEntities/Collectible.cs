@@ -2,6 +2,10 @@
 {
     abstract class Collectible : GameObject
     {
+        /*
+         * Time left till the collectible disappears
+         * Unit - miliseconds
+        */
         protected int timeLeft;
         public int TimeLeft
         {
@@ -18,6 +22,7 @@
 
         public void ReduceTime()
         {
+            // Reduces the time left till collectible disapears by one second 
             timeLeft -= 1000;
         }
     }

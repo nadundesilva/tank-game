@@ -7,6 +7,12 @@ namespace Assets.Game
     class GameEngine
     {
         #region Variables
+        /*
+         * Lists of game objects
+         * These lists are used for improving the animation performance
+         * Stores references to the same game objects in the Map[,]
+        */
+        #region Game object lists
         private List<BrickWall> brickWalls;
         public List<BrickWall> BrickWalls
         {
@@ -93,8 +99,14 @@ namespace Assets.Game
                 return lifePacks;
             }
         }
+        #endregion
 
-        // [0,0] refers to the top left corner square of the map
+        /*
+         * A 2D array to store game objects
+         * Maps the x and y coordinates on the game map to the [x,y] on the Map variable
+         * Used to improve AI performance in the search algorithm
+         * [0,0] refers to the top left corner square of the map
+        */
         private GameObject[,] map;
         public GameObject[,] Map
         {
@@ -104,6 +116,9 @@ namespace Assets.Game
             }
         }
 
+        /*
+         * The player number of the tank owned by this client
+        */
         private int playerNumber;
         public int PlayerNumber
         {
@@ -117,6 +132,9 @@ namespace Assets.Game
             }
         }
 
+        /*
+         * Life time left per one game play
+        */
         private int[] gameTime;
         public int[] GameTime
         {
@@ -129,6 +147,8 @@ namespace Assets.Game
 
         public GameEngine()
         {
+            #region Initializing variables
+            Constants constants = Constants.Instance;   // Loaded to be used for initializing
 
             brickWalls = new List<BrickWall>();
             stoneWalls = new List<StoneWall>();
@@ -141,14 +161,19 @@ namespace Assets.Game
             coinPiles = new List<CoinPile>();
             lifePacks = new List<LifePack>();
 
-            int mapSize = Constants.MapSize;
+            int mapSize = constants.MapSize;
             map = new GameObject[mapSize, mapSize];
 
-            gameTime = new int[] { Constants.GameTimeMinutes, Constants.GameTimeSeconds };
+            gameTime = new int[] { constants.GameTimeMinutes, constants.GameTimeSeconds };
 
-            playerNumber = -1;
+            playerNumber = -1;  // Set to -1 to indicate that it is not yet assigned by the server
+            #endregion
         }
 
+        /*
+         * Used to move bullets, reduce the time left in collectibles and reduce the time left in the game
+         * Called before each game update message sent by server
+        */
         public void Clock()
         {
             // Moving the bullets
@@ -162,7 +187,7 @@ namespace Assets.Game
             foreach (LifePack lifePack in lifePacks)
                 lifePack.ReduceTime();
 
-            // Increasing the game time
+            // Reduce the time left in the game
             if (gameTime[0] != 0 || gameTime[1] != 0)
             {
                 gameTime[1]--;
@@ -174,8 +199,13 @@ namespace Assets.Game
             }
         }
 
+        /*
+         * Used remove collectibles if they are collected or if the time had run out
+         * Called after eachgame update message sent by server
+        */
         public void UpdateGame()
         {
+            // Removing coin piles if the time runs out or a tank moves to the location of the coin pile
             int i = 0;
             while (i < coinPiles.Count)
             {
@@ -195,6 +225,8 @@ namespace Assets.Game
                 }
                 i++;
             }
+
+            // Removing life packs if the time runs out or a tank moves to the location of the life pack
             i = 0;
             while (i < lifePacks.Count)
             {
@@ -216,7 +248,12 @@ namespace Assets.Game
             }
         }
 
-        #region Adders lists
+        /*
+         * Adders for tanks, bullets, coin piles and life packs
+         * Adds to the relevant object list
+         * Adds to the map except for bullets
+        */
+        #region Adders to lists
         public void AddTank(Tank tank)
         {
             map[tank.PositionX, tank.PositionY] = tank;

@@ -3,7 +3,9 @@
     class Tank : MovingObject
     {
         #region Variables
-        // Player number assigned by the server
+        /*
+         * Player number assigned by the server
+        */
         private int playerNumber;
         public int PlayerNumber
         {
@@ -13,7 +15,12 @@
             }
         }
 
-        // Health possessed by a tank
+        /*
+         * Health possessed by a tank
+         * Starts with 100 health
+         * Can have health higher than 100
+         * Having health zero or below will cause the tank to die
+        */
         private int health;
         public int Health
         {
@@ -28,7 +35,11 @@
             }
         }
 
-        // Coins possessed by a tank
+        /*
+         * Coins possessed by a tank
+         * Starts with no coins
+         * Tank can collect coins by moving to a cell with a coin pile
+        */
         private int coins;
         public int Coins
         {
@@ -42,7 +53,11 @@
             }
         }
 
-        // Points possessed by a tank
+        /*
+         * Points possessed by a tank
+         * Starts with no points
+         * Tank can collect points by collecting coins, shooting bricks and tanks
+        */
         private int points;
         public int Points
         {
@@ -60,10 +75,13 @@
         public Tank (int playerNumber, int positionX, int positionY, Direction direction) : base(positionX, positionY, direction)
         {
             this.playerNumber = playerNumber;
-            
-            speed = Constants.TankSpeed;
+
+            speed = Constants.Instance.TankSpeed;
         }
 
+        /*
+         * Used to shoot a bullet in the direction the tank is turned to
+        */
         public void Shoot()
         {
             int x = 0;

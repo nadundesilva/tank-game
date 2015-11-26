@@ -6,7 +6,7 @@
         protected int speed;
 
         // Direction the tank is turned to
-        protected Direction direction;    // Enumeration in GameObject Class
+        protected Direction direction;
         public Direction Direction
         {
             get

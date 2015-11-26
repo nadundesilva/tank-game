@@ -25,11 +25,12 @@ public class BrickWallsGroupScript : MonoBehaviour {
         transformY = go.transform.position.y;
 
         // Setting animation parameters
-        coordinateMultiplierX = Constants.GridSquareScale * 10 / Constants.MapSize;
-        coordinateMultiplierY = (-1) * Constants.GridSquareScale * 10 / Constants.MapSize;
+        Constants constants = Constants.Instance;
+        coordinateMultiplierX = constants.GridSquareScale * 10 / constants.MapSize;
+        coordinateMultiplierY = (-1) * constants.GridSquareScale * 10 / constants.MapSize;
 
         // resizing brick wall to fit the map
-        float scale = go.transform.localScale.x * 10 / Constants.MapSize;
+        float scale = go.transform.localScale.x * 10 / constants.MapSize;
         go.transform.localScale = new Vector3(scale, scale, scale);
     }
 	

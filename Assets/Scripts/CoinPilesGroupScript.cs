@@ -25,15 +25,16 @@ public class CoinPilesGroupScript : MonoBehaviour {
         transformY = go.transform.position.y;
 
         // Setting animation parameters
-        coordinateMultiplierX = Constants.GridSquareScale * 10 / Constants.MapSize;
-        coordinateMultiplierY = (-1) * Constants.GridSquareScale * 10 / Constants.MapSize;
+        Constants constants = Constants.Instance;
+        coordinateMultiplierX = constants.GridSquareScale * 10 / constants.MapSize;
+        coordinateMultiplierY = (-1) * constants.GridSquareScale * 10 / constants.MapSize;
 
         // resizing coin pile to fit the map
-        float scale = go.transform.localScale.x * 10 / Constants.MapSize;
+        float scale = go.transform.localScale.x * 10 / constants.MapSize;
         go.transform.localScale = new Vector3(scale, scale, scale);
         for (int i = 1; i < 10; i++) {
             Light halo = UnityEngine.GameObject.Find("CoinPilesGroup/CoinPile/Coin" + i).GetComponent<Light>();
-            halo.range = Mathf.Ceil(halo.range * 10.0f / Constants.MapSize);
+            halo.range = Mathf.Ceil(halo.range * 10.0f / constants.MapSize);
         }
     }
 	

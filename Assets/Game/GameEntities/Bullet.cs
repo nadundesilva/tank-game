@@ -2,9 +2,12 @@
 {
     class Bullet : MovingObject
     {
+        /*
+         * Bullet reduces the health of a tank by 10 points
+        */
         public Bullet(int positionX, int positionY, Direction direction) : base(positionX, positionY, direction)
         {
-            speed = Constants.BulletSpeed;
+            speed = Constants.Instance.BulletSpeed;
         }
 
         /*
@@ -47,7 +50,7 @@
             {
                 for (int i = 0; i < speed; i++)
                 {
-                    if (positionX < Constants.MapSize)
+                    if (positionX < Constants.Instance.MapSize)
                     {
                         positionX++;
                         go = ge.Map[positionX,positionY];
@@ -66,7 +69,7 @@
             {
                 for (int i = 0; i < speed; i++)
                 {
-                    if (positionY < Constants.MapSize)
+                    if (positionY < Constants.Instance.MapSize)
                     {
                         positionY++;
                         go = ge.Map[positionX,positionY];
