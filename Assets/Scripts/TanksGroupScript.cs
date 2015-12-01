@@ -48,5 +48,20 @@ public class TanksGroupScript : MonoBehaviour {
             pointsGameObjects[i].SetActive(false);
             i++;
         }
-	}
+
+        // For identifying key presses for moving the tank if the game in in manual mode
+        if (GameManager.Instance.Mode == GameMode.MANUAL && GameManager.Instance.State == GameState.PROGRESSING)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                GameManager.Instance.CurrentTank.MoveUp();
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+                GameManager.Instance.CurrentTank.MoveRight();
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+                GameManager.Instance.CurrentTank.MoveDown();
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                GameManager.Instance.CurrentTank.MoveLeft();
+            else if (Input.GetKeyDown(KeyCode.Space))
+                GameManager.Instance.CurrentTank.Shoot();
+        }
+    }
 }

@@ -5,7 +5,7 @@ using Assets.Game.GameEntities;
 
 namespace Assets.Game.Communication
 {
-    class Parser
+    internal class Parser
     {
         /*
          * Used for mapping the integer sent by the server to the enum Direction

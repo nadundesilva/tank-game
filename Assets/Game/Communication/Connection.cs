@@ -8,7 +8,7 @@ using System.IO;
 
 namespace Assets.Game.Communication
 {
-    public class Connection
+    internal class Connection
     {
         System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();//creating a connection to the server
         private NetworkStream serverStream;//to send data using the stream

@@ -31,7 +31,7 @@ public class WaterGroupScript : MonoBehaviour {
 
         // resizing water to fit the map
         float scale = go.transform.localScale.x * 10 / constants.MapSize;
-        go.transform.localScale = new Vector3(scale, scale, scale);
+        go.transform.localScale = new Vector3(scale, go.transform.localScale.y, scale);
     }
 	
 	// Update is called once per frame
