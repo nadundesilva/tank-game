@@ -1,8 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{99ACD914-AC1D-94EE-0B97-D65D28DC46E9}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{415A85EA-3A03-5EEA-F751-FBD768CAC25D}") = "Tank-Game", "Assembly-CSharp.csproj", "{EB2F4F19-3B2D-D3B6-3BB9-620EE8C2E736}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,15 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{99ACD914-AC1D-94EE-0B97-D65D28DC46E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99ACD914-AC1D-94EE-0B97-D65D28DC46E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99ACD914-AC1D-94EE-0B97-D65D28DC46E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99ACD914-AC1D-94EE-0B97-D65D28DC46E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2F4F19-3B2D-D3B6-3BB9-620EE8C2E736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2F4F19-3B2D-D3B6-3BB9-620EE8C2E736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2F4F19-3B2D-D3B6-3BB9-620EE8C2E736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2F4F19-3B2D-D3B6-3BB9-620EE8C2E736}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
+			GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $3
@@ -36,4 +35,5 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
+
 EndGlobal
