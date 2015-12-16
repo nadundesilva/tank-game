@@ -51,7 +51,13 @@ namespace Assets.Game
          * 
                  
          */
-        function 
+        public bool isVulnerableTOBullet() {
+
+            //checks if the current position is vulanerable to a bullet attack
+
+            return false;
+        }
+
 
         public void CalculateMove()
         {
