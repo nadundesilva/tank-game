@@ -57,7 +57,19 @@ namespace Assets.Game
 
             return false;
         }
+        public bool isNextPlaceVulnerable(int x , int y) {
+            //checks the next place is vulnerable to bullet attack or water or does it hit a stone wall or a brick wall
+            return false;
+        }
 
+        public LifePack getNearestLifePack() {
+            //return the neaarest life pack 
+            return null;
+        }
+        public CoinPile getNearestCoinPile() {
+            //return the nearest coin pile
+            return null;
+        }
 
         public void CalculateMove()
         {
