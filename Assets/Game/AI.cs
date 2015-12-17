@@ -53,15 +53,14 @@ namespace Assets.Game
          * 
                  
          */
-        public Tank isVulnerableTOBullet() {
+        public Tank isVulnerableTOBullet(int x , int y) {
 
             //checks if the current position is vulanerable to a bullet attack
 
             //checks if any other tank is in line with our tank with the appropiate direction. 
             //current position of my tank
             int distanceLimit = 4;
-            int x = ownedTank.PositionX;
-            int y = ownedTank.PositionY;
+            
             Tank tank = null;
 
             for (int i = 0; i < gameEngine.Tanks.Count;i++ ) 
@@ -138,10 +137,13 @@ namespace Assets.Game
             return false;
         }
 
-        public bool isNextMoveVulnerable(string move) {
+        
+
+        public String isNextMoveVulnerable(string move) {
             //checks the next place is vulnerable to bullet attack or water or does it hit a stone wall or a brick wall
             //1. if the 
-            if(move.Equals("UP")){
+            if (move.Equals("UP"))
+            {
                 if (ownedTank.Direction == Direction.NORTH)
                 {
 
@@ -150,87 +152,208 @@ namespace Assets.Game
                     //if the next cell contains a brick wall
                     //if the next cell is vulnarable to a bullet attack
                     int x = ownedTank.PositionX;
-                    int y = ownedTank.PositionY -1;
+                    int y = ownedTank.PositionY - 1;
 
                     if (y < 0)
                     {
-                        return true; // this move is invalid
+                        return "INVALID"; // this move is invalid
                     }
-                    else {
-                        
-                        for (int i = 0; i < gameEngine.BrickWalls.Count; i++)
+                    else
+                    {
+
+                        if (hasBrick(x, y))
                         {
-                            if (x == gameEngine.BrickWalls[i].PositionX && y == gameEngine.BrickWalls[i].PositionY)
-                            {
-                                //next move is going to be hit by a brick :(
-                                return true;
-                            }
+                            return "BRICK";
                         }
-                        for (int i = 0; i < gameEngine.StoneWalls.Count; i++)
+                        if (hasStone(x, y))
                         {
-                            if (x == gameEngine.StoneWalls[i].PositionX && y == gameEngine.StoneWalls[i].PositionY)
-                            {
-                                //next move is going to be hit by a stone wall :(
-                                return true;
-                            }
+                            return "STONE";
+                        }
+                        if (hasWater(x, y))
+                        {
+                            return "WATER";
                         }
 
                         //check for a possible bullet attack
-                        int distanceLimit = 4;
-                        for (int i = 0; i < gameEngine.Tanks.Count;i++ ) 
-                         {
-                                if (i == ownedTank.PlayerNumber) { continue; }
-                                int opX = gameEngine.Tanks[i].PositionX;
-                                int opY = gameEngine.Tanks[i].PositionY;
-                                if(x == opX){
-                                    if(Math.Abs(y-opY)<distanceLimit ) {
-                                        if(y<opY && gameEngine.Tanks[i].Direction==Direction.NORTH){
-                                            distanceLimit = Math.Abs(y - opY);
-                                            return true;                           
-                                        }
-                                        else if (y > opY && gameEngine.Tanks[i].Direction == Direction.SOUTH)
-                                        {
-                                            distanceLimit = Math.Abs(y - opY);
-                                            return true;
-                                        }
-                                    }
-                                }   
-                                if (y == opY)
-                                {
-                                    if (Math.Abs(x - opX) < distanceLimit)
-                                    {
-                                        if (x < opX && gameEngine.Tanks[i].Direction == Direction.WEST)
-                                        {
-                                            distanceLimit = Math.Abs(x - opX);
-                                            return true;
-                                        }
-                                        if (x > opX && gameEngine.Tanks[i].Direction == Direction.EAST)
-                                        {
-                                            distanceLimit = Math.Abs(x - opX);
-                                            return true;
-                                        }
-                                    }
-                                }
+                        Tank t = isVulnerableTOBullet(x, y);
+                        if (t != null)
+                        {
+                            return "NEXT " + t.PlayerNumber + "";
+                        }
+                    }
 
 
+                }
+                else
+                {
+                    Tank t = isVulnerableTOBullet(ownedTank.PositionX, ownedTank.PositionY);
+                    if (t != null)
+                    {
+                        return "CURRENT" + t.PlayerNumber + "";
+                    }
+                }
+            }
 
+
+            if (move.Equals("DOWN"))
+            {
+                if (ownedTank.Direction == Direction.SOUTH)
+                {
+
+                    //1st check if the nect cell contains water
+                    //2nd check whether the nect cell contains a stone wall
+                    //if the next cell contains a brick wall
+                    //if the next cell is vulnarable to a bullet attack
+                    int x = ownedTank.PositionX;
+                    int y = ownedTank.PositionY + 1;
+
+                    if (y >= gridSize)
+                    {
+                        return "INVALID"; // this move is invalid
+                    }
+                    else
+                    {
+
+                        if (hasBrick(x, y))
+                        {
+                            return "BRICK";
+                        }
+                        if (hasStone(x, y))
+                        {
+                            return "STONE";
+                        }
+                        if (hasWater(x, y))
+                        {
+                            return "WATER";
                         }
 
+                        //check for a possible bullet attack
+                        Tank t = isVulnerableTOBullet(x, y);
+                        if (t != null)
+                        {
+                            return "NEXT " + t.PlayerNumber + "";
+                        }
+                    }
 
-                    
-                    
 
-
-                    //he can move
                 }
-                else { 
-                    //he cant move
-                    return (isVulnerableTOBullet()==null)? false : true ;
+                else
+                {
+                    Tank t = isVulnerableTOBullet(ownedTank.PositionX, ownedTank.PositionY);
+                    if (t != null)
+                    {
+                        return "CURRENT" + t.PlayerNumber + "";
+                    }
                 }
-            }else if (move.Equals("DOWN")){}
-            else if(move.Equals("RIGHT")){}
-            else if (move.Equals("LEFT")) { }
-            return false;
+            }
+
+            if (move.Equals("RIGHT"))
+            {
+                if (ownedTank.Direction == Direction.NORTH)
+                {
+
+                    //1st check if the nect cell contains water
+                    //2nd check whether the nect cell contains a stone wall
+                    //if the next cell contains a brick wall
+                    //if the next cell is vulnarable to a bullet attack
+                    int x = ownedTank.PositionX+1;
+                    int y = ownedTank.PositionY ;
+
+                    if (x >= gridSize)
+                    {
+                        return "INVALID"; // this move is invalid
+                    }
+                    else
+                    {
+
+                        if (hasBrick(x, y))
+                        {
+                            return "BRICK";
+                        }
+                        if (hasStone(x, y))
+                        {
+                            return "STONE";
+                        }
+                        if (hasWater(x, y))
+                        {
+                            return "WATER";
+                        }
+
+                        //check for a possible bullet attack
+                        Tank t = isVulnerableTOBullet(x, y);
+                        if (t != null)
+                        {
+                            return "NEXT " + t.PlayerNumber + "";
+                        }
+                    }
+
+
+                }
+                else
+                {
+                    Tank t = isVulnerableTOBullet(ownedTank.PositionX, ownedTank.PositionY);
+                    if (t != null)
+                    {
+                        return "CURRENT" + t.PlayerNumber + "";
+                    }
+                }
+            }
+
+
+
+            if (move.Equals("LEFT"))
+            {
+                if (ownedTank.Direction == Direction.WEST)
+                {
+
+                    //1st check if the nect cell contains water
+                    //2nd check whether the nect cell contains a stone wall
+                    //if the next cell contains a brick wall
+                    //if the next cell is vulnarable to a bullet attack
+                    int x = ownedTank.PositionX-1;
+                    int y = ownedTank.PositionY ;
+
+                    if (x < 0)
+                    {
+                        return "INVALID"; // this move is invalid
+                    }
+                    else
+                    {
+
+                        if (hasBrick(x, y))
+                        {
+                            return "BRICK";
+                        }
+                        if (hasStone(x, y))
+                        {
+                            return "STONE";
+                        }
+                        if (hasWater(x, y))
+                        {
+                            return "WATER";
+                        }
+
+                        //check for a possible bullet attack
+                        Tank t = isVulnerableTOBullet(x, y);
+                        if (t != null)
+                        {
+                            return "NEXT " + t.PlayerNumber + "";
+                        }
+                    }
+
+
+                }
+                else
+                {
+                    Tank t = isVulnerableTOBullet(ownedTank.PositionX, ownedTank.PositionY);
+                    if (t != null)
+                    {
+                        return "CURRENT" + t.PlayerNumber + "";
+                    }
+                }
+            }
+            return "NO DANGER";
+            
         }
 
         public LifePack getNearestLifePack() {
