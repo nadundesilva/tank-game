@@ -358,8 +358,40 @@ namespace Assets.Game
 
         public LifePack getNearestLifePack() {
             //return the neaarest life pack 
+            //get the shortest path to each life pack
+
+
+
+
             return null;
         }
+
+
+        private int max(int x , int y) {
+            return x > y ? x : y;
+        }
+       private cost getPathCost(int x1 , int y1 , int x2 , int y2){
+           //boundry condition 
+           if (x1 == x2 && y1 == y2)
+           {
+               return new Object []{cost,"NONE"};
+           }
+           else {
+               int yDistance = y2 - y1;
+               int xDistance = x2 - x1;
+               //player can move in either x or y direction
+               int a = int.MaxValue;
+
+            
+           }                           
+                 
+        
+            
+        return 0;
+        }
+
+
+
         public CoinPile getNearestCoinPile() {
             //return the nearest coin pile
             return null;
