@@ -370,24 +370,91 @@ namespace Assets.Game
         private int max(int x , int y) {
             return x > y ? x : y;
         }
-       private cost getPathCost(int x1 , int y1 , int x2 , int y2){
-           //boundry condition 
+       private void getPathCost(int x1 , int y1 , int x2 , int y2,Direction direction,int[,] array){
            if (x1 == x2 && y1 == y2)
            {
-               return new Object []{cost,"NONE"};
+               return ;
            }
            else {
-               int yDistance = y2 - y1;
-               int xDistance = x2 - x1;
-               //player can move in either x or y direction
-               int a = int.MaxValue;
+               if(x1+1<gridSize  ){
+                   if (direction == Direction.EAST )
+                   {
+                       if (!(hasBrick(x1 + 1, y1) || hasStone(x1 + 1, y1) || hasWater(x1 + 1, y1)))
+                       {
+                           array[x1 + 1, y1] = array[x1, y1] + 10 < array[x1 + 1, y1] ? array[x1, y1] + 10 : array[x1+1, y1] ;
+                           getPathCost(x1 + 1, y1, x2, y2,  Direction.EAST,array);
+                       }
+                   }
+                   else
+                   {
+                       array[x1 + 1, y1] = array[x1, y1] + 20 < array[x1 + 1, y1] ? array[x1, y1] + 20 : array[x1 + 1, y1];
+                       getPathCost(x1 + 1, y1, x2, y2,  Direction.EAST, array);
+                   } 
+               
+               }
 
+               if (y1 + 1 < gridSize)
+               {
+                   if (direction == Direction.SOUTH)
+                   {
+                       if (!(hasBrick(x1 , y1+1) || hasStone(x1 , y1+1) || hasWater(x1 , y1+1)))
+                       {
+                           array[x1, y1 + 1] = array[x1, y1] + 10 < array[x1, y1 + 1] ? array[x1, y1] + 10 : array[x1, y1 + 1];
+                           getPathCost(x1, y1 + 1, x2, y2, Direction.SOUTH, array);
+                       }
+                   }
+                   else
+                   {
+                       array[x1, y1 + 1] = array[x1, y1] + 20 < array[x1, y1 + 1] ? array[x1, y1] + 20 : array[x1 , y1+1];
+                       getPathCost(x1, y1 + 1, x2, y2, Direction.SOUTH, array);
+                   }
+
+               }
+
+               if (y1 - 1 >-1)
+               {
+                   if (direction == Direction.NORTH)
+                   {
+                       if (!(hasBrick(x1, y1 - 1) || hasStone(x1, y1 - 1) || hasWater(x1, y1 - 1)))
+                       {
+                           array[x1, y1 - 1] = array[x1, y1] + 10 < array[x1, y1 - 1] ? array[x1, y1] + 10 : array[x1, y1 - 1];
+                           getPathCost(x1, y1 - 1, x2, y2, Direction.NORTH, array);
+                       }
+                   }
+                   else
+                   {
+                       array[x1, y1 - 1] = array[x1, y1] + 20 < array[x1, y1 - 1] ? array[x1, y1] + 20 : array[x1, y1 - 1];
+                       getPathCost(x1, y1 - 1, x2, y2, Direction.NORTH, array);
+                   }
+
+               }
+
+               if (x1 - 1 > -1)
+               {
+                   if (direction == Direction.WEST)
+                   {
+                       if (!(hasBrick(x1-1, y1 ) || hasStone(x1-1, y1) || hasWater(x1-1, y1)))
+                       {
+                           array[x1 - 1, y1] = array[x1, y1] + 10 < array[x1 - 1, y1] ? array[x1, y1] + 10 : array[x1 - 1, y1];
+                           getPathCost(x1 - 1, y1, x2, y2, Direction.WEST, array);
+                       }
+                   }
+                   else
+                   {
+                       array[x1 - 1, y1] = array[x1, y1] + 20 < array[x1 - 1, y1] ? array[x1, y1] + 20 : array[x1- 1, y1 ];
+                       getPathCost(x1 - 1, y1, x2, y2, Direction.WEST, array);
+                   }
+
+               }
             
-           }                           
+            
+           }
+
+                                                 
                  
         
             
-        return 0;
+       
         }
 
 
