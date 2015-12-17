@@ -88,25 +88,46 @@ namespace Assets.Game
                     {
                         if (x < opX && gameEngine.Tanks[i].Direction == Direction.WEST)
                         {
-                            return gameEngine.Tanks[i];
+                            distanceLimit = Math.Abs(x - opX);
+                            tank = gameEngine.Tanks[i];
                         }
                         if (x > opX && gameEngine.Tanks[i].Direction == Direction.EAST)
                         {
-                            return gameEngine.Tanks[i];
+                            distanceLimit = Math.Abs(x - opX);
+                            tank = gameEngine.Tanks[i];
                         }
                     }
                 }
+                return tank;
               
                 //possible improvements : this methods returns the first matching tank , but in reallity al the tanks should be checked to find the most important tank
                 
             }
 
-
-
             return null;
         }
-        public bool isNextPlaceVulnerable(int x , int y) {
+        public bool isNextMoveVulnerable(string move) {
             //checks the next place is vulnerable to bullet attack or water or does it hit a stone wall or a brick wall
+            //1. if the 
+            if(move.Equals("UP")){
+                if (ownedTank.Direction == Direction.NORTH)
+                {
+
+                    //1st check if the nect cell contains water
+                    //2nd check whether the nect cell contains a stone wall
+                    //if the next cell contains a brick wall
+                    //if the next 
+
+
+                    //he can move
+                }
+                else { 
+                    //he cant move
+                    return (isVulnerableTOBullet()==null)? false : true ;
+                }
+            }else if (move.Equals("DOWN")){}
+            else if(move.Equals("RIGHT")){}
+            else if (move.Equals("LEFT")) { }
             return false;
         }
 
