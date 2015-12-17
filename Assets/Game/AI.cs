@@ -8,7 +8,7 @@ namespace Assets.Game
         /*
          * The depth of the tree created for the min max algorithm
         */
-        
+        private const int gridSize = 10;    
         private int treeDepth;
         private GameEngine gameEngine ;
         private GameObject[,] map ;
@@ -106,6 +106,38 @@ namespace Assets.Game
 
             return null;
         }
+
+        private bool hasWater(int x , int y){
+            for (int i = 0; i < gameEngine.Water.Count; i++ ) {
+                if (x == gameEngine.Water[i].PositionX && y == gameEngine.Water[i].PositionY) {
+                //next move is killing by water :(
+                return true;
+                
+                }
+            }
+            return false;
+        }
+        private bool hasBrick(int x , int y){
+            for (int i = 0; i < gameEngine.BrickWalls.Count; i++ ) {
+                if (x == gameEngine.BrickWalls[i].PositionX && y == gameEngine.BrickWalls[i].PositionY) {
+                //next move is killing by water :(
+                return true;
+                
+                }
+            }
+            return false;
+        }
+        private bool hasStone(int x , int y){
+            for (int i = 0; i < gameEngine.StoneWalls.Count; i++ ) {
+                if (x == gameEngine.StoneWalls[i].PositionX && y == gameEngine.StoneWalls[i].PositionY) {
+                //next move is killing by water :(
+                return true;
+                
+                }
+            }
+            return false;
+        }
+
         public bool isNextMoveVulnerable(string move) {
             //checks the next place is vulnerable to bullet attack or water or does it hit a stone wall or a brick wall
             //1. if the 
@@ -116,7 +148,77 @@ namespace Assets.Game
                     //1st check if the nect cell contains water
                     //2nd check whether the nect cell contains a stone wall
                     //if the next cell contains a brick wall
-                    //if the next 
+                    //if the next cell is vulnarable to a bullet attack
+                    int x = ownedTank.PositionX;
+                    int y = ownedTank.PositionY -1;
+
+                    if (y < 0)
+                    {
+                        return true; // this move is invalid
+                    }
+                    else {
+                        
+                        for (int i = 0; i < gameEngine.BrickWalls.Count; i++)
+                        {
+                            if (x == gameEngine.BrickWalls[i].PositionX && y == gameEngine.BrickWalls[i].PositionY)
+                            {
+                                //next move is going to be hit by a brick :(
+                                return true;
+                            }
+                        }
+                        for (int i = 0; i < gameEngine.StoneWalls.Count; i++)
+                        {
+                            if (x == gameEngine.StoneWalls[i].PositionX && y == gameEngine.StoneWalls[i].PositionY)
+                            {
+                                //next move is going to be hit by a stone wall :(
+                                return true;
+                            }
+                        }
+
+                        //check for a possible bullet attack
+                        int distanceLimit = 4;
+                        for (int i = 0; i < gameEngine.Tanks.Count;i++ ) 
+                         {
+                                if (i == ownedTank.PlayerNumber) { continue; }
+                                int opX = gameEngine.Tanks[i].PositionX;
+                                int opY = gameEngine.Tanks[i].PositionY;
+                                if(x == opX){
+                                    if(Math.Abs(y-opY)<distanceLimit ) {
+                                        if(y<opY && gameEngine.Tanks[i].Direction==Direction.NORTH){
+                                            distanceLimit = Math.Abs(y - opY);
+                                            return true;                           
+                                        }
+                                        else if (y > opY && gameEngine.Tanks[i].Direction == Direction.SOUTH)
+                                        {
+                                            distanceLimit = Math.Abs(y - opY);
+                                            return true;
+                                        }
+                                    }
+                                }   
+                                if (y == opY)
+                                {
+                                    if (Math.Abs(x - opX) < distanceLimit)
+                                    {
+                                        if (x < opX && gameEngine.Tanks[i].Direction == Direction.WEST)
+                                        {
+                                            distanceLimit = Math.Abs(x - opX);
+                                            return true;
+                                        }
+                                        if (x > opX && gameEngine.Tanks[i].Direction == Direction.EAST)
+                                        {
+                                            distanceLimit = Math.Abs(x - opX);
+                                            return true;
+                                        }
+                                    }
+                                }
+
+
+
+                        }
+
+
+                    
+                    
 
 
                     //he can move
