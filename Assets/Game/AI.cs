@@ -8,7 +8,7 @@ namespace Assets.Game
         /*
          * The depth of the tree created for the min max algorithm
         */
-        public const int distanceLimit = 4;
+        
         private int treeDepth;
         private GameEngine gameEngine ;
         private GameObject[,] map ;
@@ -59,9 +59,10 @@ namespace Assets.Game
 
             //checks if any other tank is in line with our tank with the appropiate direction. 
             //current position of my tank
-            
+            int distanceLimit = 4;
             int x = ownedTank.PositionX;
             int y = ownedTank.PositionY;
+            Tank tank = null;
 
             for (int i = 0; i < gameEngine.Tanks.Count;i++ ) 
             {
@@ -71,11 +72,13 @@ namespace Assets.Game
                 if(x == opX){
                     if(Math.Abs(y-opY)<distanceLimit ) {
                         if(y<opY && gameEngine.Tanks[i].Direction==Direction.NORTH){
-                            return gameEngine.Tanks[i];                            
+                            distanceLimit = Math.Abs(y - opY);
+                            tank =  gameEngine.Tanks[i];                            
                         }
-                        if (y > opY && gameEngine.Tanks[i].Direction == Direction.SOUTH)
+                        else if (y > opY && gameEngine.Tanks[i].Direction == Direction.SOUTH)
                         {
-                            return gameEngine.Tanks[i];
+                            distanceLimit = Math.Abs(y - opY);
+                            tank = gameEngine.Tanks[i];
                         }
                     }
                 }
