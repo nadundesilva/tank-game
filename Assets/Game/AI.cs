@@ -352,10 +352,17 @@ namespace Assets.Game
             
         }
 
-        public LifePack getNearestLifePack() {
+        public String getNearestLifePackDirection() {
             //return the neaarest life pack 
             //get the shortest path to each life pack
-
+            int min = int.MaxValue; 
+            for (int i = 0; i < gameEngine.LifePacks.Count;i++ ) {
+                int [,] array= new int[gridSize,gridSize];
+                getPathCost(ownedTank.PositionX, ownedTank.PositionY, gameEngine.LifePacks[i].PositionX, gameEngine.LifePacks[i].PositionY, ownedTank.Direction, array);
+                if (array[gameEngine.LifePacks[i].PositionX, gameEngine.LifePacks[i].PositionY]<min) {
+                    min = array[gameEngine.LifePacks[i].PositionX, gameEngine.LifePacks[i].PositionY];
+                }
+            }
 
 
 
@@ -372,7 +379,7 @@ namespace Assets.Game
                return ;
            }
            else {
-               if(x1+1<gridSize  ){
+               if(x1+1<gridSize  && x1 <x2  ){
                    if (direction == Direction.EAST )
                    {
                        if (!(hasBrick(x1 + 1, y1) || hasStone(x1 + 1, y1) || hasWater(x1 + 1, y1)))
@@ -389,7 +396,7 @@ namespace Assets.Game
                
                }
 
-               if (y1 + 1 < gridSize)
+               if (y1 + 1 < gridSize && y1 < y2)
                {
                    if (direction == Direction.SOUTH)
                    {
@@ -407,7 +414,7 @@ namespace Assets.Game
 
                }
 
-               if (y1 - 1 >-1)
+               if (y1 - 1 > -1 && y2 < y1)
                {
                    if (direction == Direction.NORTH)
                    {
@@ -425,7 +432,7 @@ namespace Assets.Game
 
                }
 
-               if (x1 - 1 > -1)
+               if (x1 - 1 > -1 && x2 < x1)
                {
                    if (direction == Direction.WEST)
                    {
@@ -446,22 +453,70 @@ namespace Assets.Game
             
            }
 
-                                                 
-                 
-        
-            
-       
         }
-
-
-
-        public CoinPile getNearestCoinPile() {
+               
+        public string getNearestCoinPile() {
             //return the nearest coin pile
+            
+            
+            int min = int.MaxValue;
+            for (int i = 0; i < gameEngine.CoinPiles.Count; i++)
+            {
+                int[,] array = new int[gridSize, gridSize];
+                getPathCost(ownedTank.PositionX, ownedTank.PositionY, gameEngine.CoinPiles[i].PositionX, gameEngine.CoinPiles[i].PositionY, ownedTank.Direction, array);
+                if (array[gameEngine.CoinPiles[i].PositionX, gameEngine.CoinPiles[i].PositionY] < min)
+                {
+                    min = array[gameEngine.CoinPiles[i].PositionX, gameEngine.CoinPiles[i].PositionY];
+                }
+            }
+
+
+
             return null;
         }
-        public string getShootableDirection() { 
-            //return the easiest direction to shoot the nearest player or brick wall
-            return null;
+        public bool canShoot() { 
+            //shooting is done when the direction is aligned and the distance is set
+            //tells to shoot or not , direction is not changed
+            int x = ownedTank.positionX;
+            int y = ownedTank.positionY;
+            
+            for(int i = 0 ;i<gameEngine.Tanks.Count;i++){
+                if(i==ownedTank.PlayerNumber){continue;}
+                if(gameEngine.Tanks.PositionX==x){
+                    if(y>gameEngine.Tanks.PositionY){
+                        if(ownedTank.Direction==Direction.NORTH && Math.Abs(y-gameEngine.Tanks.PositionY)<3){
+                            return true;
+                        }
+                        
+                    }else{
+                        if(ownedTank.Direction==Direction.SOUTH && Math.Abs(y-gameEngine.Tanks.PositionY)<3){
+                            return true;
+                        }
+                        
+                    }
+                    
+                }
+                if(gameEngine.Tanks.PositionY==y){
+                    if(x>gameEngine.Tanks.PositionX){
+                        if(ownedTank.Direction==Direction.WEST && Math.Abs(x-gameEngine.Tanks.PositionX)<3){
+                            return true;
+                        }
+                        
+                    }else{
+                        if(ownedTank.Direction==Direction.EAST && Math.Abs(x-gameEngine.Tanks.PositionX)<3){
+                            return true;
+                        }
+                        
+                    }
+                    
+                }
+            }
+            
+
+
+
+
+            return false;
             
         }
 
