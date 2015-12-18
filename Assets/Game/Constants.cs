@@ -114,7 +114,10 @@ namespace Assets.Game
             {
                 LoadXMLData(fileLocation);
             }
-            catch (XmlException e) { }
+            catch (XmlException e)
+            {
+                LoadDefaultData();
+            }
         }
 
         /*

@@ -10,19 +10,15 @@ namespace Assets.Game
         */
         private const int gridSize = 10;    
         private int treeDepth;
-        private GameEngine gameEngine ;
-        private GameObject[,] map ;
-        private Tank ownedTank ;
+        private GameEngine gameEngine;
+        private GameObject[,] map;
+        private Tank ownedTank;
 
         #region Variables for storing references to important objects
         #endregion
 
         public AI()
         {
-            treeDepth = Constants.Instance.AITreeDepth;
-            gameEngine = GameManager.Instance.GameEngine;
-            map = gameEngine.Map;
-            ownedTank = gameEngine.Tanks[gameEngine.PlayerNumber];
         }
 
         /*
@@ -472,11 +468,10 @@ namespace Assets.Game
 
         public void CalculateMove()
         {
-            
-            
-
-
-
+            treeDepth = Constants.Instance.AITreeDepth;
+            gameEngine = GameManager.Instance.GameEngine;
+            map = gameEngine.Map;
+            ownedTank = gameEngine.Tanks[gameEngine.PlayerNumber];
         }
     }
 }

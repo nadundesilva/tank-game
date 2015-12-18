@@ -8,7 +8,6 @@ using Assets.Game.GameEntities;
 using Assets.Game;
 
 public class MainCameraScript : MonoBehaviour {
-
     // Speed for panning. rotating and zooming
     private float speed = 20;
 
