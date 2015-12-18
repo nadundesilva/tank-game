@@ -10,9 +10,9 @@ namespace Assets.Game
         */
         private const int gridSize = 10;    
         private int treeDepth;
-        private GameEngine gameEngine;
-        private GameObject[,] map;
-        private Tank ownedTank;
+        private GameEngine gameEngine ;
+        private GameObject[,] map ;
+        private Tank ownedTank ;
 
         #region Variables for storing references to important objects
         #endregion
@@ -477,33 +477,33 @@ namespace Assets.Game
         public bool canShoot() { 
             //shooting is done when the direction is aligned and the distance is set
             //tells to shoot or not , direction is not changed
-            int x = ownedTank.positionX;
-            int y = ownedTank.positionY;
+            int x = ownedTank.PositionX;
+            int y = ownedTank.PositionY;
             
             for(int i = 0 ;i<gameEngine.Tanks.Count;i++){
                 if(i==ownedTank.PlayerNumber){continue;}
-                if(gameEngine.Tanks.PositionX==x){
-                    if(y>gameEngine.Tanks.PositionY){
-                        if(ownedTank.Direction==Direction.NORTH && Math.Abs(y-gameEngine.Tanks.PositionY)<3){
+                if(gameEngine.Tanks[i].PositionX==x){
+                    if(y>gameEngine.Tanks[i].PositionY){
+                        if(ownedTank.Direction==Direction.NORTH && Math.Abs(y-gameEngine.Tanks[i].PositionY)<3){
                             return true;
                         }
                         
                     }else{
-                        if(ownedTank.Direction==Direction.SOUTH && Math.Abs(y-gameEngine.Tanks.PositionY)<3){
+                        if(ownedTank.Direction==Direction.SOUTH && Math.Abs(y-gameEngine.Tanks[i].PositionY)<3){
                             return true;
                         }
                         
                     }
                     
                 }
-                if(gameEngine.Tanks.PositionY==y){
-                    if(x>gameEngine.Tanks.PositionX){
-                        if(ownedTank.Direction==Direction.WEST && Math.Abs(x-gameEngine.Tanks.PositionX)<3){
+                if(gameEngine.Tanks[i].PositionY==y){
+                    if(x>gameEngine.Tanks[i].PositionX){
+                        if(ownedTank.Direction==Direction.WEST && Math.Abs(x-gameEngine.Tanks[i].PositionX)<3){
                             return true;
                         }
                         
                     }else{
-                        if(ownedTank.Direction==Direction.EAST && Math.Abs(x-gameEngine.Tanks.PositionX)<3){
+                        if(ownedTank.Direction==Direction.EAST && Math.Abs(x-gameEngine.Tanks[i].PositionX)<3){
                             return true;
                         }
                         
@@ -527,6 +527,7 @@ namespace Assets.Game
             gameEngine = GameManager.Instance.GameEngine;
             map = gameEngine.Map;
             ownedTank = gameEngine.Tanks[gameEngine.PlayerNumber];
+            
         }
     }
 }
