@@ -8,7 +8,7 @@ using System.IO;
 
 namespace Assets.Game.Communication
 {
-    internal class Connection
+    public class Connection
     {
         System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();//creating a connection to the server
         private NetworkStream serverStream;//to send data using the stream
@@ -16,6 +16,7 @@ namespace Assets.Game.Communication
         private TcpClient client; //To talk back to the client
         private NetworkStream clientStream;//stream to send data
         private BinaryWriter writer;//to write to the allocated buffer
+        
         public string ServerIP { get; set; }//ip address of server(127.0.0.1 if local host)
         public int ServerPort { get; set; }//server sends data using this port
         public int ClientPort { get; set; }//server recieves data using this port
@@ -58,17 +59,21 @@ namespace Assets.Game.Communication
             }catch(Exception ex){}*/
             bool errorOcurred = false;
             Socket connection = null; //The socket listends to the messages sent by server 
-
+            SocketAddress sockAdd = null;
             try
             {
                 //Creating listening Socket
-
-                listener = new TcpListener(IPAddress.Parse(ServerIP), ClientPort);//creating a connection to the server and listens to it
-                listener.Start();
+                
 
 
                 while (true)
                 {
+                    if(listener==null){
+                        listener = new TcpListener(IPAddress.Any, ClientPort);//creating a connection to the server and listens to it
+                        listener.Start();
+                  
+                    }
+                   
                     //connection is connected socket
 
                     connection = listener.AcceptSocket();//socket recieved by the listener
@@ -78,7 +83,7 @@ namespace Assets.Game.Communication
                         //To read from socket create NetworkStream object associated with socket
                         this.serverStream = new NetworkStream(connection);
 
-                        SocketAddress sockAdd = connection.RemoteEndPoint.Serialize();
+                        sockAdd = connection.RemoteEndPoint.Serialize();
                         string s = connection.RemoteEndPoint.ToString();
 
                         List<Byte> inputStr = new List<byte>();
@@ -94,12 +99,40 @@ namespace Assets.Game.Communication
                         OnMessageReceived(reply);
 
                     }
+                    else {
+                        connection = listener.AcceptSocket();//socket recieved by the listener
+
+                        if (connection.Connected)//if connected
+                        {
+                            //To read from socket create NetworkStream object associated with socket
+                            this.serverStream = new NetworkStream(connection);
+
+                             sockAdd = connection.RemoteEndPoint.Serialize();
+                            string s = connection.RemoteEndPoint.ToString();
+
+                            List<Byte> inputStr = new List<byte>();
+                            //read byte by byte and add them to a list
+                            int asw = 0;
+                            while (asw != -1)
+                            {
+                                asw = this.serverStream.ReadByte();
+                                inputStr.Add((Byte)asw);
+                            }
+
+                            string reply = Encoding.UTF8.GetString(inputStr.ToArray());//convert to a C# string object
+                            OnMessageReceived(reply);
+
+                        }
+                    
+                    }
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Communication (RECEIVING) Failed! \n " + e.Message);
+                //Console.WriteLine("Communication (RECEIVING) Failed! \n " + e.Message);
+                this.StartReceiving();                
                 errorOcurred = true;
+                //this.StartReceiving();
             }
             finally
             {
@@ -107,7 +140,7 @@ namespace Assets.Game.Communication
                     if (connection.Connected)
                         connection.Close();
                 if (errorOcurred)
-                    this.StartReceiving();
+                { this.StartReceiving(); }
 
             }
         }
@@ -151,10 +184,23 @@ namespace Assets.Game.Communication
 
         public void StartReceiving()
         {
-            Thread iThread = new Thread(new ThreadStart(this.Recieve));
-            iThread.Start();
-            //the recieve  method runs in a seperte thread
 
+            
+            Thread iThread = null ;
+
+            try
+            {
+                if (iThread == null)
+                {
+
+                    iThread = new Thread(new ThreadStart(this.Recieve));
+                }
+               
+
+                iThread.Start();
+            }catch(Exception ex){
+                Console.WriteLine(ex.Message);
+            }
         }
 
         protected virtual void OnMessageReceived(string message)

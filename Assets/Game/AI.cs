@@ -14,105 +14,230 @@ namespace Assets.Game
         private GameEngine gameEngine;
         private GameObject[,] map;
         private Tank ownedTank;
-        List<string> coinPileSteps = null;//= new List<string>();
-        List<string> healthPileSteps = null;//= new List<string>();
-        private CoinPile targetCoinPile = null;
-        private LifePack targetLifePack = null;
-
-
+        private ObjectCell[,] cells = null;
+       
 
         #region Variables for storing references to important objects
         #endregion
 
         public AI()
         {
+
         }
+        public void calculateArray(int x , int y ){
+            cells = new ObjectCell[10, 10];
+            for (int i = 0; i < 10; i++ ) {
+                for (int j = 0; j < 10; j++ ) {
+                    cells[i, j] = new ObjectCell();
+                }
+            }
+            for (int i = 0; i < gameEngine.StoneWalls.Count; i++ ) {
+                int xPoint = gameEngine.StoneWalls[i].PositionX;
+                int yPoint = gameEngine.StoneWalls[i].PositionY;
+                cells[xPoint, yPoint].category = "S";
+            }
+            for (int i = 0; i < gameEngine.BrickWalls.Count; i++)
+            {
+                int xPoint = gameEngine.BrickWalls[i].PositionX;
+                int yPoint = gameEngine.BrickWalls[i].PositionY;
+                cells[xPoint, yPoint].category = "B";
+            }
+            for (int i = 0; i < gameEngine.Water.Count; i++)
+            {
+                int xPoint = gameEngine.Water[i].PositionX;
+                int yPoint = gameEngine.Water[i].PositionY;
+                cells[xPoint, yPoint].category = "W";
+            }
+            cells[x, y].count = 0;
+            cells[x, y].direction= ownedTank.Direction;
+            cells[x, y].predesessor = null;
+            cells[x, y].state= "S";
+
+            fillArray(x,y);
+            
+        }
+        public void relax(int x, int y){
+           
+            if(y>0){
+                //go up
+                if (!(cells[x, y-1].state.Equals("E")))
+                {
+                    if (cells[x, y].direction == Direction.NORTH && cells[x, y-1].count > cells[x, y].count + 1)
+                    {
+                        cells[x, y - 1].count = cells[x,y].count + 1;
+                        cells[x, y - 1].direction = Direction.NORTH;
+                        cells[x, y - 1].predesessor = cells[x, y];
+                        cells[x, y - 1].state = "S";
+                        for (int i = 0; i < cells[x,y].moves.Count; i++)
+                        {
+                            cells[x,y-1].moves.Add(cells[x,y].moves[i]);
+                        }
+                        cells[x, y - 1].moves.Add("UP");
+                    }
+                    else if (cells[x, y].direction != Direction.NORTH && cells[x, y - 1].count > cells[x, y].count + 2)
+                    {
+                        cells[x, y - 1].count = cells[x, y].count + 2;
+                        cells[x, y - 1].direction = Direction.NORTH;
+                        cells[x, y - 1].predesessor = cells[x, y];
+                        cells[x, y - 1].state = "S";
+                        for (int i = 0; i < cells[x, y].moves.Count; i++)
+                        {
+                            cells[x, y - 1].moves.Add(cells[x, y].moves[i]);
+                        }
+                        cells[x, y - 1].moves.Add("UP");
+                        cells[x, y - 1].moves.Add("UP");
+
+                    }
+                } 
+
+
+
+            }
+            if(y<9){
+                //go down
+
+                if (!(cells[x, y + 1].state.Equals("E")))
+                {
+                    if (cells[x, y].direction == Direction.SOUTH && cells[x, y + 1].count > cells[x, y].count + 1)
+                    {
+                        cells[x, y + 1].count = cells[x, y].count + 1;
+                        cells[x, y + 1].direction = Direction.SOUTH;
+                        cells[x, y + 1].predesessor = cells[x, y];
+                        cells[x, y + 1].state = "S";
+                        for (int i = 0; i < cells[x, y].moves.Count; i++)
+                        {
+                            cells[x, y + 1].moves.Add(cells[x, y].moves[i]);
+                        }
+                        cells[x, y + 1].moves.Add("DOWN");
+                    }
+                    else if (cells[x, y].direction != Direction.SOUTH && cells[x, y + 1].count > cells[x, y].count + 2)
+                    {
+                        cells[x, y + 1].count = cells[x, y].count + 2;
+                        cells[x, y + 1].direction = Direction.SOUTH;
+                        cells[x, y + 1].predesessor = cells[x, y];
+                        cells[x, y + 1].state = "S";
+                        for (int i = 0; i < cells[x, y].moves.Count; i++)
+                        {
+                            cells[x, y + 1].moves.Add(cells[x, y].moves[i]);
+                        }
+                        cells[x, y + 1].moves.Add("DOWN");
+                        cells[x, y + 1].moves.Add("DOWN");
+
+                    }
+                } 
+
+
+
+            }
+            if(x>0){
+                //go left
+
+                if (!(cells[x-1, y].state.Equals("E")))
+                {
+                    if (cells[x, y].direction == Direction.WEST && cells[x - 1, y].count > cells[x, y].count + 1)
+                    {
+                        cells[x - 1, y].count = cells[x, y].count + 1;
+                        cells[x - 1, y].direction = Direction.WEST;
+                        cells[x - 1, y].predesessor = cells[x, y];
+                        cells[x - 1, y].state = "S";
+                        for (int i = 0; i < cells[x, y].moves.Count; i++)
+                        {
+                            cells[x - 1, y].moves.Add(cells[x, y].moves[i]);
+                        }
+                        cells[x - 1, y].moves.Add("LEFT");
+                    }
+                    else if (cells[x, y].direction != Direction.WEST && cells[x - 1, y].count > cells[x, y].count + 2)
+                    {
+                        cells[x - 1, y].count = cells[x, y].count + 2;
+                        cells[x - 1, y].direction = Direction.WEST;
+                        cells[x - 1, y].predesessor = cells[x, y];
+                        cells[x - 1, y].state = "S";
+                        for (int i = 0; i < cells[x, y].moves.Count; i++)
+                        {
+                            cells[x - 1, y].moves.Add(cells[x, y].moves[i]);
+                        }
+                        cells[x - 1, y].moves.Add("LEFT");
+                        cells[x - 1, y].moves.Add("LEFT");
+
+                    }
+                }
+
+
+
+            }
+            if(x<9){
+                //go right
+
+                if (!(cells[x + 1, y].state.Equals("E")))
+                {
+                    if (cells[x, y].direction == Direction.EAST && cells[x + 1, y].count > cells[x, y].count + 1)
+                    {
+                        cells[x + 1, y].count = cells[x, y].count + 1;
+                        cells[x + 1, y].direction = Direction.EAST;
+                        cells[x + 1, y].predesessor = cells[x, y];
+                        cells[x + 1, y].state = "S";
+                        for (int i = 0; i < cells[x, y].moves.Count; i++)
+                        {
+                            cells[x + 1, y].moves.Add(cells[x, y].moves[i]);
+                        }
+                        cells[x + 1, y].moves.Add("RIGHT");
+                    }
+                    else if (cells[x, y].direction != Direction.EAST && cells[x + 1, y].count > cells[x, y].count + 2)
+                    {
+                        cells[x + 1, y].count = cells[x, y].count + 2;
+                        cells[x + 1, y].direction = Direction.EAST;
+                        cells[x + 1, y].predesessor = cells[x, y];
+                        cells[x + 1, y].state = "S";
+                        for (int i = 0; i < cells[x, y].moves.Count; i++)
+                        {
+                            cells[x + 1, y].moves.Add(cells[x, y].moves[i]);
+                        }
+                        cells[x + 1, y].moves.Add("RIGHT");
+                        cells[x + 1, y].moves.Add("RIGHT");
+
+                    }
+                }
+
+
+            }
+            
+
+            
+        }
+
+        public void fillArray(int x , int y){
+            if (!(cells[x, y].category.Equals("W")) && !(cells[x, y].category.Equals("B")) && !(cells[x, y].category.Equals("S")))
+            {
+                relax(x, y);
+                cells[x, y].state = "E";
+            }
+            else {
+                cells[x, y].state = "E";
+            }  
+            int min = Int32.MaxValue;
+            Boolean found = false;
+            int newX = -1 ;
+            int newY = -1;
+            for(int i = 0 ; i <10 ;i++ ){
+                for(int j = 0 ;j<10;j++){
+                    if((cells[i,j].state.Equals("S")) && cells[i,j].count<min) {
+                        min = cells[i,j].count;
+                        found = true;
+                        newX = i ;
+                        newY = j;
+                    }
+                }
+            }if(found){
+                fillArray(newX,newY);                                
+            }   
+      
+        }
+         
 
         /*
          * Calculates the best move based on the state of the game
         */
-
-
-
-        //all possible moves :
-        /*
-         *up
-         *down
-         *left 
-         *right
-         *shoot
-         *one move goes to turn to another direction
-         */
-        /*
-         Objectives
-         * survive from bullet
-         * avoid drawning in water
-         * avoid hitting with a stone wall
-         * colect a health pile
-         * collect coins
-         * shoot others
-         * destroy brick wall
-         * no movement
-         * 
-                 
-         */
-        public Tank isVulnerableTOBullet(int x, int y)
-        {
-
-            //checks if the current position is vulanerable to a bullet attack
-
-            //checks if any other tank is in line with our tank with the appropiate direction. 
-            //current position of my tank
-            int distanceLimit = 4;
-
-            Tank tank = null;
-
-            for (int i = 0; i < gameEngine.Tanks.Count; i++)
-            {
-                if (i == ownedTank.PlayerNumber) { continue; }
-                int opX = gameEngine.Tanks[i].PositionX;
-                int opY = gameEngine.Tanks[i].PositionY;
-                if (x == opX)
-                {
-                    if (Math.Abs(y - opY) < distanceLimit)
-                    {
-                        if (y < opY && gameEngine.Tanks[i].Direction == Direction.NORTH)
-                        {
-                            distanceLimit = Math.Abs(y - opY);
-                            tank = gameEngine.Tanks[i];
-                        }
-                        else if (y > opY && gameEngine.Tanks[i].Direction == Direction.SOUTH)
-                        {
-                            distanceLimit = Math.Abs(y - opY);
-                            tank = gameEngine.Tanks[i];
-                        }
-                    }
-                }
-                if (y == opY)
-                {
-                    if (Math.Abs(x - opX) < distanceLimit)
-                    {
-                        if (x < opX && gameEngine.Tanks[i].Direction == Direction.WEST)
-                        {
-                            distanceLimit = Math.Abs(x - opX);
-                            tank = gameEngine.Tanks[i];
-                        }
-                        if (x > opX && gameEngine.Tanks[i].Direction == Direction.EAST)
-                        {
-                            distanceLimit = Math.Abs(x - opX);
-                            tank = gameEngine.Tanks[i];
-                        }
-                    }
-                }
-                return tank;
-
-                //possible improvements : this methods returns the first matching tank , but in reallity al the tanks should be checked to find the most important tank
-
-            }
-
-            return null;
-        }
-
+        
         private bool hasWater(int x, int y)
         {
             for (int i = 0; i < gameEngine.Water.Count; i++)
@@ -139,7 +264,7 @@ namespace Assets.Game
             }
             return false;
         }
-        private bool hasStone(int x, int y)
+        private bool hasStone(int x, int y) 
         {
             for (int i = 0; i < gameEngine.StoneWalls.Count; i++)
             {
@@ -152,231 +277,30 @@ namespace Assets.Game
             }
             return false;
         }
-        public String isNextMoveVulnerable(string move)
+        public void makeExcatMove(string move)
         {
-            //checks the next place is vulnerable to bullet attack or water or does it hit a stone wall or a brick wall
-            //1. if the 
             if (move.Equals("UP"))
             {
-                if (ownedTank.Direction == Direction.NORTH)
-                {
-
-                    //1st check if the nect cell contains water
-                    //2nd check whether the nect cell contains a stone wall
-                    //if the next cell contains a brick wall
-                    //if the next cell is vulnarable to a bullet attack
-                    int x = ownedTank.PositionX;
-                    int y = ownedTank.PositionY - 1;
-
-                    if (y < 0)
-                    {
-                        return "INVALID"; // this move is invalid
-                    }
-                    else
-                    {
-
-                        if (hasBrick(x, y))
-                        {
-                            return "BRICK";
-                        }
-                        if (hasStone(x, y))
-                        {
-                            return "STONE";
-                        }
-                        if (hasWater(x, y))
-                        {
-                            return "WATER";
-                        }
-
-                        //check for a possible bullet attack
-                        Tank t = isVulnerableTOBullet(x, y);
-                        if (t != null)
-                        {
-                            return "NEXT " + t.PlayerNumber + "";
-                        }
-                    }
-
-
-                }
-                else
-                {
-                    Tank t = isVulnerableTOBullet(ownedTank.PositionX, ownedTank.PositionY);
-                    if (t != null)
-                    {
-                        return "CURRENT" + t.PlayerNumber + "";
-                    }
-                }
+                GameManager.Instance.CurrentTank.MoveUp();
             }
-
-
-            if (move.Equals("DOWN"))
+            else if (move.Equals("DOWN"))
             {
-                if (ownedTank.Direction == Direction.SOUTH)
-                {
-
-                    //1st check if the nect cell contains water
-                    //2nd check whether the nect cell contains a stone wall
-                    //if the next cell contains a brick wall
-                    //if the next cell is vulnarable to a bullet attack
-                    int x = ownedTank.PositionX;
-                    int y = ownedTank.PositionY + 1;
-
-                    if (y >= gridSize)
-                    {
-                        return "INVALID"; // this move is invalid
-                    }
-                    else
-                    {
-
-                        if (hasBrick(x, y))
-                        {
-                            return "BRICK";
-                        }
-                        if (hasStone(x, y))
-                        {
-                            return "STONE";
-                        }
-                        if (hasWater(x, y))
-                        {
-                            return "WATER";
-                        }
-
-                        //check for a possible bullet attack
-                        Tank t = isVulnerableTOBullet(x, y);
-                        if (t != null)
-                        {
-                            return "NEXT " + t.PlayerNumber + "";
-                        }
-                    }
-
-
-                }
-                else
-                {
-                    Tank t = isVulnerableTOBullet(ownedTank.PositionX, ownedTank.PositionY);
-                    if (t != null)
-                    {
-                        return "CURRENT" + t.PlayerNumber + "";
-                    }
-                }
+                GameManager.Instance.CurrentTank.MoveDown();
             }
-
-            if (move.Equals("RIGHT"))
+            else if (move.Equals("RIGHT"))
             {
-                if (ownedTank.Direction == Direction.EAST)
-                {
-
-                    //1st check if the nect cell contains water
-                    //2nd check whether the nect cell contains a stone wall
-                    //if the next cell contains a brick wall
-                    //if the next cell is vulnarable to a bullet attack
-                    int x = ownedTank.PositionX + 1;
-                    int y = ownedTank.PositionY;
-
-                    if (x >= gridSize)
-                    {
-                        return "INVALID"; // this move is invalid
-                    }
-                    else
-                    {
-
-                        if (hasBrick(x, y))
-                        {
-                            return "BRICK";
-                        }
-                        if (hasStone(x, y))
-                        {
-                            return "STONE";
-                        }
-                        if (hasWater(x, y))
-                        {
-                            return "WATER";
-                        }
-
-                        //check for a possible bullet attack
-                        Tank t = isVulnerableTOBullet(x, y);
-                        if (t != null)
-                        {
-                            return "NEXT " + t.PlayerNumber + "";
-                        }
-                    }
-
-
-                }
-                else
-                {
-                    Tank t = isVulnerableTOBullet(ownedTank.PositionX, ownedTank.PositionY);
-                    if (t != null)
-                    {
-                        return "CURRENT" + t.PlayerNumber + "";
-                    }
-                }
+                GameManager.Instance.CurrentTank.MoveRight();
             }
-
-
-
-            if (move.Equals("LEFT"))
+            else if (move.Equals("LEFT"))
             {
-                if (ownedTank.Direction == Direction.WEST)
-                {
-
-                    //1st check if the nect cell contains water
-                    //2nd check whether the nect cell contains a stone wall
-                    //if the next cell contains a brick wall
-                    //if the next cell is vulnarable to a bullet attack
-                    int x = ownedTank.PositionX - 1;
-                    int y = ownedTank.PositionY;
-
-                    if (x < 0)
-                    {
-                        return "INVALID"; // this move is invalid
-                    }
-                    else
-                    {
-
-                        if (hasBrick(x, y))
-                        {
-                            return "BRICK";
-                        }
-                        if (hasStone(x, y))
-                        {
-                            return "STONE";
-                        }
-                        if (hasWater(x, y))
-                        {
-                            return "WATER";
-                        }
-
-                        //check for a possible bullet attack
-                        Tank t = isVulnerableTOBullet(x, y);
-                        if (t != null)
-                        {
-                            return "NEXT " + t.PlayerNumber + "";
-                        }
-                    }
-
-
-                }
-                else
-                {
-                    Tank t = isVulnerableTOBullet(ownedTank.PositionX, ownedTank.PositionY);
-                    if (t != null)
-                    {
-                        return "CURRENT" + t.PlayerNumber + "";
-                    }
-                }
+                GameManager.Instance.CurrentTank.MoveLeft();
             }
-            return "NO DANGER";
+            else if (move.Equals("SHOOT")) {
+                GameManager.Instance.CurrentTank.Shoot();
+            }
 
         }
 
-
-
-
-        private int max(int x, int y)
-        {
-            return x > y ? x : y;
-        }
         public bool canShoot()
         {
             //shooting is done when the direction is aligned and the distance is set
@@ -391,7 +315,7 @@ namespace Assets.Game
                 {
                     if (y > gameEngine.Tanks[i].PositionY)
                     {
-                        if (ownedTank.Direction == Direction.NORTH && Math.Abs(y - gameEngine.Tanks[i].PositionY) < 2)
+                        if (ownedTank.Direction.ToString().Equals(Direction.NORTH.ToString()) && Math.Abs(y - gameEngine.Tanks[i].PositionY) < 2 && gameEngine.Tanks[i].PositionY < y)
                         {
                             return true;
                         }
@@ -399,7 +323,7 @@ namespace Assets.Game
                     }
                     else
                     {
-                        if (ownedTank.Direction == Direction.SOUTH && Math.Abs(y - gameEngine.Tanks[i].PositionY) < 2)
+                        if (ownedTank.Direction.ToString().Equals(Direction.SOUTH.ToString()) && Math.Abs(y - gameEngine.Tanks[i].PositionY) < 2 && gameEngine.Tanks[i].PositionY > y)
                         {
                             return true;
                         }
@@ -411,15 +335,14 @@ namespace Assets.Game
                 {
                     if (x > gameEngine.Tanks[i].PositionX)
                     {
-                        if (ownedTank.Direction == Direction.WEST && Math.Abs(x - gameEngine.Tanks[i].PositionX) < 2)
+                        if (ownedTank.Direction.ToString().Equals(Direction.WEST.ToString()) && Math.Abs(x - gameEngine.Tanks[i].PositionX) < 2 && gameEngine.Tanks[i].PositionX < x)
                         {
                             return true;
                         }
-
                     }
                     else
                     {
-                        if (ownedTank.Direction == Direction.EAST && Math.Abs(x - gameEngine.Tanks[i].PositionX) < 2)
+                        if (ownedTank.Direction.ToString().Equals(Direction.EAST.ToString()) && Math.Abs(x - gameEngine.Tanks[i].PositionX) < 2 && gameEngine.Tanks[i].PositionX > x)
                         {
                             return true;
                         }
@@ -427,6 +350,7 @@ namespace Assets.Game
                     }
 
                 }
+
             }
 
 
@@ -437,381 +361,74 @@ namespace Assets.Game
 
         }
 
-        private List<string> calculatePath(int x, int y, List<string> usedCells, int limit, List<string> coinPileList, Direction direction)
+       public void CalculateMove()
         {
 
-
-
-            List<string> answer1 = null;
-            List<string> answer2 = null;
-            List<string> answer3 = null;
-            List<string> answer4 = null;
-
-
-
-
-
-
-            if (!(limit < 0))
-            {
-
-
-
-
-                usedCells.Add(x + " " + y);
-                for (int i = 0; i < gameEngine.CoinPiles.Count; i++)
-                {
-                    if (gameEngine.CoinPiles[i].PositionX == x && gameEngine.CoinPiles[i].PositionY == y)
-                    {
-                        if (gameEngine.CoinPiles[i].TimeLeft > coinPileList.Count)
-                        {
-                            return coinPileList;
-                        }
-                        return null;
-
-                    }
-                }
-                if (isNextMoveVulnerable("UP") != "INVALID" && isNextMoveVulnerable("UP") != "BRICK" && isNextMoveVulnerable("UP") != "STONE" && isNextMoveVulnerable("UP") != "WATER" && !usedCells.Contains(x + " " + (y - 1)))
-                {
-                    List<string> coinPileListUp = new List<string>();
-                    for (int i = 0; i < coinPileList.Count; i++)
-                    {
-                        coinPileListUp.Add(coinPileList[i]);
-                    }
-                    if (direction == Direction.NORTH)
-                    {
-                        coinPileListUp.Add("UP");
-                    }
-                    else
-                    {
-                        coinPileListUp.Add("UP");
-                        coinPileListUp.Add("UP");
-                    }
-
-
-                    answer1 = calculatePath(x, y - 1, usedCells, limit - 1, coinPileListUp, Direction.NORTH);
-                }
-                if (isNextMoveVulnerable("DOWN") != "INVALID" && isNextMoveVulnerable("DOWN") != "BRICK" && isNextMoveVulnerable("DOWN") != "STONE" && isNextMoveVulnerable("DOWN") != "WATER" && !usedCells.Contains(x + " " + (y + 1)))
-                {
-                    List<string> coinPileListDown = new List<string>();
-                    for (int i = 0; i < coinPileList.Count; i++)
-                    {
-                        coinPileListDown.Add(coinPileList[i]);
-                    }
-                    if (direction == Direction.SOUTH)
-                    {
-                        coinPileListDown.Add("DOWN");
-                    }
-                    else
-                    {
-                        coinPileListDown.Add("DOWN");
-                        coinPileListDown.Add("DOWN");
-                    }
-                    answer2 = calculatePath(x, y + 1, usedCells, limit - 1, coinPileListDown, Direction.SOUTH);
-                }
-                if (isNextMoveVulnerable("RIGHT") != "INVALID" && isNextMoveVulnerable("RIGHT") != "BRICK" && isNextMoveVulnerable("RIGHT") != "STONE" && isNextMoveVulnerable("RIGHT") != "WATER" && !usedCells.Contains((x + 1) + " " + y))
-                {
-                    List<string> coinPileListRight = new List<string>();
-                    for (int i = 0; i < coinPileList.Count; i++)
-                    {
-                        coinPileListRight.Add(coinPileList[i]);
-                    }
-                    if (direction == Direction.EAST)
-                    {
-                        coinPileListRight.Add("RIGHT");
-                    }
-                    else
-                    {
-                        coinPileListRight.Add("RIGHT");
-                        coinPileListRight.Add("RIGHT");
-                    }
-                    answer3 = calculatePath(x + 1, y, usedCells, limit - 1, coinPileListRight, Direction.EAST);
-                }
-                if (isNextMoveVulnerable("LEFT") != "INVALID" && isNextMoveVulnerable("LEFT") != "BRICK" && isNextMoveVulnerable("LEFT") != "STONE" && isNextMoveVulnerable("LEFT") != "WATER" && !usedCells.Contains((x - 1) + " " + y))
-                {
-                    List<string> coinPileListLeft = new List<string>();
-                    for (int i = 0; i < coinPileList.Count; i++)
-                    {
-                        coinPileListLeft.Add(coinPileList[i]);
-                    }
-                    if (direction == Direction.WEST)
-                    {
-                        coinPileListLeft.Add("LEFT");
-                    }
-                    else
-                    {
-                        coinPileListLeft.Add("LEFT");
-                        coinPileListLeft.Add("LEFT");
-                    }
-                    answer4 = calculatePath(x - 1, y, usedCells, limit - 1, coinPileListLeft, Direction.WEST);
-                }
-
-                int count1 = (answer1 != null) ? answer1.Count : 100;
-                int count2 = (answer2 != null) ? answer2.Count : 100;
-                int count3 = (answer3 != null) ? answer3.Count : 100;
-                int count4 = (answer4 != null) ? answer4.Count : 100;
-
-                int min = count1;
-                if (count2 < min) { min = count2; }
-
-                if (count3 < min) { min = count3; }
-
-                if (count4 < min) { min = count4; }
-                if (min == 100) { return null; }
-                if (min == count1) { return answer1; }
-                if (min == count2) { return answer2; }
-                if (min == count3) { return answer3; }
-                if (min == count4) { return answer4; }
-                return null;
-            }
-            else
-            {
-                return coinPileList;
-            }
-
-
-        }
-
-        private CoinPile findTargetCoinPile(List<string> pathList)
-        {
-            if (pathList != null)
-            {
-                int x = ownedTank.PositionX;
-                int y = ownedTank.PositionY;
-                Direction direction = ownedTank.Direction;
-                for (int i = 0; i < pathList.Count; i++)
-                {
-                    if (pathList[i] == "UP")
-                    {
-                        if (direction == Direction.NORTH)
-                        {
-                            y = y - 1;
-                        }
-                        else
-                        {
-                            direction = Direction.NORTH;
-                        }
-
-                    }
-                    else if (pathList[i] == "DOWN")
-                    {
-                        if (direction == Direction.SOUTH)
-                        {
-                            y = y + 1;
-                        }
-                        else
-                        {
-                            direction = Direction.SOUTH;
-                        }
-
-
-                    }
-                    else if (pathList[i] == "LEFT")
-                    {
-                        if (direction == Direction.WEST)
-                        {
-                            x = x - 1;
-                        }
-                        else
-                        {
-                            direction = Direction.WEST;
-                        }
-
-                    }
-                    else if (pathList[i] == "RIGHT")
-                    {
-
-                        if (direction == Direction.EAST)
-                        {
-                            x = x + 1;
-                        }
-                        else
-                        {
-                            direction = Direction.EAST;
-                        }
-
-                    }
-
-                }
-                for (int i = 0; i < gameEngine.CoinPiles.Count; i++)
-                {
-                    if (gameEngine.CoinPiles[i].PositionX == x && gameEngine.CoinPiles[i].PositionY == y)
-                    {
-                        return gameEngine.CoinPiles[i];
-                    }
-                } return null;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public void CalculateMove()
-        {
-            treeDepth = Constants.Instance.AITreeDepth;
-            //
+            treeDepth = 10; 
             gameEngine = GameManager.Instance.GameEngine;
             map = gameEngine.Map;
             ownedTank = gameEngine.Tanks[gameEngine.PlayerNumber];
-            if (canShoot())
+            calculateArray(ownedTank.PositionX,ownedTank.PositionY);
+            if (ownedTank.Health < 30)
             {
-                GameManager.Instance.CurrentTank.Shoot();
-            }
-            else if (ownedTank.Health >= 3)
-            {
-                //go for a life pack
-                //
+                //go for a health pile
+                int minx = -1;
+                int miny = -1;
+                int minCount = Int16.MaxValue;
+                for (int i = 0; i < gameEngine.LifePacks.Count;i++ ) {
+                    int x = gameEngine.LifePacks[i].PositionX;
+                    int y = gameEngine.LifePacks[i].PositionY;
+                    if(cells[x,y].moves.Count<gameEngine.LifePacks[i].TimeLeft){
+                        if (minCount > cells[x, y].moves.Count) {
+                            minCount = cells[x, y].moves.Count;
+                            minx = x;
+                            miny = y;
+                        }
+                    }
+
+                }
+                if(minCount!=Int16.MaxValue){
+                    //target is in minx , miny
+                    makeExcatMove(cells[minx,miny].moves[0]);
+                }
+                else if (canShoot())
+                {
+                    makeExcatMove("SHOOT");
+                }
 
             }
-            else
+            
             {
                 //go for a coin pile
-                //
-                if (coinPileSteps == null)
+                int minx = -1;
+                int miny = -1;
+                int minCount = Int16.MaxValue;
+                for (int i = 0; i < gameEngine.CoinPiles.Count; i++)
                 {
-                    coinPileSteps = new List<string>();
-                    List<string> usedCells = new List<string>();
-                    coinPileSteps = calculatePath(ownedTank.PositionX, ownedTank.PositionY, usedCells, treeDepth, coinPileSteps, ownedTank.Direction);
-                    targetCoinPile = findTargetCoinPile(coinPileSteps);
-
-                    if (coinPileSteps == null)
+                    int x = gameEngine.CoinPiles[i].PositionX;
+                    int y = gameEngine.CoinPiles[i].PositionY;
+                    if (cells[x, y].moves.Count < gameEngine.CoinPiles[i].TimeLeft)
                     {
-                        targetCoinPile = null;
-
-                        if (isNextMoveVulnerable("UP") != "INVALID" && isNextMoveVulnerable("UP") != "BRICK" && isNextMoveVulnerable("UP") != "STONE" && isNextMoveVulnerable("UP") != "WATER")
+                        if (minCount > cells[x, y].moves.Count)
                         {
-                            GameManager.Instance.CurrentTank.MoveUp();
-                        }
-                        else if (isNextMoveVulnerable("DOWN") != "INVALID" && isNextMoveVulnerable("DOWN") != "BRICK" && isNextMoveVulnerable("DOWN") != "STONE" && isNextMoveVulnerable("DOWN") != "WATER")
-                        {
-                            GameManager.Instance.CurrentTank.MoveDown();
-                        }
-                        else if (isNextMoveVulnerable("LEFT") != "INVALID" && isNextMoveVulnerable("LEFT") != "BRICK" && isNextMoveVulnerable("LEFT") != "STONE" && isNextMoveVulnerable("LEFT") != "WATER")
-                        {
-                            GameManager.Instance.CurrentTank.MoveLeft();
-                        }
-                        else if (isNextMoveVulnerable("RIGHT") != "INVALID" && isNextMoveVulnerable("RIGHT") != "BRICK" && isNextMoveVulnerable("RIGHT") != "STONE" && isNextMoveVulnerable("RIGHT") != "WATER")
-                        {
-                            GameManager.Instance.CurrentTank.MoveRight();
-                        }
-                        else
-                        {
-                            GameManager.Instance.CurrentTank.Shoot();
+                            minCount = cells[x, y].moves.Count;
+                            minx = x;
+                            miny = y;
                         }
                     }
-                    else if (coinPileSteps.Count == 0)
-                    {
-                        coinPileSteps = null;
-                        targetCoinPile = null;
-                        if (isNextMoveVulnerable("UP") != "INVALID" && isNextMoveVulnerable("UP") != "BRICK" && isNextMoveVulnerable("UP") != "STONE" && isNextMoveVulnerable("UP") != "WATER")
-                        {
-                            GameManager.Instance.CurrentTank.MoveUp();
-                        }
-                        else if (isNextMoveVulnerable("DOWN") != "INVALID" && isNextMoveVulnerable("DOWN") != "BRICK" && isNextMoveVulnerable("DOWN") != "STONE" && isNextMoveVulnerable("DOWN") != "WATER")
-                        {
-                            GameManager.Instance.CurrentTank.MoveDown();
-                        }
-                        else if (isNextMoveVulnerable("LEFT") != "INVALID" && isNextMoveVulnerable("LEFT") != "BRICK" && isNextMoveVulnerable("LEFT") != "STONE" && isNextMoveVulnerable("LEFT") != "WATER")
-                        {
-                            GameManager.Instance.CurrentTank.MoveLeft();
-                        }
-                        else if (isNextMoveVulnerable("RIGHT") != "INVALID" && isNextMoveVulnerable("RIGHT") != "BRICK" && isNextMoveVulnerable("RIGHT") != "STONE" && isNextMoveVulnerable("RIGHT") != "WATER")
-                        {
-                            GameManager.Instance.CurrentTank.MoveRight();
-                        }
-                        else
-                        {
-                            GameManager.Instance.CurrentTank.Shoot();
-                        }
 
-                    }
-                    else
-                    {
-                        targetCoinPile = findTargetCoinPile(coinPileSteps);
-                        if (targetCoinPile != null)
-                        {
-                            String move = coinPileSteps[0];
-                            coinPileSteps.RemoveAt(0);
-                            if (move == "UP")
-                            {
-                                GameManager.Instance.CurrentTank.MoveUp();
-                            }
-                            else if (move == "DOWN")
-                            {
-                                GameManager.Instance.CurrentTank.MoveDown();
-                            }
-                            else if (move == "RIGHT")
-                            {
-                                GameManager.Instance.CurrentTank.MoveRight();
-                            }
-                            else if (move == "LEFT")
-                            {
-                                GameManager.Instance.CurrentTank.MoveLeft();
-                            }
-
-                            if (coinPileSteps.Count == 0)
-                            {
-                                coinPileSteps = null;
-                                healthPileSteps = null;
-                                targetCoinPile = null;
-                                targetLifePack = null;
-                            }
-                        }
-                        else
-                        {
-                            coinPileSteps = null;
-                            healthPileSteps = null;
-                            targetCoinPile = null;
-                            targetLifePack = null;
-                        }
-                    }
                 }
-                else
+                if (minCount != Int16.MaxValue)
                 {
-                    targetCoinPile = findTargetCoinPile(coinPileSteps);
-                    if (targetCoinPile != null)
-                    {
-                        String move = coinPileSteps[0];
-                        coinPileSteps.RemoveAt(0);
-                        if (move == "UP")
-                        {
-                            GameManager.Instance.CurrentTank.MoveUp();
-                        }
-                        else if (move == "DOWN")
-                        {
-                            GameManager.Instance.CurrentTank.MoveDown();
-                        }
-                        else if (move == "RIGHT")
-                        {
-                            GameManager.Instance.CurrentTank.MoveRight();
-                        }
-                        else if (move == "LEFT")
-                        {
-                            GameManager.Instance.CurrentTank.MoveLeft();
-                        }
-
-                        if (coinPileSteps.Count == 0)
-                        {
-                            coinPileSteps = null;
-                            healthPileSteps = null;
-                            targetCoinPile = null;
-                            targetLifePack = null;
-                        }
-                    }
-                    else
-                    {
-                        coinPileSteps = null;
-                        healthPileSteps = null;
-                        targetCoinPile = null;
-                        targetLifePack = null;
-                    }
+                    //target is in minx , miny
+                    makeExcatMove(cells[minx, miny].moves[0]);
+                } if (canShoot())
+                {
+                    makeExcatMove("SHOOT");
                 }
 
             }
-
-
-
-        }
+        }            
+        
     }
 }
