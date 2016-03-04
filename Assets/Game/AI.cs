@@ -360,6 +360,63 @@ namespace Assets.Game
             return false;
 
         }
+        public bool canShootLongDistance() {
+            int x = ownedTank.PositionX;
+            int y = ownedTank.PositionY;
+
+            for (int i = 0; i < gameEngine.Tanks.Count; i++)
+            {
+                if (i == ownedTank.PlayerNumber) { continue; }
+                else if (gameEngine.Tanks[i].PositionX == x)
+                {
+                    if (y > gameEngine.Tanks[i].PositionY)
+                    {
+                        if (ownedTank.Direction.ToString().Equals(Direction.NORTH.ToString())  && gameEngine.Tanks[i].PositionY < y)
+                        {
+                            return true;
+                        }
+
+                    }
+                    else
+                    {
+                        if (ownedTank.Direction.ToString().Equals(Direction.SOUTH.ToString()) && gameEngine.Tanks[i].PositionY > y)
+                        {
+                            return true;
+                        }
+
+                    }
+
+                }
+                if (gameEngine.Tanks[i].PositionY == y)
+                {
+                    if (x > gameEngine.Tanks[i].PositionX)
+                    {
+                        if (ownedTank.Direction.ToString().Equals(Direction.WEST.ToString()) && gameEngine.Tanks[i].PositionX < x)
+                        {
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        if (ownedTank.Direction.ToString().Equals(Direction.EAST.ToString())  && gameEngine.Tanks[i].PositionX > x)
+                        {
+                            return true;
+                        }
+
+                    }
+
+                }
+
+            }
+
+
+
+
+
+            return false;
+        
+        
+        }
 
        public void CalculateMove()
         {
@@ -369,7 +426,7 @@ namespace Assets.Game
             map = gameEngine.Map;
             ownedTank = gameEngine.Tanks[gameEngine.PlayerNumber];
             calculateArray(ownedTank.PositionX,ownedTank.PositionY);
-            if (ownedTank.Health < 30)
+            if (ownedTank.Health < 30  && gameEngine.LifePacks.Count>0)
             {
                 //go for a health pile
                 int minx = -1;
@@ -398,7 +455,7 @@ namespace Assets.Game
 
             }
             
-            {
+            else if(gameEngine.CoinPiles.Count>0){
                 //go for a coin pile
                 int minx = -1;
                 int miny = -1;
@@ -427,6 +484,42 @@ namespace Assets.Game
                     makeExcatMove("SHOOT");
                 }
 
+            }else{
+
+                if (canShootLongDistance())
+                {
+                    makeExcatMove("SHOOT");
+                }
+                else
+                {
+                    int minx = -1;
+                    int miny = -1;
+                    int minCount = Int16.MaxValue;
+                    for (int i = 0; i < gameEngine.Tanks.Count; i++)
+                    {
+                        int x = gameEngine.Tanks[i].PositionX;
+                        int y = gameEngine.Tanks[i].PositionY;
+
+                        if (minCount > cells[x, y].moves.Count)
+                        {
+                            minCount = cells[x, y].moves.Count;
+                            minx = x;
+                            miny = y;
+                        }
+
+
+                    }
+                    if (minCount != Int16.MaxValue)
+                    {
+                        //target is in minx , miny
+                        makeExcatMove(cells[minx, miny].moves[0]);
+                    } if (canShoot())
+                    {
+                        makeExcatMove("SHOOT");
+                    }
+
+                }
+                
             }
         }            
         
