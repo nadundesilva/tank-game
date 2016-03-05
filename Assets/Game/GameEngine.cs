@@ -25,7 +25,7 @@ namespace Assets.Game
                 brickWalls = value;
                 foreach (BrickWall b in brickWalls)
                 {
-                    map[b.PositionX,b.PositionX] = b;
+                    map[b.PositionX,b.PositionY] = b;
                 }
             }
         }
