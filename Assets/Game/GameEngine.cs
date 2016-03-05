@@ -176,11 +176,6 @@ namespace Assets.Game
         */
         public void Clock()
         {
-            // Moving the bullets
-            foreach (Bullet bullet in bullets)
-                if (!bullet.Move())
-                    bullets.Remove(bullet);
-
             // Reducing time of collectibles
             foreach (CoinPile coinPile in coinPiles)
                 coinPile.ReduceTime();
@@ -246,6 +241,11 @@ namespace Assets.Game
                 }
                 i++;
             }
+
+            // Moving the bullets
+            foreach (Bullet bullet in bullets)
+                if (!bullet.Move())
+                    bullets.Remove(bullet);
         }
 
         /*

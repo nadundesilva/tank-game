@@ -5,7 +5,7 @@ using Assets.Game.GameEntities;
 
 namespace Assets.Game.Communication
 {
-    internal class Parser
+    class Parser
     {
         /*
          * Used for mapping the integer sent by the server to the enum Direction
@@ -184,7 +184,8 @@ namespace Assets.Game.Communication
                 string[] playerData = tokens[i].Split(';');
                 Tank tank = GameManager.Instance.GameEngine.Tanks[int.Parse(playerData[0].Substring(1))];
 
-                GameManager.Instance.GameEngine.Map[tank.PositionX, tank.PositionY] = null;
+                if (GameManager.Instance.GameEngine.Map[tank.PositionX, tank.PositionY] is Tank)
+                    GameManager.Instance.GameEngine.Map[tank.PositionX, tank.PositionY] = null;
 
                 string[] location = playerData[1].Split(',');
                 tank.PositionX = int.Parse(location[0]);
@@ -198,7 +199,8 @@ namespace Assets.Game.Communication
                 tank.Coins = int.Parse(playerData[5]);
                 tank.Points = int.Parse(playerData[6]);
                 
-                GameManager.Instance.GameEngine.Map[tank.PositionX, tank.PositionY] = tank;
+                if (tank.Health > 0)
+                    GameManager.Instance.GameEngine.Map[tank.PositionX, tank.PositionY] = tank;
 
                 i++;
             }

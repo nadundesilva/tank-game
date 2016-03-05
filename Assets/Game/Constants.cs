@@ -88,10 +88,9 @@ namespace Assets.Game
             }
         }
         #endregion
-
+        
         #region Singleton
         public static Constants instance;
-
         public static Constants Instance
         {
             get

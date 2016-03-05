@@ -21,8 +21,15 @@
             GameEngine ge = GameManager.Instance.GameEngine;
 
             GameObject go = ge.Map[positionX, positionY];
-            if (go is BrickWall || go is StoneWall || go is Tank)
+            if (go is BrickWall || go is StoneWall)
             {
+                return false;
+            }
+            else if (go is Tank)
+            {
+                Tank t = (Tank)go;
+                if (t.Health <= 0)
+                    ge.AddCoinPile(new CoinPile(PositionX, PositionY, t.Coins / 4));
                 return false;
             }
 
@@ -35,8 +42,15 @@
                     {
                         positionY--;
                         go = ge.Map[positionX,positionY];
-                        if (go is BrickWall || go is StoneWall || go is Tank)
+                        if (go is BrickWall || go is StoneWall)
                         {
+                            return false;
+                        }
+                        else if (go is Tank)
+                        {
+                            Tank t = (Tank) go;
+                            if (t.Health <= 0)
+                                ge.AddCoinPile(new CoinPile(PositionX, PositionY, t.Coins / 4));
                             return false;
                         }
                     }
@@ -54,8 +68,15 @@
                     {
                         positionX++;
                         go = ge.Map[positionX,positionY];
-                        if (go is BrickWall || go is StoneWall || go is Tank)
+                        if (go is BrickWall || go is StoneWall)
                         {
+                            return false;
+                        }
+                        else if (go is Tank)
+                        {
+                            Tank t = (Tank)go;
+                            if (t.Health <= 0)
+                                ge.AddCoinPile(new CoinPile(PositionX, PositionY, t.Coins / 4));
                             return false;
                         }
                     }
@@ -73,8 +94,15 @@
                     {
                         positionY++;
                         go = ge.Map[positionX,positionY];
-                        if (go is BrickWall || go is StoneWall || go is Tank)
+                        if (go is BrickWall || go is StoneWall)
                         {
+                            return false;
+                        }
+                        else if (go is Tank)
+                        {
+                            Tank t = (Tank)go;
+                            if (t.Health <= 0)
+                                ge.AddCoinPile(new CoinPile(PositionX, PositionY, t.Coins / 4));
                             return false;
                         }
                     }
@@ -92,8 +120,15 @@
                     {
                         positionX--;
                         go = ge.Map[positionX,positionY];
-                        if (go is BrickWall || go is StoneWall || go is Tank)
+                        if (go is BrickWall || go is StoneWall)
                         {
+                            return false;
+                        }
+                        else if (go is Tank)
+                        {
+                            Tank t = (Tank)go;
+                            if (t.Health <= 0)
+                                ge.AddCoinPile(new CoinPile(PositionX, PositionY, t.Coins / 4));
                             return false;
                         }
                     }

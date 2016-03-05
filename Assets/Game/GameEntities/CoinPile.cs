@@ -19,5 +19,10 @@
         {
             this.value = value;
         }
+
+        public CoinPile(int positionX, int positionY, int value) : base(positionX, positionY, int.MaxValue)
+        {
+            this.value = value;
+        }
     }
 }
